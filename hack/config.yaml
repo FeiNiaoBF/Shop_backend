@@ -1,0 +1,10 @@
+# GoFrame CLI tool configuration.
+gfcli:
+  gen:
+    dao:
+      - link:            "mysql:root:euteamo#Ycz6@tcp(127.0.0.1:3306)/shop"
+        descriptionTag:  true
+        noModelComment:  true
+
+  docker:
+    build: "-a amd64 -s linux -p temp"

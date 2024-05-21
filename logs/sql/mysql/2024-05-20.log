@@ -1,0 +1,2 @@
+2024-05-20 21:04:50.699 [DEBU] {1082fe9f2a34d11718c09121506658be} [ 15 ms] [default] [shop] [rows:7  ] SHOW FULL COLUMNS FROM `rotation_info`
+2024-05-20 21:04:50.717 [DEBU] {1082fe9f2a34d11718c09121506658be} [ 17 ms] [default] [shop] [rows:1  ] INSERT INTO `rotation_info`(`pic_url`,`link`,`sort`,`created_at`,`updated_at`) VALUES('test','test',0,'2024-05-20 21:04:50','2024-05-20 21:04:50') 
