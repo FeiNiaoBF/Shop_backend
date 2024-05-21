@@ -30,3 +30,13 @@
 2024-05-21 22:19:42.212 [DEBU] {1c7cabf4d486d1177302a50b07df777b} [  6 ms] [default] [shop] [rows:7  ] [txid:1] SHOW FULL COLUMNS FROM `rotation_info`
 2024-05-21 22:19:42.216 [DEBU] {1c7cabf4d486d1177302a50b07df777b} [  4 ms] [default] [shop] [rows:1  ] [txid:1] UPDATE `rotation_info` SET `deleted_at`='2024-05-21 22:19:42' WHERE (`id`=11) AND `deleted_at` IS NULL
 2024-05-21 22:19:42.222 [DEBU] {1c7cabf4d486d1177302a50b07df777b} [  6 ms] [default] [shop] [rows:0  ] [txid:1] COMMIT
+2024-05-21 23:12:26.600 [DEBU] {682432b9b589d117e16252327f81f2a1} [  5 ms] [default] [shop] [rows:0  ] [txid:1] BEGIN
+2024-05-21 23:12:26.610 [DEBU] {682432b9b589d117e16252327f81f2a1} [  5 ms] [default] [shop] [rows:23 ] [txid:1] SHOW TABLES
+2024-05-21 23:12:26.611 [DEBU] {682432b9b589d117e16252327f81f2a1} [  1 ms] [default] [shop] [rows:7  ] [txid:1] SHOW FULL COLUMNS FROM `rotation_info`
+2024-05-21 23:12:26.614 [DEBU] {682432b9b589d117e16252327f81f2a1} [  2 ms] [default] [shop] [rows:0  ] [txid:1] UPDATE `rotation_info` SET `pic_url`='test_update',`link`='test_update',`sort`=0,`updated_at`='2024-05-21 23:12:26' WHERE (`id`=2) AND `deleted_at` IS NULL
+2024-05-21 23:12:26.614 [DEBU] {682432b9b589d117e16252327f81f2a1} [  0 ms] [default] [shop] [rows:0  ] [txid:1] COMMIT
+2024-05-21 23:13:03.732 [DEBU] {f01c8b5ebe89d1177bace2298fc4ccd2} [  4 ms] [default] [shop] [rows:0  ] [txid:1] BEGIN
+2024-05-21 23:13:03.738 [DEBU] {f01c8b5ebe89d1177bace2298fc4ccd2} [  5 ms] [default] [shop] [rows:23 ] [txid:1] SHOW TABLES
+2024-05-21 23:13:03.740 [DEBU] {f01c8b5ebe89d1177bace2298fc4ccd2} [  2 ms] [default] [shop] [rows:7  ] [txid:1] SHOW FULL COLUMNS FROM `rotation_info`
+2024-05-21 23:13:03.743 [DEBU] {f01c8b5ebe89d1177bace2298fc4ccd2} [  3 ms] [default] [shop] [rows:1  ] [txid:1] UPDATE `rotation_info` SET `pic_url`='test_update',`link`='test_update',`sort`=0,`updated_at`='2024-05-21 23:13:03' WHERE (`id`=16) AND `deleted_at` IS NULL
+2024-05-21 23:13:03.750 [DEBU] {f01c8b5ebe89d1177bace2298fc4ccd2} [  7 ms] [default] [shop] [rows:0  ] [txid:1] COMMIT
