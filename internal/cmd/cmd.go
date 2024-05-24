@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"context"
-	controller "goBack/internal/controller/rotation"
+	"goBack/internal/controller"
 
 	"github.com/gogf/gf/v2/net/ghttp"
 
@@ -23,7 +23,8 @@ var (
 				group.Middleware(ghttp.MiddlewareHandlerResponse)
 				group.Bind(
 					// subRouter
-					controller.Rotation, // 内容
+					controller.Rotation, // 轮播图
+					controller.Position, // 手工位
 				)
 			})
 			s.Run()

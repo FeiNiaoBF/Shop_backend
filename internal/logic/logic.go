@@ -5,5 +5,6 @@
 package logic
 
 import (
+	_ "goBack/internal/logic/positon"
 	_ "goBack/internal/logic/rotation"
 )
