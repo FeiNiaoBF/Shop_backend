@@ -23,11 +23,10 @@ func New() *sPosition {
 }
 
 func (s *sPosition) Create(ctx context.Context, in model.PositionCreateInput) (out model.PositionCreateOutput, err error) {
-
+	// 不允许HTML代码
 	if err = ghtml.SpecialCharsMapOrStruct(in); err != nil {
 		return out, err
 	}
-
 	lastInsertID, err := dao.PositionInfo.Ctx(ctx).Data(in).InsertAndGetId()
 	if err != nil {
 		return out, err
@@ -35,13 +34,13 @@ func (s *sPosition) Create(ctx context.Context, in model.PositionCreateInput) (o
 	return model.PositionCreateOutput{PositionId: int(lastInsertID)}, err
 }
 
+// Delete 删除
 func (s *sPosition) Delete(ctx context.Context, id uint) error {
 	return dao.PositionInfo.Transaction(ctx, func(ctx context.Context, tx gdb.TX) error {
+		// 删除内容
 		_, err := dao.PositionInfo.Ctx(ctx).Where(g.Map{
 			dao.PositionInfo.Columns().Id: id,
 		}).Delete()
-		// Unscoped() 是硬删除，
-		// 不加就是软删除
 		return err
 	})
 }
@@ -49,6 +48,7 @@ func (s *sPosition) Delete(ctx context.Context, id uint) error {
 // Update 修改
 func (s *sPosition) Update(ctx context.Context, in model.PositionUpdateInput) error {
 	return dao.PositionInfo.Transaction(ctx, func(ctx context.Context, tx gdb.TX) error {
+		// 不允许HTML代码
 		if err := ghtml.SpecialCharsMapOrStruct(in); err != nil {
 			return err
 		}
@@ -78,10 +78,9 @@ func (s *sPosition) GetList(ctx context.Context, in model.PositionGetListInput) 
 	if err != nil || out.Total == 0 {
 		return out, err
 	}
-	//
 	//5. 延迟初始化list切片 确定有数据，再按期望大小初始化切片容量
 	out.List = make([]model.PositionGetListOutputItem, 0, in.Size)
-	//6.把查询到的结果赋值到响应结构体中
+	//6. 把查询到的结果赋值到响应结构体中
 	if err := listModel.Scan(&out.List); err != nil {
 		return out, err
 	}

@@ -7,7 +7,7 @@ import (
 	"goBack/internal/service"
 )
 
-// Position 内容管理
+// 内容
 var Position = cPosition{}
 
 type cPosition struct{}
@@ -18,8 +18,8 @@ func (a *cPosition) Create(ctx context.Context, req *backend.PositionReq) (res *
 			PicUrl:    req.PicUrl,
 			Link:      req.Link,
 			Sort:      req.Sort,
-			GoodsId:   req.GoodsId,
 			GoodsName: req.GoodsName,
+			GoodsId:   req.GoodsId,
 		},
 	})
 	if err != nil {
@@ -40,8 +40,8 @@ func (a *cPosition) Update(ctx context.Context, req *backend.PositionUpdateReq) 
 			PicUrl:    req.PicUrl,
 			Link:      req.Link,
 			Sort:      req.Sort,
-			GoodsId:   req.GoodsId,
 			GoodsName: req.GoodsName,
+			GoodsId:   req.GoodsId,
 		},
 	})
 	return &backend.PositionUpdateRes{Id: req.Id}, nil
