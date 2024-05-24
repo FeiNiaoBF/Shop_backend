@@ -16,6 +16,8 @@ type (
 		Delete(ctx context.Context, id uint) error
 		// Update 修改
 		Update(ctx context.Context, in model.RotationUpdateInput) error
+		// GetList 查询内容列表
+		GetList(ctx context.Context, in model.RotationGetListInput) (out *model.RotationGetListOutput, err error)
 	}
 )
 

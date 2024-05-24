@@ -18,7 +18,8 @@ var (
 		Func: func(ctx context.Context, parser *gcmd.Parser) (err error) {
 			s := g.Server()
 			// root routes
-			s.Group("/", func(group *ghttp.RouterGroup) {
+			s.Group("/api", func(group *ghttp.RouterGroup) {
+				// 中间件
 				group.Middleware(ghttp.MiddlewareHandlerResponse)
 				group.Bind(
 					// subRouter
