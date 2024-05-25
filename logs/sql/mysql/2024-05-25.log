@@ -1,0 +1,14 @@
+2024-05-25 20:14:00.871 [DEBU] {3c2a045f4bbad217ded9791217a2ae29} [  9 ms] [default] [shop] [rows:9  ] SHOW FULL COLUMNS FROM `position_info`
+2024-05-25 20:14:00.881 [DEBU] {3c2a045f4bbad217ded9791217a2ae29} [  5 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `position_info` WHERE `deleted_at` IS NULL
+2024-05-25 20:14:00.885 [DEBU] {3c2a045f4bbad217ded9791217a2ae29} [  3 ms] [default] [shop] [rows:23 ] SHOW TABLES
+2024-05-25 20:14:00.886 [DEBU] {3c2a045f4bbad217ded9791217a2ae29} [  1 ms] [default] [shop] [rows:6  ] SELECT `id`,`pic_url`,`link`,`goods_name`,`goods_id`,`sort`,`created_at`,`updated_at` FROM `position_info` WHERE `deleted_at` IS NULL LIMIT 0,20
+2024-05-25 20:16:54.571 [DEBU] {dc46a3d073bad217e2d97912179d492b} [  5 ms] [default] [shop] [rows:8  ] SHOW FULL COLUMNS FROM `admin_info`
+2024-05-25 20:16:54.600 [DEBU] {dc46a3d073bad217e2d97912179d492b} [ 28 ms] [default] [shop] [rows:1  ] INSERT INTO `admin_info`(`name`,`password`,`role_ids`,`created_at`,`updated_at`,`user_salt`,`is_admin`) VALUES('john','2c4cbead5b5c1816095e564b3759040b','3','2024-05-25 20:16:54','2024-05-25 20:16:54','cPQwm5dp8f',0) 
+2024-05-25 20:21:27.044 [DEBU] {4cef2f41b3bad217fdcbb521400f0f2d} [  6 ms] [default] [shop] [rows:8  ] SHOW FULL COLUMNS FROM `admin_info`
+2024-05-25 20:21:27.064 [DEBU] {4cef2f41b3bad217fdcbb521400f0f2d} [ 20 ms] [default] [shop] [rows:1  ] UPDATE `admin_info` SET `id`=13,`name`='steve',`password`='0d472501bc120990ea8ee7cbeda841c9',`updated_at`='2024-05-25 20:21:27',`user_salt`='17Nemfkwdm' WHERE `id`=13
+2024-05-25 20:22:50.032 [DEBU] {b490fc93c6bad217fecbb52185bb1b27} [  1 ms] [default] [shop] [rows:0  ] [txid:1] BEGIN
+2024-05-25 20:22:50.036 [DEBU] {b490fc93c6bad217fecbb52185bb1b27} [  4 ms] [default] [shop] [rows:1  ] [txid:1] DELETE FROM `admin_info` WHERE `id`=1
+2024-05-25 20:22:50.043 [DEBU] {b490fc93c6bad217fecbb52185bb1b27} [  7 ms] [default] [shop] [rows:0  ] [txid:1] COMMIT
+2024-05-25 20:24:08.536 [DEBU] {5c1a08dbd8bad217ffcbb52157a5d2a5} [  3 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `admin_info`
+2024-05-25 20:24:08.540 [DEBU] {5c1a08dbd8bad217ffcbb52157a5d2a5} [  3 ms] [default] [shop] [rows:23 ] SHOW TABLES
+2024-05-25 20:24:08.541 [DEBU] {5c1a08dbd8bad217ffcbb52157a5d2a5} [  1 ms] [default] [shop] [rows:4  ] SELECT `id`,`name`,`role_ids`,`is_admin`,`created_at`,`updated_at` FROM `admin_info` LIMIT 0,10
