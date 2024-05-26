@@ -6,6 +6,10 @@ package logic
 
 import (
 	_ "goBack/internal/logic/admin"
+	_ "goBack/internal/logic/bizctx"
+	_ "goBack/internal/logic/login"
+	_ "goBack/internal/logic/middleware"
 	_ "goBack/internal/logic/positon"
 	_ "goBack/internal/logic/rotation"
+	_ "goBack/internal/logic/session"
 )
