@@ -4,6 +4,7 @@ import (
 	"context"
 	"goBack/internal/dao"
 	"goBack/internal/model"
+	"goBack/internal/model/entity"
 	"goBack/internal/service"
 	"goBack/utility"
 
@@ -120,19 +121,20 @@ func (s *sAdmin) GetList(ctx context.Context, in model.AdminGetListInput) (out *
 	return
 }
 
-//func (s *sAdmin) GetAdminByNamePassword(ctx context.Context, in model.UserLoginInput) map[string]interface{} {
-//	//验证账号密码是否正确
-//	adminInfo := entity.AdminInfo{}
-//	err := dao.AdminInfo.Ctx(ctx).Where("name", in.Name).Scan(&adminInfo)
-//	if err != nil {
-//		return nil
-//	}
-//	if utility.EncryptPassword(in.Password, adminInfo.UserSalt) != adminInfo.Password {
-//		return nil
-//	} else {
-//		return g.Map{
-//			"id":       adminInfo.Id,
-//			"username": adminInfo.Name,
-//		}
-//	}
-//}
+func (s *sAdmin) GetAdminByNamePassword(ctx context.Context, in model.UserLoginInput) map[string]interface{} {
+	//验证账号密码是否正确
+	adminInfo := entity.AdminInfo{}
+	err := dao.AdminInfo.Ctx(ctx).Where("name", in.Name).Scan(&adminInfo)
+	if err != nil {
+		return nil
+	}
+	if utility.EncryptPassword(in.Password, adminInfo.UserSalt) != adminInfo.Password {
+		return nil
+	} else {
+		return g.Map{
+			"id":       adminInfo.Id,
+			"username": adminInfo.Name,
+		}
+	}
+
+}

@@ -47,8 +47,7 @@ type AdminGetInfoReq struct {
 }
 
 type AdminGetInfoRes struct {
-	Id      int    `json:"id"`
-	Name    string `json:"name"`
-	RoleIds string `json:"role_ids"`
-	IsAdmin int    `json:"is_admin"`
+	Id          int    `json:"id"`
+	IdentityKey string `json:"identity_key"`
+	Payload     string `json:"payload"`
 }

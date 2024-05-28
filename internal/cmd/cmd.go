@@ -18,22 +18,28 @@ var (
 		Brief: "start http server",
 		Func: func(ctx context.Context, parser *gcmd.Parser) (err error) {
 			s := g.Server()
-			// root routes
 			s.Group("/api", func(group *ghttp.RouterGroup) {
-				// 中间件
-				// group.Middleware(ghttp.MiddlewareHandlerResponse)
+				//group.Middleware(ghttp.MiddlewareHandlerResponse)
 				group.Middleware(
-					// service.Middleware().CORS,
 					service.Middleware().Ctx,
 					service.Middleware().ResponseHandler,
 				)
 				group.Bind(
-					// subRouter
-					controller.Rotation, // 轮播图
-					controller.Position, // 手工位
-					controller.Admin,    // 管理员
-					controller.Login,    // 登录
+					controller.Rotation,     // 轮播图
+					controller.Position,     // 手工位
+					controller.Admin.Create, // 管理员
+					controller.Admin.Update, // 管理员
+					controller.Admin.Delete, // 管理员
+					controller.Admin.List,   // 管理员
+					controller.Login,        // 登录
 				)
+				// Special handler that needs authentication.
+				group.Group("/", func(group *ghttp.RouterGroup) {
+					group.Middleware(service.Middleware().Auth)
+					group.ALLMap(g.Map{
+						"/backend/admin/info": controller.Admin.Info,
+					})
+				})
 			})
 			s.Run()
 			return nil
