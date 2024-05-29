@@ -1,0 +1,14 @@
+2024-05-29 19:40:02.469 [DEBU] {202a5d07c3f2d3170e25c11cb7896bb1} [ 53 ms] [default] [shop] [rows:7  ] SHOW FULL COLUMNS FROM `rotation_info`
+2024-05-29 19:40:02.481 [DEBU] {202a5d07c3f2d3170e25c11cb7896bb1} [ 10 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2024-05-29 19:40:02.487 [DEBU] {202a5d07c3f2d3170e25c11cb7896bb1} [  6 ms] [default] [shop] [rows:23 ] SHOW TABLES
+2024-05-29 19:40:02.489 [DEBU] {202a5d07c3f2d3170e25c11cb7896bb1} [  1 ms] [default] [shop] [rows:8  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at` FROM `rotation_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-05-29 19:40:08.050 [DEBU] {9cd53457c4f2d3170f25c11c9981fcb2} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2024-05-29 19:40:08.051 [DEBU] {9cd53457c4f2d3170f25c11c9981fcb2} [  1 ms] [default] [shop] [rows:8  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at` FROM `rotation_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-05-29 19:42:38.327 [DEBU] {3c12e452e7f2d31701b9802a05eaf324} [ 26 ms] [default] [shop] [rows:7  ] SHOW FULL COLUMNS FROM `rotation_info`
+2024-05-29 19:42:38.331 [DEBU] {3c12e452e7f2d31701b9802a05eaf324} [  3 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2024-05-29 19:42:38.334 [DEBU] {3c12e452e7f2d31701b9802a05eaf324} [  2 ms] [default] [shop] [rows:23 ] SHOW TABLES
+2024-05-29 19:42:38.334 [DEBU] {3c12e452e7f2d31701b9802a05eaf324} [  0 ms] [default] [shop] [rows:8  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at` FROM `rotation_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-05-29 19:42:52.590 [DEBU] {b08d98a6eaf2d31702b9802a6100fa4f} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2024-05-29 19:42:52.591 [DEBU] {b08d98a6eaf2d31702b9802a6100fa4f} [  0 ms] [default] [shop] [rows:8  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at` FROM `rotation_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-05-29 19:44:28.481 [DEBU] {4c758df900f3d31703b9802ab7e3c1f5} [ 11 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2024-05-29 19:44:28.483 [DEBU] {4c758df900f3d31703b9802ab7e3c1f5} [  0 ms] [default] [shop] [rows:8  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at` FROM `rotation_info` WHERE `deleted_at` IS NULL LIMIT 0,10
