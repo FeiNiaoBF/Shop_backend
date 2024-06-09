@@ -18,4 +18,5 @@ type AdminInfo struct {
 	UpdatedAt *gtime.Time `json:"updatedAt" orm:"updated_at" description:""`
 	UserSalt  string      `json:"userSalt"  orm:"user_salt"  description:"加密盐"`
 	IsAdmin   int         `json:"isAdmin"   orm:"is_admin"   description:"是否超级管理员"`
+	DeletedAt *gtime.Time `json:"deletedAt" orm:"deleted_at" description:""`
 }

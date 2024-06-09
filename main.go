@@ -10,6 +10,7 @@ import (
 	"goBack/internal/cmd"
 	// 使用mysql的init()
 	_ "github.com/gogf/gf/contrib/drivers/mysql/v2"
+	_ "github.com/gogf/gf/contrib/nosql/redis/v2"
 )
 
 func main() {

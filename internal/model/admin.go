@@ -49,7 +49,7 @@ type AdminGetListOutputItem struct {
 	IsAdmin   uint        `json:"is_admin"`
 	CreatedAt *gtime.Time `json:"created_at"` // 创建时间
 	UpdatedAt *gtime.Time `json:"updated_at"` // 修改时间
-	// DeleteAt  *gtime.Time `json:"delete_at"` // 删除时间
+	DeleteAt  *gtime.Time `json:"delete_at"`  // 删除时间
 }
 
 type AdminSearchOutputItem struct {

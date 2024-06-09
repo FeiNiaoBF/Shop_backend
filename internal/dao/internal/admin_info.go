@@ -28,6 +28,7 @@ type AdminInfoColumns struct {
 	UpdatedAt string //
 	UserSalt  string // 加密盐
 	IsAdmin   string // 是否超级管理员
+	DeletedAt string //
 }
 
 // adminInfoColumns holds the columns for table admin_info.
@@ -40,6 +41,7 @@ var adminInfoColumns = AdminInfoColumns{
 	UpdatedAt: "updated_at",
 	UserSalt:  "user_salt",
 	IsAdmin:   "is_admin",
+	DeletedAt: "deleted_at",
 }
 
 // NewAdminInfoDao creates and returns a new DAO object for table data access.

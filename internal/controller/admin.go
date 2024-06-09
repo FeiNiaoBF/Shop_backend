@@ -3,6 +3,7 @@ package controller
 import (
 	"context"
 	"goBack/api/backend"
+	"goBack/internal/consts"
 	"goBack/internal/model"
 	"goBack/internal/service"
 
@@ -29,12 +30,22 @@ func (a *cAdmin) Create(ctx context.Context, req *backend.AdminReq) (res *backen
 	return &backend.AdminRes{AdminId: out.AdminId}, nil
 }
 
-// gtoken 版本返回结果
+// for jwt
+//func (c *cAdmin) Info(ctx context.Context, req *backend.AdminGetInfoReq) (res *backend.AdminGetInfoRes, err error) {
+//	return &backend.AdminGetInfoRes{
+//		Id:          gconv.Int(service.Auth().GetIdentity(ctx)),
+//		IdentityKey: service.Auth().IdentityKey,
+//		Payload:     service.Auth().GetPayload(ctx),
+//	}, nil
+//}
+
+// for gtoken
 func (c *cAdmin) Info(ctx context.Context, req *backend.AdminGetInfoReq) (res *backend.AdminGetInfoRes, err error) {
 	return &backend.AdminGetInfoRes{
-		Id:          gconv.Int(service.Auth().GetIdentity(ctx)),
-		IdentityKey: service.Auth().IdentityKey,
-		Payload:     service.Auth().GetPayload(ctx),
+		Id:      gconv.Int(ctx.Value(consts.CtxAdminId)),
+		Name:    gconv.String(ctx.Value(consts.CtxAdminName)),
+		RoleIds: gconv.String(ctx.Value(consts.CtxAdminRoleIds)),
+		IsAdmin: gconv.Int(ctx.Value(consts.CtxAdminIsAdmin)),
 	}, nil
 }
 
