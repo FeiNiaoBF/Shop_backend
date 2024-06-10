@@ -32,28 +32,24 @@ var (
 			s := g.Server()
 			// 启动gtoken
 			gfAdminToken := &gtoken.GfToken{
-				CacheMode:        2,
-				ServerName:       "shop",
-				LoginPath:        "/login",
-				LoginBeforeFunc:  loginBeforeFunc,
-				LoginAfterFunc:   loginAfterFunc,
-				LogoutPath:       "/user/logout",
-				AuthPaths:        g.SliceStr{"/api/admin/info"},
-				AuthExcludePaths: g.SliceStr{"/admin/user/info", "/admin/system/user/info"}, // 不拦截路径
-				AuthAfterFunc:    authAfterFunc,
-				MultiLogin:       true,
+				CacheMode:       2,
+				ServerName:      "shop",
+				LoginPath:       "/login",
+				LoginBeforeFunc: loginBeforeFunc,
+				LoginAfterFunc:  loginAfterFunc,
+				LogoutPath:      "/user/logout",
+				// AuthPaths:        g.SliceStr{"/admin"},
+				// AuthExcludePaths: g.SliceStr{"/admin/user/info", "/admin/system/user/info"}, // 不拦截路径
+				AuthAfterFunc: authAfterFunc,
+				MultiLogin:    true,
 			}
 			s.Group("/api", func(group *ghttp.RouterGroup) {
 				//group.Middleware(ghttp.MiddlewareHandlerResponse)
 				group.Middleware(
-					// service.Middleware().CORS,
+					service.Middleware().CORS,
 					service.Middleware().Ctx,
 					service.Middleware().ResponseHandler,
 				)
-				err := gfAdminToken.Middleware(ctx, group)
-				if err != nil {
-					panic(err)
-				}
 				group.Bind(
 					controller.Admin.Create, // 管理员
 					controller.Admin.Update, // 管理员
@@ -66,6 +62,10 @@ var (
 				// Special handler that needs authentication.
 				group.Group("/", func(group *ghttp.RouterGroup) {
 					//group.Middleware(service.Middleware().Auth)
+					err := gfAdminToken.Middleware(ctx, group)
+					if err != nil {
+						panic(err)
+					}
 					group.ALLMap(g.Map{
 						"/backend/admin/info": controller.Admin.Info,
 					})
