@@ -58,10 +58,11 @@ var (
 					controller.Rotation,     // 轮播图
 					controller.Position,     // 手工位
 					controller.Login,        // 登录
+					controller.Data,         // 数据
 				)
 				// Special handler that needs authentication.
 				group.Group("/", func(group *ghttp.RouterGroup) {
-					//group.Middleware(service.Middleware().Auth)
+					// group.Middleware(service.Middleware().Auth)
 					err := gfAdminToken.Middleware(ctx, group)
 					if err != nil {
 						panic(err)

@@ -13,6 +13,7 @@ import (
 type (
 	IPosition interface {
 		Create(ctx context.Context, in model.PositionCreateInput) (out model.PositionCreateOutput, err error)
+		// Delete 删除
 		Delete(ctx context.Context, id uint) error
 		// Update 修改
 		Update(ctx context.Context, in model.PositionUpdateInput) error

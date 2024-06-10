@@ -14,3 +14,16 @@
 2024-06-10 14:20:21.239 [DEBU] {84d4e1df4790d71726e1f304d9f1d6c8} [  1 ms] [default] [shop] [rows:0  ] SELECT `id`,`role_id`,`permission_id`,`created_at`,`updated_at` FROM `role_permission_info` WHERE `role_id` IN ('1')
 2024-06-10 14:20:21.241 [DEBU] {4c76f5df4790d71727e1f304b32a2136} [  2 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `permission_info`
 2024-06-10 14:20:21.242 [DEBU] {88b10fe04790d71728e1f304e42c1580} [  1 ms] [default] [shop] [rows:0  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at`,`deleted_at` FROM `permission_info` WHERE (0=1) AND `deleted_at` IS NULL
+2024-06-10 14:33:43.584 [DEBU] {403918af0291d7174e8ca7606812f323} [  5 ms] [default] [shop] [rows:15 ] SHOW FULL COLUMNS FROM `order_info`
+2024-06-10 14:33:43.586 [DEBU] {403918af0291d7174e8ca7606812f323} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2024-06-10 00:00:00' AND '2024-06-10 23:59:59') AND (id)
+2024-06-10 14:34:18.503 [DEBU] {508a83d00a91d717ba1dd504d4c3a43a} [  4 ms] [default] [shop] [rows:23 ] SHOW TABLES
+2024-06-10 14:34:18.506 [DEBU] {44c3e2d00a91d717bb1dd504ee5a940b} [  1 ms] [default] [shop] [rows:9  ] SHOW FULL COLUMNS FROM `admin_info`
+2024-06-10 14:34:18.509 [DEBU] {0850fbd00a91d717bc1dd50481256c6a} [  3 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`password`,`role_ids`,`created_at`,`updated_at`,`user_salt`,`is_admin`,`deleted_at` FROM `admin_info` WHERE (`name`='steve') AND `deleted_at` IS NULL LIMIT 1
+2024-06-10 14:34:18.514 [DEBU] {a0ee5fd10a91d717bd1dd504b8fed5a6} [  1 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`password`,`role_ids`,`created_at`,`updated_at`,`user_salt`,`is_admin`,`deleted_at` FROM `admin_info` WHERE (`id`='13') AND `deleted_at` IS NULL LIMIT 1
+2024-06-10 14:34:18.516 [DEBU] {649270d10a91d717be1dd50442a87a58} [  2 ms] [default] [shop] [rows:5  ] SHOW FULL COLUMNS FROM `role_permission_info`
+2024-06-10 14:34:18.517 [DEBU] {d8b38ad10a91d717bf1dd50473d13f27} [  1 ms] [default] [shop] [rows:0  ] SELECT `id`,`role_id`,`permission_id`,`created_at`,`updated_at` FROM `role_permission_info` WHERE `role_id` IN ('1')
+2024-06-10 14:34:18.518 [DEBU] {5c8e95d10a91d717c01dd5047b2bc5ed} [  1 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `permission_info`
+2024-06-10 14:34:18.519 [DEBU] {e452b7d10a91d717c11dd5040823d66f} [  0 ms] [default] [shop] [rows:0  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at`,`deleted_at` FROM `permission_info` WHERE (0=1) AND `deleted_at` IS NULL
+2024-06-10 14:34:22.021 [DEBU] {f08457a20b91d717c21dd504b1ce797a} [  2 ms] [default] [shop] [rows:15 ] SHOW FULL COLUMNS FROM `order_info`
+2024-06-10 14:34:22.023 [DEBU] {f08457a20b91d717c21dd504b1ce797a} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2024-06-10 00:00:00' AND '2024-06-10 23:59:59') AND (id)
+2024-06-10 14:34:22.800 [DEBU] {7cb3cdd00b91d717c31dd504d5ab9372} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2024-06-10 00:00:00' AND '2024-06-10 23:59:59') AND (id)
