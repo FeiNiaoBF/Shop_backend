@@ -27,3 +27,20 @@
 2024-06-10 14:34:22.021 [DEBU] {f08457a20b91d717c21dd504b1ce797a} [  2 ms] [default] [shop] [rows:15 ] SHOW FULL COLUMNS FROM `order_info`
 2024-06-10 14:34:22.023 [DEBU] {f08457a20b91d717c21dd504b1ce797a} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2024-06-10 00:00:00' AND '2024-06-10 23:59:59') AND (id)
 2024-06-10 14:34:22.800 [DEBU] {7cb3cdd00b91d717c31dd504d5ab9372} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2024-06-10 00:00:00' AND '2024-06-10 23:59:59') AND (id)
+2024-06-10 15:11:36.095 [DEBU] {240228cb1393d717d51c376d290de560} [  6 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `role_info`
+2024-06-10 15:11:36.128 [DEBU] {240228cb1393d717d51c376d290de560} [ 32 ms] [default] [shop] [rows:1  ] INSERT INTO `role_info`(`name`,`desc`,`created_at`,`updated_at`) VALUES('客服','','2024-06-10 15:11:36','2024-06-10 15:11:36') 
+2024-06-10 15:11:52.818 [ERRO] {1cb9aeaf1793d717d61c376d5dce7832} [ 10 ms] [default] [shop] [rows:0  ] INSERT INTO `role_info`(`name`,`desc`,`created_at`,`updated_at`) VALUES('客服','前台客服','2024-06-10 15:11:52','2024-06-10 15:11:52') 
+Error: Error 1062 (23000): Duplicate entry '客服' for key 'role_info.unique_index' 
+Stack:
+1.  goBack/internal/logic/role.(*sRole).Create
+    E:/User/work/gowork/goBack/internal/logic/role/role.go:21
+2.  goBack/internal/controller.(*cRole).Create
+    E:/User/work/gowork/goBack/internal/controller/role.go:16
+3.  goBack/internal/logic/middleware.(*sMiddleware).ResponseHandler
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:52
+4.  goBack/internal/logic/middleware.(*sMiddleware).Ctx
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:109
+5.  goBack/internal/logic/middleware.(*sMiddleware).CORS
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:114
+
+2024-06-10 15:12:05.635 [DEBU] {24d270ab1a93d717d71c376de4889fc7} [ 15 ms] [default] [shop] [rows:1  ] INSERT INTO `role_info`(`name`,`desc`,`created_at`,`updated_at`) VALUES('客服1','前台客服','2024-06-10 15:12:05','2024-06-10 15:12:05') 
