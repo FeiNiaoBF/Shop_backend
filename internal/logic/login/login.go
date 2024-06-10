@@ -24,19 +24,16 @@ func New() *sLogin {
 
 // 执行登录
 func (s *sLogin) Login(ctx context.Context, in model.UserLoginInput) error {
-	// 验证账号密码是否正确
-	// 模型(结构体)与数据集合
+	//验证账号密码是否正确
 	adminInfo := entity.AdminInfo{}
-	// 用dao实现CRUD
 	err := dao.AdminInfo.Ctx(ctx).Where("name", in.Name).Scan(&adminInfo)
 	if err != nil {
 		return err
 	}
-	gutil.Dump("加密后密码：", utility.EncryptPassword(in.Password, adminInfo.UserSalt))
+	gutil.Dump("加密后密码：", utility.EncryptPassword(in.Name, adminInfo.UserSalt))
 	if utility.EncryptPassword(in.Password, adminInfo.UserSalt) != adminInfo.Password {
 		return gerror.New("账号或者密码不正确")
 	}
-	// 设置 session ID
 	if err := service.Session().SetUser(ctx, &adminInfo); err != nil {
 		return err
 	}

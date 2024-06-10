@@ -11,9 +11,6 @@ import (
 // Rotation 内容管理
 var Rotation = cRotation{}
 
-// 没有 field 的原因是：
-// 只需要controller的方法
-// 承上启下的
 type cRotation struct{}
 
 func (a *cRotation) Create(ctx context.Context, req *backend.RotationReq) (res *backend.RotationRes, err error) {
@@ -63,7 +60,7 @@ func (a *cRotation) List(ctx context.Context, req *backend.RotationGetListCommon
 		Total: getListRes.Total}, nil
 }
 
-// ListFrontend 前台调用
+// 前台的取值方法
 func (a *cRotation) ListFrontend(ctx context.Context, req *frontend.RotationGetListCommonReq) (res *frontend.RotationGetListCommonRes, err error) {
 	getListRes, err := service.Rotation().GetList(ctx, model.RotationGetListInput{
 		Page: req.Page,

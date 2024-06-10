@@ -13,6 +13,7 @@ import (
 type (
 	IAdmin interface {
 		Create(ctx context.Context, in model.AdminCreateInput) (out model.AdminCreateOutput, err error)
+		GetUserByUserNamePassword(ctx context.Context, in model.UserLoginInput) map[string]interface{}
 		// Delete 删除
 		Delete(ctx context.Context, id uint) error
 		// Update 修改

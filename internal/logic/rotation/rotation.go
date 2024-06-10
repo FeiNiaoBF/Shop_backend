@@ -4,12 +4,12 @@ import (
 	"context"
 	"goBack/internal/dao"
 	"goBack/internal/model"
+	"goBack/internal/model/entity"
 	"goBack/internal/service"
 
 	"github.com/gogf/gf/v2/database/gdb"
-	"github.com/gogf/gf/v2/frame/g"
-
 	"github.com/gogf/gf/v2/encoding/ghtml"
+	"github.com/gogf/gf/v2/frame/g"
 )
 
 type sRotation struct{}
@@ -34,13 +34,13 @@ func (s *sRotation) Create(ctx context.Context, in model.RotationCreateInput) (o
 	return model.RotationCreateOutput{RotationId: int(lastInsertID)}, err
 }
 
+// Delete 删除
 func (s *sRotation) Delete(ctx context.Context, id uint) error {
 	return dao.RotationInfo.Transaction(ctx, func(ctx context.Context, tx gdb.TX) error {
+		// 删除内容
 		_, err := dao.RotationInfo.Ctx(ctx).Where(g.Map{
 			dao.RotationInfo.Columns().Id: id,
-		}).Delete()
-		// Unscoped() 是硬删除，
-		// 不加就是软删除
+		}).Unscoped().Delete()
 		return err
 	})
 }
@@ -48,6 +48,7 @@ func (s *sRotation) Delete(ctx context.Context, id uint) error {
 // Update 修改
 func (s *sRotation) Update(ctx context.Context, in model.RotationUpdateInput) error {
 	return dao.RotationInfo.Transaction(ctx, func(ctx context.Context, tx gdb.TX) error {
+		// 不允许HTML代码
 		if err := ghtml.SpecialCharsMapOrStruct(in); err != nil {
 			return err
 		}
@@ -63,24 +64,36 @@ func (s *sRotation) Update(ctx context.Context, in model.RotationUpdateInput) er
 
 // GetList 查询内容列表
 func (s *sRotation) GetList(ctx context.Context, in model.RotationGetListInput) (out *model.RotationGetListOutput, err error) {
-	//1.获得*gdb.Model对象，方面后续调用
-	m := dao.RotationInfo.Ctx(ctx)
-	//2. 实例化响应结构体
+	var (
+		m = dao.RotationInfo.Ctx(ctx)
+	)
 	out = &model.RotationGetListOutput{
 		Page: in.Page,
 		Size: in.Size,
 	}
-	//3. 分页查询
+
+	// 分配查询
 	listModel := m.Page(in.Page, in.Size)
-	//4. 再查询count，判断有无数据
-	out.Total, err = m.Count()
-	if err != nil || out.Total == 0 {
+	// 排序方式
+	listModel = listModel.OrderDesc(dao.RotationInfo.Columns().Sort)
+
+	// 执行查询
+	var list []*entity.RotationInfo
+	if err := listModel.Scan(&list); err != nil {
 		return out, err
 	}
-	//
-	//5. 延迟初始化list切片 确定有数据，再按期望大小初始化切片容量
-	out.List = make([]model.RotationGetListOutputItem, 0, in.Size)
-	//6.把查询到的结果赋值到响应结构体中
+	// 没有数据
+	if len(list) == 0 {
+		return out, nil
+	}
+	out.Total, err = m.Count()
+	if err != nil {
+		return out, err
+	}
+	// Rotation
+	//指定item的键名用：ScanList
+	//if err := listModel.ScanList(&out.List, "Rotation"); err != nil {
+	//不指定item的键名用：Scan
 	if err := listModel.Scan(&out.List); err != nil {
 		return out, err
 	}

@@ -1,0 +1,26 @@
+2024-06-09 20:28:38.890 [DEBU] {54449c50cc55d717d70f4a2920942403} [ 11 ms] [default] [shop] [rows:23 ] SHOW TABLES
+2024-06-09 20:28:38.893 [DEBU] {ecaf6051cc55d717d80f4a2955f992e0} [  1 ms] [default] [shop] [rows:9  ] SHOW FULL COLUMNS FROM `admin_info`
+2024-06-09 20:28:38.930 [DEBU] {80f58151cc55d717d90f4a29dca8fb24} [ 37 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`password`,`role_ids`,`created_at`,`updated_at`,`user_salt`,`is_admin`,`deleted_at` FROM `admin_info` WHERE (`name`='steve') AND `deleted_at` IS NULL LIMIT 1
+2024-06-09 20:28:42.020 [DEBU] {687fc80bcd55d717db0f4a29d3888fac} [  1 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`password`,`role_ids`,`created_at`,`updated_at`,`user_salt`,`is_admin`,`deleted_at` FROM `admin_info` WHERE (`name`='steve') AND `deleted_at` IS NULL LIMIT 1
+2024-06-09 20:29:13.158 [DEBU] {78aa1e4bd455d71731e702523a2059fd} [ 12 ms] [default] [shop] [rows:23 ] SHOW TABLES
+2024-06-09 20:29:13.159 [DEBU] {483cd04bd455d71732e7025272f07073} [  1 ms] [default] [shop] [rows:9  ] SHOW FULL COLUMNS FROM `admin_info`
+2024-06-09 20:29:13.160 [DEBU] {2820e94bd455d71733e70252f41867c3} [  0 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`password`,`role_ids`,`created_at`,`updated_at`,`user_salt`,`is_admin`,`deleted_at` FROM `admin_info` WHERE (`name`='steve') AND `deleted_at` IS NULL LIMIT 1
+2024-06-09 20:29:13.168 [DEBU] {e0735a4cd455d71734e7025201834007} [  1 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`password`,`role_ids`,`created_at`,`updated_at`,`user_salt`,`is_admin`,`deleted_at` FROM `admin_info` WHERE (`id`='13') AND `deleted_at` IS NULL LIMIT 1
+2024-06-09 20:29:13.169 [DEBU] {3468624cd455d71735e7025207531e6e} [  1 ms] [default] [shop] [rows:5  ] SHOW FULL COLUMNS FROM `role_permission_info`
+2024-06-09 20:29:13.184 [DEBU] {1c9c734cd455d71736e7025252697b73} [ 15 ms] [default] [shop] [rows:0  ] SELECT `id`,`role_id`,`permission_id`,`created_at`,`updated_at` FROM `role_permission_info` WHERE `role_id` IN ('1')
+2024-06-09 20:29:13.185 [DEBU] {d87c624dd455d71737e7025252da5275} [  1 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `permission_info`
+2024-06-09 20:29:13.189 [DEBU] {4861774dd455d71738e7025286aacea5} [  3 ms] [default] [shop] [rows:0  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at`,`deleted_at` FROM `permission_info` WHERE (0=1) AND `deleted_at` IS NULL
+2024-06-09 20:29:23.356 [DEBU] {6c429eabd655d7173be70252220c7404} [  1 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`password`,`role_ids`,`created_at`,`updated_at`,`user_salt`,`is_admin`,`deleted_at` FROM `admin_info` WHERE (`name`='steve') AND `deleted_at` IS NULL LIMIT 1
+2024-06-09 20:29:23.359 [DEBU] {0c3fcfabd655d7173ce7025232c605ce} [  1 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`password`,`role_ids`,`created_at`,`updated_at`,`user_salt`,`is_admin`,`deleted_at` FROM `admin_info` WHERE (`id`='13') AND `deleted_at` IS NULL LIMIT 1
+2024-06-09 20:29:23.360 [DEBU] {0c9be1abd655d7173de70252378326e3} [  0 ms] [default] [shop] [rows:0  ] SELECT `id`,`role_id`,`permission_id`,`created_at`,`updated_at` FROM `role_permission_info` WHERE `role_id` IN ('1')
+2024-06-09 20:29:23.360 [DEBU] {8489e9abd655d7173ee702524c9f798e} [  0 ms] [default] [shop] [rows:0  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at`,`deleted_at` FROM `permission_info` WHERE (0=1) AND `deleted_at` IS NULL
+2024-06-09 20:35:55.091 [DEBU] {081cdadf3156d71786530b19ca7292f4} [ 17 ms] [default] [shop] [rows:23 ] SHOW TABLES
+2024-06-09 20:35:55.095 [DEBU] {e04cf8e03156d71787530b193fc4b007} [  3 ms] [default] [shop] [rows:9  ] SHOW FULL COLUMNS FROM `admin_info`
+2024-06-09 20:35:55.096 [DEBU] {80ab21e13156d71788530b19089090bc} [  1 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`password`,`role_ids`,`created_at`,`updated_at`,`user_salt`,`is_admin`,`deleted_at` FROM `admin_info` WHERE (`name`='steve') AND `deleted_at` IS NULL LIMIT 1
+2024-06-09 20:35:55.103 [DEBU] {ec248ce13156d71789530b198eb9ee5b} [  1 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`password`,`role_ids`,`created_at`,`updated_at`,`user_salt`,`is_admin`,`deleted_at` FROM `admin_info` WHERE (`id`='13') AND `deleted_at` IS NULL LIMIT 1
+2024-06-09 20:35:55.104 [DEBU] {24db93e13156d7178a530b19ab1a5eed} [  1 ms] [default] [shop] [rows:5  ] SHOW FULL COLUMNS FROM `role_permission_info`
+2024-06-09 20:35:55.105 [DEBU] {f03db0e13156d7178b530b1990c4eed8} [  1 ms] [default] [shop] [rows:0  ] SELECT `id`,`role_id`,`permission_id`,`created_at`,`updated_at` FROM `role_permission_info` WHERE `role_id` IN ('1')
+2024-06-09 20:35:55.106 [DEBU] {7ca8b9e13156d7178c530b198204f523} [  1 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `permission_info`
+2024-06-09 20:35:55.107 [DEBU] {bc36cde13156d7178d530b1991b55688} [  1 ms] [default] [shop] [rows:0  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at`,`deleted_at` FROM `permission_info` WHERE (0=1) AND `deleted_at` IS NULL
+2024-06-09 20:38:55.123 [DEBU] {6c6648cb5b56d71791863953801c6746} [  6 ms] [default] [shop] [rows:15 ] SHOW FULL COLUMNS FROM `order_info`
+2024-06-09 20:38:55.133 [DEBU] {6c6648cb5b56d71791863953801c6746} [  9 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2024-06-09 00:00:00' AND '2024-06-09 23:59:59') AND (id)

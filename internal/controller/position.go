@@ -7,7 +7,7 @@ import (
 	"goBack/internal/service"
 )
 
-// 内容
+// Position 内容管理
 var Position = cPosition{}
 
 type cPosition struct{}
