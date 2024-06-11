@@ -13,6 +13,12 @@ import (
 type (
 	IRole interface {
 		Create(ctx context.Context, in model.RoleCreateInput) (out model.RoleCreateOutput, err error)
+		// Delete 删除
+		Delete(ctx context.Context, id uint) error
+		// Update 修改
+		Update(ctx context.Context, in model.RoleUpdateInput) error
+		// GetList 查询内容列表
+		GetList(ctx context.Context, in model.RoleGetListInput) (out *model.RoleGetListOutput, err error)
 	}
 )
 

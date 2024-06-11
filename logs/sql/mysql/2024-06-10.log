@@ -44,3 +44,39 @@ Stack:
     E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:114
 
 2024-06-10 15:12:05.635 [DEBU] {24d270ab1a93d717d71c376de4889fc7} [ 15 ms] [default] [shop] [rows:1  ] INSERT INTO `role_info`(`name`,`desc`,`created_at`,`updated_at`) VALUES('客服1','前台客服','2024-06-10 15:12:05','2024-06-10 15:12:05') 
+2024-06-10 15:57:34.451 [DEBU] {acacb8059695d717982f5304839df15f} [ 11 ms] [default] [shop] [rows:23 ] SHOW TABLES
+2024-06-10 15:57:34.455 [DEBU] {acacb8059695d717982f5304839df15f} [  2 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `role_info`
+2024-06-10 15:57:34.456 [DEBU] {acacb8059695d717982f5304839df15f} [  1 ms] [default] [shop] [rows:4  ] SELECT `id`,`name`,`desc`,`created_at`,`updated_at`,`deleted_at` FROM `role_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-10 15:57:34.457 [DEBU] {acacb8059695d717982f5304839df15f} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `role_info` WHERE `deleted_at` IS NULL
+2024-06-10 15:57:34.457 [DEBU] {acacb8059695d717982f5304839df15f} [  0 ms] [default] [shop] [rows:4  ] SELECT `id`,`name`,`desc`,`created_at`,`updated_at`,`deleted_at` FROM `role_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-10 16:04:37.908 [DEBU] {e08dee9df895d717992f53048749822e} [  9 ms] [default] [shop] [rows:4  ] SELECT `id`,`name`,`desc`,`created_at`,`updated_at`,`deleted_at` FROM `role_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-10 16:04:37.909 [DEBU] {e08dee9df895d717992f53048749822e} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `role_info` WHERE `deleted_at` IS NULL
+2024-06-10 16:04:37.909 [DEBU] {e08dee9df895d717992f53048749822e} [  0 ms] [default] [shop] [rows:4  ] SELECT `id`,`name`,`desc`,`created_at`,`updated_at`,`deleted_at` FROM `role_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-10 16:05:20.758 [DEBU] {8ce3e3970296d7179a2f53042681e984} [ 10 ms] [default] [shop] [rows:1  ] INSERT INTO `role_info`(`name`,`desc`,`created_at`,`updated_at`) VALUES('开发1','后端工程师使用','2024-06-10 16:05:20','2024-06-10 16:05:20') 
+2024-06-10 16:06:50.367 [DEBU] {20541f751796d71793788e70566f2f24} [  4 ms] [default] [shop] [rows:0  ] [txid:1] BEGIN
+2024-06-10 16:06:50.375 [DEBU] {20541f751796d71793788e70566f2f24} [  7 ms] [default] [shop] [rows:6  ] [txid:1] SHOW FULL COLUMNS FROM `role_info`
+2024-06-10 16:06:50.383 [DEBU] {20541f751796d71793788e70566f2f24} [  7 ms] [default] [shop] [rows:0  ] [txid:1] UPDATE `role_info` SET `deleted_at`='2024-06-10 16:06:50' WHERE (`id`=0) AND `deleted_at` IS NULL
+2024-06-10 16:06:50.384 [DEBU] {20541f751796d71793788e70566f2f24} [  0 ms] [default] [shop] [rows:0  ] [txid:1] COMMIT
+2024-06-10 16:06:55.284 [ERRO] {dc7c009a1896d71794788e709f303929} [ 11 ms] [default] [shop] [rows:0  ] INSERT INTO `role_info`(`name`,`desc`,`created_at`,`updated_at`) VALUES('开发1','后端工程师使用','2024-06-10 16:06:55','2024-06-10 16:06:55') 
+Error: Error 1062 (23000): Duplicate entry '开发1' for key 'role_info.unique_index' 
+Stack:
+1.  goBack/internal/logic/role.(*sRole).Create
+    E:/User/work/gowork/goBack/internal/logic/role/role.go:26
+2.  goBack/internal/controller.(*cRole).Create
+    E:/User/work/gowork/goBack/internal/controller/role.go:16
+3.  goBack/internal/logic/middleware.(*sMiddleware).ResponseHandler
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:52
+4.  goBack/internal/logic/middleware.(*sMiddleware).Ctx
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:109
+5.  goBack/internal/logic/middleware.(*sMiddleware).CORS
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:114
+
+2024-06-10 16:08:32.489 [DEBU] {20242a3c2f96d717abb5eb7f9b7cd2c0} [  6 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `role_info`
+2024-06-10 16:08:32.503 [DEBU] {20242a3c2f96d717abb5eb7f9b7cd2c0} [ 13 ms] [default] [shop] [rows:1  ] UPDATE `role_info` SET `id`=5,`name`='客服2',`desc`='前台客服',`updated_at`='2024-06-10 16:08:32' WHERE (`id`=5) AND `deleted_at` IS NULL
+2024-06-10 16:09:02.419 [DEBU] {b89b84343696d717acb5eb7fdb976a9a} [  0 ms] [default] [shop] [rows:0  ] [txid:1] BEGIN
+2024-06-10 16:09:02.420 [DEBU] {b89b84343696d717acb5eb7fdb976a9a} [  1 ms] [default] [shop] [rows:1  ] [txid:1] UPDATE `role_info` SET `deleted_at`='2024-06-10 16:09:02' WHERE (`id`=3) AND `deleted_at` IS NULL
+2024-06-10 16:09:02.430 [DEBU] {b89b84343696d717acb5eb7fdb976a9a} [  9 ms] [default] [shop] [rows:0  ] [txid:1] COMMIT
+2024-06-10 16:13:46.858 [DEBU] {3cde3c6e7896d717dd77ac3fb7ab89e3} [  2 ms] [default] [shop] [rows:0  ] [txid:1] BEGIN
+2024-06-10 16:13:46.863 [DEBU] {3cde3c6e7896d717dd77ac3fb7ab89e3} [  4 ms] [default] [shop] [rows:6  ] [txid:1] SHOW FULL COLUMNS FROM `role_info`
+2024-06-10 16:13:46.866 [DEBU] {3cde3c6e7896d717dd77ac3fb7ab89e3} [  3 ms] [default] [shop] [rows:1  ] [txid:1] DELETE FROM `role_info` WHERE `id`=3
+2024-06-10 16:13:46.872 [DEBU] {3cde3c6e7896d717dd77ac3fb7ab89e3} [  6 ms] [default] [shop] [rows:0  ] [txid:1] COMMIT

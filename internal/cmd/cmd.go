@@ -60,6 +60,7 @@ var (
 					controller.Login,        // 登录
 					controller.Data,         // 数据
 					controller.Role,         //管理角色
+					controller.Permission,   // 权限
 				)
 				// Special handler that needs authentication.
 				group.Group("/", func(group *ghttp.RouterGroup) {

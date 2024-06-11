@@ -20,10 +20,47 @@ func (a *cRole) Create(ctx context.Context, req *backend.RoleReq) (res *backend.
 		},
 	})
 	if err != nil {
-		return nil, err
+		return
 	}
 	res = &backend.RoleRes{
 		RoleId: out.RoleId,
 	}
-	return res, nil
+	return
+}
+
+func (a *cRole) Update(ctx context.Context, req *backend.RoleUpdateReq) (res *backend.RoleUpdateRes, err error) {
+	err = service.Role().Update(ctx, model.RoleUpdateInput{
+		Id: req.Id,
+		RoleCreateUpdateBase: model.RoleCreateUpdateBase{
+			Name: req.Name,
+			Desc: req.Desc,
+		},
+	})
+	if err != nil {
+		return
+	}
+	return &backend.RoleUpdateRes{Id: req.Id}, nil
+}
+
+func (a *cRole) Delete(ctx context.Context, req *backend.RoleDeleteReq) (res *backend.RoleDeleteRes, err error) {
+	err = service.Role().Delete(ctx, req.Id)
+	if err != nil {
+		return
+	}
+	return
+}
+
+func (a *cRole) GetList(ctx context.Context, req *backend.RoleGetListCommonReq) (res *backend.RoleGetListCommonRes, err error) {
+	list, err := service.Role().GetList(ctx, model.RoleGetListInput{
+		Page: req.Page,
+		Size: req.Size,
+	})
+	if err != nil {
+		return
+	}
+	res = &backend.RoleGetListCommonRes{List: list.List,
+		Page:  list.Page,
+		Size:  list.Size,
+		Total: list.Total}
+	return
 }
