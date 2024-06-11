@@ -1,0 +1,71 @@
+2024-06-11 15:48:00.635 [DEBU] {0cd32df3a4e3d717bec3f00d5e774cf6} [173 ms] [default] [shop] [rows:5  ] SHOW FULL COLUMNS FROM `role_permission_info`
+2024-06-11 15:48:00.669 [DEBU] {0cd32df3a4e3d717bec3f00d5e774cf6} [ 32 ms] [default] [shop] [rows:1  ] INSERT INTO `role_permission_info`(`role_id`,`permission_id`,`created_at`,`updated_at`) VALUES(0,0,'2024-06-11 15:48:00','2024-06-11 15:48:00') 
+2024-06-11 15:48:44.692 [DEBU] {44e9793fafe3d717bfc3f00df5bc328e} [  2 ms] [default] [shop] [rows:0  ] [txid:1] BEGIN
+2024-06-11 15:48:44.696 [DEBU] {44e9793fafe3d717bfc3f00df5bc328e} [  4 ms] [default] [shop] [rows:6  ] [txid:1] SHOW FULL COLUMNS FROM `role_info`
+2024-06-11 15:48:44.743 [DEBU] {44e9793fafe3d717bfc3f00df5bc328e} [ 14 ms] [default] [shop] [rows:0  ] [txid:1] DELETE FROM `role_info` WHERE `id`=3
+2024-06-11 15:48:44.744 [DEBU] {44e9793fafe3d717bfc3f00df5bc328e} [  1 ms] [default] [shop] [rows:0  ] [txid:1] COMMIT
+2024-06-11 15:49:29.080 [DEBU] {48fe4195b9e3d717c0c3f00d459c876d} [  3 ms] [default] [shop] [rows:0  ] [txid:2] BEGIN
+2024-06-11 15:49:29.081 [DEBU] {48fe4195b9e3d717c0c3f00d459c876d} [  0 ms] [default] [shop] [rows:0  ] [txid:2] DELETE FROM `role_info` WHERE `id`=2
+2024-06-11 15:49:29.082 [DEBU] {48fe4195b9e3d717c0c3f00d459c876d} [  0 ms] [default] [shop] [rows:0  ] [txid:2] COMMIT
+2024-06-11 15:50:12.032 [DEBU] {78057495c3e3d717c1c3f00dfbcec748} [  1 ms] [default] [shop] [rows:0  ] [txid:3] BEGIN
+2024-06-11 15:50:12.034 [DEBU] {78057495c3e3d717c1c3f00dfbcec748} [  1 ms] [default] [shop] [rows:0  ] [txid:3] DELETE FROM `role_info` WHERE `id`=2
+2024-06-11 15:50:12.034 [DEBU] {78057495c3e3d717c1c3f00dfbcec748} [  0 ms] [default] [shop] [rows:0  ] [txid:3] COMMIT
+2024-06-11 16:00:43.056 [DEBU] {c4159a7f56e4d717d470c570ab7345c5} [ 29 ms] [default] [shop] [rows:23 ] SHOW TABLES
+2024-06-11 16:00:43.062 [DEBU] {c4159a7f56e4d717d470c570ab7345c5} [  4 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `permission_info`
+2024-06-11 16:00:43.065 [DEBU] {c4159a7f56e4d717d470c570ab7345c5} [  2 ms] [default] [shop] [rows:4  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at`,`deleted_at` FROM `permission_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-11 16:00:43.072 [DEBU] {c4159a7f56e4d717d470c570ab7345c5} [  7 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `permission_info` WHERE `deleted_at` IS NULL
+2024-06-11 16:00:43.076 [DEBU] {c4159a7f56e4d717d470c570ab7345c5} [  1 ms] [default] [shop] [rows:4  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at` FROM `permission_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-11 16:01:03.291 [DEBU] {00fd7e365be4d717d570c5704a874416} [ 17 ms] [default] [shop] [rows:1  ] INSERT INTO `permission_info`(`name`,`path`,`created_at`,`updated_at`) VALUES('客服','','2024-06-11 16:01:03','2024-06-11 16:01:03') 
+2024-06-11 16:01:36.812 [ERRO] {b819070463e4d717d670c57041262782} [ 24 ms] [default] [shop] [rows:0  ] INSERT INTO `permission_info`(`name`,`path`,`created_at`,`updated_at`) VALUES('客服','','2024-06-11 16:01:36','2024-06-11 16:01:36') 
+Error: Error 1062 (23000): Duplicate entry '客服' for key 'permission_info.unique_name' 
+Stack:
+1.  goBack/internal/logic/permission.(*sPermission).Create
+    E:/User/work/gowork/goBack/internal/logic/permission/permission.go:25
+2.  goBack/internal/controller.(*cPermission).Create
+    E:/User/work/gowork/goBack/internal/controller/permission.go:16
+3.  goBack/internal/logic/middleware.(*sMiddleware).ResponseHandler
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:52
+4.  goBack/internal/logic/middleware.(*sMiddleware).Ctx
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:109
+5.  goBack/internal/logic/middleware.(*sMiddleware).CORS
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:114
+
+2024-06-11 16:01:59.588 [ERRO] {2866ab5268e4d717d770c570f15ea61a} [  9 ms] [default] [shop] [rows:0  ] INSERT INTO `permission_info`(`name`,`path`,`created_at`,`updated_at`) VALUES('客服','admin/goods','2024-06-11 16:01:59','2024-06-11 16:01:59') 
+Error: Error 1062 (23000): Duplicate entry '客服' for key 'permission_info.unique_name' 
+Stack:
+1.  goBack/internal/logic/permission.(*sPermission).Create
+    E:/User/work/gowork/goBack/internal/logic/permission/permission.go:25
+2.  goBack/internal/controller.(*cPermission).Create
+    E:/User/work/gowork/goBack/internal/controller/permission.go:16
+3.  goBack/internal/logic/middleware.(*sMiddleware).ResponseHandler
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:52
+4.  goBack/internal/logic/middleware.(*sMiddleware).Ctx
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:109
+5.  goBack/internal/logic/middleware.(*sMiddleware).CORS
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:114
+
+2024-06-11 16:02:04.339 [DEBU] {c0e16c6d69e4d717d870c570697bfc7d} [ 14 ms] [default] [shop] [rows:1  ] INSERT INTO `permission_info`(`name`,`path`,`created_at`,`updated_at`) VALUES('客服2','admin/goods','2024-06-11 16:02:04','2024-06-11 16:02:04') 
+2024-06-11 16:06:21.865 [DEBU] {28a37563a5e4d71789846733fbf0f385} [  9 ms] [default] [shop] [rows:0  ] [txid:1] BEGIN
+2024-06-11 16:06:21.868 [DEBU] {28a37563a5e4d71789846733fbf0f385} [  2 ms] [default] [shop] [rows:6  ] [txid:1] SHOW FULL COLUMNS FROM `permission_info`
+2024-06-11 16:06:21.871 [DEBU] {28a37563a5e4d71789846733fbf0f385} [  2 ms] [default] [shop] [rows:1  ] [txid:1] DELETE FROM `permission_info` WHERE `id`=7
+2024-06-11 16:06:21.879 [DEBU] {28a37563a5e4d71789846733fbf0f385} [  7 ms] [default] [shop] [rows:0  ] [txid:1] COMMIT
+2024-06-11 16:06:58.661 [DEBU] {80c485f4ade4d7178a8467330dbdb238} [ 12 ms] [default] [shop] [rows:1  ] INSERT INTO `permission_info`(`name`,`path`,`created_at`,`updated_at`) VALUES('客服','admin/goods','2024-06-11 16:06:58','2024-06-11 16:06:58') 
+2024-06-11 16:09:04.790 [DEBU] {84330053cbe4d7178b846733e1d34832} [  3 ms] [default] [shop] [rows:23 ] SHOW TABLES
+2024-06-11 16:09:04.791 [DEBU] {84330053cbe4d7178b846733e1d34832} [  1 ms] [default] [shop] [rows:6  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at`,`deleted_at` FROM `permission_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-11 16:09:04.791 [DEBU] {84330053cbe4d7178b846733e1d34832} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `permission_info` WHERE `deleted_at` IS NULL
+2024-06-11 16:09:04.792 [DEBU] {84330053cbe4d7178b846733e1d34832} [  0 ms] [default] [shop] [rows:6  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at` FROM `permission_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-11 16:10:08.128 [DEBU] {08ee5212dae4d7178c84673379dc3104} [  1 ms] [default] [shop] [rows:6  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at`,`deleted_at` FROM `permission_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-11 16:10:08.129 [DEBU] {08ee5212dae4d7178c84673379dc3104} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `permission_info` WHERE `deleted_at` IS NULL
+2024-06-11 16:10:08.129 [DEBU] {08ee5212dae4d7178c84673379dc3104} [  0 ms] [default] [shop] [rows:6  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at` FROM `permission_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-11 16:20:09.986 [DEBU] {7046a43266e5d717e270287d8a6fb1b5} [ 21 ms] [default] [shop] [rows:23 ] SHOW TABLES
+2024-06-11 16:20:09.991 [DEBU] {7046a43266e5d717e270287d8a6fb1b5} [  4 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `permission_info`
+2024-06-11 16:20:09.992 [DEBU] {7046a43266e5d717e270287d8a6fb1b5} [  1 ms] [default] [shop] [rows:6  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at`,`deleted_at` FROM `permission_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-11 16:20:09.993 [DEBU] {7046a43266e5d717e270287d8a6fb1b5} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `permission_info` WHERE `deleted_at` IS NULL
+2024-06-11 16:20:09.995 [DEBU] {7046a43266e5d717e270287d8a6fb1b5} [  0 ms] [default] [shop] [rows:6  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at` FROM `permission_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-11 16:27:56.426 [DEBU] {6824f4ccd2e5d717c2a1cb14ed1c5d72} [ 15 ms] [default] [shop] [rows:23 ] SHOW TABLES
+2024-06-11 16:27:56.430 [DEBU] {6824f4ccd2e5d717c2a1cb14ed1c5d72} [  2 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `permission_info`
+2024-06-11 16:27:56.445 [DEBU] {6824f4ccd2e5d717c2a1cb14ed1c5d72} [ 15 ms] [default] [shop] [rows:1  ] UPDATE `permission_info` SET `name`='客服1',`path`='',`updated_at`='2024-06-11 16:27:56' WHERE (`id`=11) AND `deleted_at` IS NULL
+2024-06-11 16:28:31.287 [DEBU] {70f73debdae5d717ae66b56f02901c52} [  7 ms] [default] [shop] [rows:23 ] SHOW TABLES
+2024-06-11 16:28:31.290 [DEBU] {70f73debdae5d717ae66b56f02901c52} [  2 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `permission_info`
+2024-06-11 16:28:31.306 [DEBU] {70f73debdae5d717ae66b56f02901c52} [ 16 ms] [default] [shop] [rows:1  ] UPDATE `permission_info` SET `name`='客服1',`path`='',`updated_at`='2024-06-11 16:28:31' WHERE (`id`=11) AND `deleted_at` IS NULL
+2024-06-11 16:28:36.351 [DEBU] {d094df18dce5d717af66b56f405c5126} [ 13 ms] [default] [shop] [rows:1  ] UPDATE `permission_info` SET `name`='客服3',`path`='',`updated_at`='2024-06-11 16:28:36' WHERE (`id`=11) AND `deleted_at` IS NULL

@@ -87,9 +87,10 @@ func (s *sRole) GetList(ctx context.Context, in model.RoleGetListInput) (out *mo
 func (s *sRole) AddPermission(ctx context.Context, in model.RoleAddPermissionInput) (out model.RoleAddPermissionOutput, err error) {
 	id, err := dao.RolePermissionInfo.Ctx(ctx).Data(in).InsertAndGetId()
 	if err != nil {
-		return model.RoleAddPermissionOutput{}, err
+		return out, err
 	}
-	return model.RoleAddPermissionOutput{Id: uint(id)}, err
+	out.Id = uint(id)
+	return
 }
 
 // 角色删除权限

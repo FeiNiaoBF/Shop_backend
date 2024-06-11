@@ -42,14 +42,13 @@ func (s *sPermission) Delete(ctx context.Context, id uint) error {
 
 // Update 修改
 func (s *sPermission) Update(ctx context.Context, in model.PermissionUpdateInput) error {
-	_, err := dao.PermissionInfo.Ctx(ctx).Data(in).OmitEmpty().
+	_, err := dao.PermissionInfo.
+		Ctx(ctx).
+		Data(in).
+		FieldsEx(dao.PermissionInfo.Columns().Id).
 		Where(dao.PermissionInfo.Columns().Id, in.Id).
 		Update()
-	if err != nil {
-		return err
-	}
-
-	return nil
+	return err
 }
 
 // GetList 查询内容列表

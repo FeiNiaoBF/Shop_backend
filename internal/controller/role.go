@@ -64,3 +64,28 @@ func (a *cRole) GetList(ctx context.Context, req *backend.RoleGetListCommonReq) 
 		Total: list.Total}
 	return
 }
+
+func (a *cRole) CreatePermission(ctx context.Context, req *backend.AddPermissionReq) (res *backend.AddPermissionRes, err error) {
+	out, err := service.Role().AddPermission(ctx, model.RoleAddPermissionInput{
+		RoleId:       req.RoleId,
+		PermissionId: req.PermissionId,
+	})
+	if err != nil {
+		return
+	}
+	res = &backend.AddPermissionRes{
+		Id: out.Id,
+	}
+	return
+}
+
+func (a *cRole) DeletePermission(ctx context.Context, req *backend.DeletePermissionReq) (res *backend.DeletePermissionRes, err error) {
+	err = service.Role().DeletePermission(ctx, model.RoleDeletePermissionInput{
+		RoleId:       req.RoleId,
+		PermissionId: req.PermissionId,
+	})
+	if err != nil {
+		return
+	}
+	return
+}

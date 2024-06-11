@@ -20,8 +20,8 @@ type PermissionCreateOutput struct {
 
 // PermissionUpdateInput 修改内容
 type PermissionUpdateInput struct {
-	PermissionCreateUpdateBase
 	Id uint
+	PermissionCreateUpdateBase
 }
 
 // PermissionGetListInput 获取内容列表

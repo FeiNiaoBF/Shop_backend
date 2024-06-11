@@ -19,6 +19,10 @@ type (
 		Update(ctx context.Context, in model.RoleUpdateInput) error
 		// GetList 查询内容列表
 		GetList(ctx context.Context, in model.RoleGetListInput) (out *model.RoleGetListOutput, err error)
+		// 角色添加权限
+		AddPermission(ctx context.Context, in model.RoleAddPermissionInput) (out model.RoleAddPermissionOutput, err error)
+		// 角色删除权限
+		DeletePermission(ctx context.Context, in model.RoleDeletePermissionInput) error
 	}
 )
 
