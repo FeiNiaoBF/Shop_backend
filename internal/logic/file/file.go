@@ -7,6 +7,7 @@ import (
 	"goBack/internal/model"
 	"goBack/internal/model/entity"
 	"goBack/internal/service"
+	"log"
 	"time"
 
 	"github.com/gogf/gf/v2/os/gfile"
@@ -42,6 +43,7 @@ func New() *sFile {
 func (s *sFile) Upload(ctx context.Context, in model.FileUploadInput) (out *model.FileUploadOutput, err error) {
 	// 1. 定义图片上传位置
 	path := g.Cfg().MustGet(ctx, "file.upload.path").String()
+	log.Println(path)
 	if path == "" {
 		return nil, gerror.New("读取配置文件失败 上传路径不存在")
 	}

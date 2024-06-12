@@ -32,16 +32,16 @@ var (
 			s := g.Server()
 			// 启动gtoken
 			gfAdminToken := &gtoken.GfToken{
-				CacheMode:       2,
-				ServerName:      "shop",
-				LoginPath:       "/login",
-				LoginBeforeFunc: loginBeforeFunc,
-				LoginAfterFunc:  loginAfterFunc,
-				LogoutPath:      "/user/logout",
-				// AuthPaths:        g.SliceStr{"/admin"},
-				// AuthExcludePaths: g.SliceStr{"/admin/user/info", "/admin/system/user/info"}, // 不拦截路径
-				AuthAfterFunc: authAfterFunc,
-				MultiLogin:    true,
+				CacheMode:        2,
+				ServerName:       "shop",
+				LoginPath:        "/login",
+				LoginBeforeFunc:  loginBeforeFunc,
+				LoginAfterFunc:   loginAfterFunc,
+				LogoutPath:       "/user/logout",
+				AuthPaths:        g.SliceStr{"/admin"},
+				AuthExcludePaths: g.SliceStr{"/admin/user/info", "/admin/system/user/info"}, // 不拦截路径
+				AuthAfterFunc:    authAfterFunc,
+				MultiLogin:       true,
 			}
 			s.Group("/api", func(group *ghttp.RouterGroup) {
 				//group.Middleware(ghttp.MiddlewareHandlerResponse)
@@ -61,6 +61,7 @@ var (
 					controller.Data,         // 数据
 					controller.Role,         //管理角色
 					controller.Permission,   // 权限
+
 				)
 				// Special handler that needs authentication.
 				group.Group("/", func(group *ghttp.RouterGroup) {
@@ -70,8 +71,11 @@ var (
 						panic(err)
 					}
 					group.ALLMap(g.Map{
-						"/backend/admin/info": controller.Admin.Info,
+						"/admin/info": controller.Admin.Info,
 					})
+					group.Bind(
+						controller.File,
+					)
 				})
 			})
 			s.Run()

@@ -27,9 +27,10 @@ func (c *cFile) Upload(ctx context.Context, req *backend.FileUploadReq) (res *ba
 		RandomName: true,
 	})
 	if err != nil {
-		return
+		return nil, err
 	}
-	res.Name = upload.Name
-	res.Url = upload.Url
-	return
+	return &backend.FileUploadRes{
+		Name: upload.Name,
+		Url:  upload.Url,
+	}, nil
 }
