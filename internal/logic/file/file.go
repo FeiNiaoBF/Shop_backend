@@ -40,12 +40,11 @@ func New() *sFile {
 */
 
 func (s *sFile) Upload(ctx context.Context, in model.FileUploadInput) (out *model.FileUploadOutput, err error) {
-	// 1. 定义图片上传位置
-	path := g.Cfg().MustGet(ctx, "file.upload.path").String()
-	if path == "" {
+	//定义图片上传位置
+	uploadPath := g.Cfg().MustGet(ctx, "upload.path").String()
+	if uploadPath == "" {
 		return nil, gerror.New("读取配置文件失败 上传路径不存在")
 	}
-	// 重命名
 	if in.Name != "" {
 		in.File.Filename = in.Name
 	}
@@ -63,15 +62,15 @@ func (s *sFile) Upload(ctx context.Context, in model.FileUploadInput) (out *mode
 	//	定义年月日 Ymd
 	dateDirName := gtime.Now().Format("Ymd")
 	//gfile.Join 用"/"拼接
-	fileName, err := in.File.Save(gfile.Join(path, dateDirName), in.RandomName)
+	fileName, err := in.File.Save(gfile.Join(uploadPath, dateDirName), in.RandomName)
 	if err != nil {
 		return nil, err
 	}
 	//	4. 入库
 	data := entity.FileInfo{
 		Name:   fileName,
-		Src:    gfile.Join(path, dateDirName, fileName),
-		Url:    "/upload/" + dateDirName + "/" + fileName,
+		Src:    gfile.Join(uploadPath, dateDirName, fileName),
+		Url:    "/upload/" + dateDirName + "/" + fileName, //和上面gfile.Join()效果一样
 		UserId: gconv.Int(ctx.Value(consts.CtxAdminId)),
 	}
 	id, err := dao.FileInfo.Ctx(ctx).Data(data).OmitEmpty().InsertAndGetId()

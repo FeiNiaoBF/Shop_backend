@@ -28,7 +28,7 @@ type RoleUpdateRes struct {
 	Id uint `json:"id"`
 }
 type RoleGetListCommonReq struct {
-	g.Meta `path:"/role/list" method:"get" desc:"添加角色角色" tags:"role"`
+	g.Meta `path:"/backend/role/list" method:"get" desc:"添加角色角色" tags:"role"`
 	CommonPaginationReq
 }
 type RoleGetListCommonRes struct {
@@ -39,7 +39,7 @@ type RoleGetListCommonRes struct {
 }
 
 type RoleGetInfoReq struct {
-	g.Meta `path:"/role/info" method:"get"`
+	g.Meta `path:"/backend/role/info" method:"get"`
 }
 
 type AddPermissionReq struct {
@@ -53,7 +53,7 @@ type AddPermissionRes struct {
 }
 
 type DeletePermissionReq struct {
-	g.Meta       `path:"/role/delete/permission" method:"delete" tags:"角色" summary:"角色删除权限接口"`
+	g.Meta       `path:"/backend/role/delete/permission" method:"delete" tags:"角色" summary:"角色删除权限接口"`
 	RoleId       uint `json:"role_id" desc:"角色id"`
 	PermissionId uint `json:"permission_id" desc:"权限id"`
 }
