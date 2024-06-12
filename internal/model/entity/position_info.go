@@ -10,13 +10,13 @@ import (
 
 // PositionInfo is the golang structure for table position_info.
 type PositionInfo struct {
-	Id        int         `json:"id"        orm:"id"         description:""`
-	PicUrl    string      `json:"picUrl"    orm:"pic_url"    description:"图片链接"`
-	GoodsName string      `json:"goodsName" orm:"goods_name" description:"商品名称"`
-	Link      string      `json:"link"      orm:"link"       description:"跳转链接"`
-	Sort      int         `json:"sort"      orm:"sort"       description:"排序"`
-	GoodsId   int         `json:"goodsId"   orm:"goods_id"   description:"商品id"`
-	CreatedAt *gtime.Time `json:"createdAt" orm:"created_at" description:""`
-	UpdatedAt *gtime.Time `json:"updatedAt" orm:"updated_at" description:""`
-	DeletedAt *gtime.Time `json:"deletedAt" orm:"deleted_at" description:""`
+	Id        int         `json:"id"         orm:"id"         description:""`
+	PicUrl    string      `json:"pic_url"    orm:"pic_url"    description:"图片链接"`
+	GoodsName string      `json:"goods_name" orm:"goods_name" description:"商品名称"`
+	Link      string      `json:"link"       orm:"link"       description:"跳转链接"`
+	Sort      int         `json:"sort"       orm:"sort"       description:"排序"`
+	GoodsId   int         `json:"goods_id"   orm:"goods_id"   description:"商品id"`
+	CreatedAt *gtime.Time `json:"created_at" orm:"created_at" description:""`
+	UpdatedAt *gtime.Time `json:"updated_at" orm:"updated_at" description:""`
+	DeletedAt *gtime.Time `json:"deleted_at" orm:"deleted_at" description:""`
 }

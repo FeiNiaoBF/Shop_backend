@@ -19,8 +19,6 @@ type PermissionRes struct {
 type PermissionUpdateReq struct {
 	g.Meta `path:"/permission/update" method:"post" desc:"修改权限" tags:"permission"`
 	Id     uint `json:"id" v:"required#id必填" desc:"id"`
-	//Name   string `json:"name" v:"required#名称必填" dc:"权限名称"`
-	//Path   string `json:"path" dc:"权限路径"`
 	PermissionCreateUpdateBase
 }
 

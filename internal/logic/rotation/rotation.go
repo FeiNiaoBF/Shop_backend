@@ -39,6 +39,10 @@ func (s *sRotation) Delete(ctx context.Context, id uint) error {
 		_, err := dao.RotationInfo.Ctx(ctx).Where(g.Map{
 			dao.RotationInfo.Columns().Id: id,
 		}).Delete()
+		if err != nil {
+			// TODO: Log error
+			return err
+		}
 		// Unscoped() 是硬删除，
 		// 不加就是软删除
 		return err

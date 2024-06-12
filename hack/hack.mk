@@ -15,6 +15,8 @@ build: cli.install
 ctrl: cli.install
 	@gf gen ctrl
 
+
+cli.install:
 # Generate Go files for DAO/DO/Entity.
 .PHONY: dao
 dao: cli.install
