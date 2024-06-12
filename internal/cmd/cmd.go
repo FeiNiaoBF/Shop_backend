@@ -10,15 +10,17 @@ import (
 	"goBack/internal/service"
 	"goBack/utility"
 	"goBack/utility/response"
+	"strconv"
 
-	"github.com/goflyfox/gtoken/gtoken"
-	"github.com/gogf/gf/v2/frame/g"
-	"github.com/gogf/gf/v2/net/ghttp"
-	"github.com/gogf/gf/v2/os/gcmd"
-	"github.com/gogf/gf/v2/text/gstr"
 	"github.com/gogf/gf/v2/util/gconv"
 
-	"strconv"
+	"github.com/gogf/gf/v2/text/gstr"
+
+	"github.com/goflyfox/gtoken/gtoken"
+	"github.com/gogf/gf/v2/net/ghttp"
+
+	"github.com/gogf/gf/v2/frame/g"
+	"github.com/gogf/gf/v2/os/gcmd"
 )
 
 var (
@@ -32,37 +34,38 @@ var (
 			gfAdminToken := &gtoken.GfToken{
 				CacheMode:        2,
 				ServerName:       "shop",
-				LoginPath:        "/backend/login",
-				LoginBeforeFunc:  loginFunc,
+				LoginPath:        "/login",
+				LoginBeforeFunc:  loginBeforeFunc,
 				LoginAfterFunc:   loginAfterFunc,
-				LogoutPath:       "/backend/user/logout",
-				AuthPaths:        g.SliceStr{"/backend/admin/info"},
-				AuthExcludePaths: g.SliceStr{"/admin/user/info", "/admin/system/user/info"}, // 不拦截路径 /user/info,/system/user/info,/system/user,
+				LogoutPath:       "/user/logout",
+				AuthPaths:        g.SliceStr{"/api/admin/info"},
+				AuthExcludePaths: g.SliceStr{"/admin/user/info", "/admin/system/user/info"}, // 不拦截路径
 				AuthAfterFunc:    authAfterFunc,
 				MultiLogin:       true,
 			}
-			s.Group("/", func(group *ghttp.RouterGroup) {
+			s.Group("/api", func(group *ghttp.RouterGroup) {
+				//group.Middleware(ghttp.MiddlewareHandlerResponse)
 				group.Middleware(
-					service.Middleware().CORS,
+					// service.Middleware().CORS,
 					service.Middleware().Ctx,
 					service.Middleware().ResponseHandler,
 				)
+				err := gfAdminToken.Middleware(ctx, group)
+				if err != nil {
+					panic(err)
+				}
 				group.Bind(
-					controller.Rotation,     // 轮播图
-					controller.Position,     // 手工位
 					controller.Admin.Create, // 管理员
 					controller.Admin.Update, // 管理员
 					controller.Admin.Delete, // 管理员
 					controller.Admin.List,   // 管理员
+					controller.Rotation,     // 轮播图
+					controller.Position,     // 手工位
 					controller.Login,        // 登录
 				)
 				// Special handler that needs authentication.
 				group.Group("/", func(group *ghttp.RouterGroup) {
-					//group.Middleware(service.Middleware().Auth) //for jwt
-					err := gfAdminToken.Middleware(ctx, group)
-					if err != nil {
-						panic(err)
-					}
+					//group.Middleware(service.Middleware().Auth)
 					group.ALLMap(g.Map{
 						"/backend/admin/info": controller.Admin.Info,
 					})
@@ -74,13 +77,13 @@ var (
 	}
 )
 
-func loginFunc(r *ghttp.Request) (string, interface{}) {
+func loginBeforeFunc(r *ghttp.Request) (string, any) {
 	name := r.Get("name").String()
 	password := r.Get("password").String()
 	ctx := context.TODO()
 
 	if name == "" || password == "" {
-		r.Response.WriteJson(gtoken.Fail("账号或密码为空"))
+		r.Response.WriteJson(gtoken.Fail("账号或密码为空."))
 		r.ExitAll()
 	}
 
@@ -99,7 +102,6 @@ func loginFunc(r *ghttp.Request) (string, interface{}) {
 	return consts.GTokenAdminPrefix + strconv.Itoa(adminInfo.Id), adminInfo
 }
 
-// todo 迁移到合适的位置
 func loginAfterFunc(r *ghttp.Request, respData gtoken.Resp) {
 	g.Dump("respData:", respData)
 	if !respData.Success() {

@@ -10,9 +10,9 @@ import (
 
 // RolePermissionInfo is the golang structure for table role_permission_info.
 type RolePermissionInfo struct {
-	Id           int         `json:"id"           orm:"id"            description:""`
-	RoleId       int         `json:"roleId"       orm:"role_id"       description:"角色id"`
-	PermissionId int         `json:"permissionId" orm:"permission_id" description:"权限id"`
-	CreatedAt    *gtime.Time `json:"createdAt"    orm:"created_at"    description:""`
-	UpdatedAt    *gtime.Time `json:"updatedAt"    orm:"updated_at"    description:""`
+	Id           int         `json:"id"            orm:"id"            description:""`
+	RoleId       int         `json:"role_id"       orm:"role_id"       description:"角色id"`
+	PermissionId int         `json:"permission_id" orm:"permission_id" description:"权限id"`
+	CreatedAt    *gtime.Time `json:"created_at"    orm:"created_at"    description:""`
+	UpdatedAt    *gtime.Time `json:"updated_at"    orm:"updated_at"    description:""`
 }

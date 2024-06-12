@@ -1,9 +1,6 @@
 package backend
 
-import "github.com/gogf/gf/v2/frame/g"
-
 type DataHeadReq struct {
-	g.Meta `path:"/api/data/head" method:"get" tags:"数据data" desc:"数据大屏的头部信息"`
 }
 
 type DataHeadRes struct {
