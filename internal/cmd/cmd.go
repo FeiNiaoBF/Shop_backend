@@ -2,10 +2,11 @@ package cmd
 
 import (
 	"context"
-	"github.com/goflyfox/gtoken/gtoken"
-	"github.com/gogf/gf/v2/net/ghttp"
 	"goBack/internal/controller"
 	"goBack/internal/service"
+
+	"github.com/goflyfox/gtoken/gtoken"
+	"github.com/gogf/gf/v2/net/ghttp"
 
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/os/gcmd"
@@ -26,7 +27,7 @@ var (
 				LoginBeforeFunc:  loginBeforeFunc,
 				LoginAfterFunc:   loginAfterFunc,
 				LogoutPath:       "/user/logout",
-				AuthPaths:        g.SliceStr{"/api/admin/info"},
+				AuthPaths:        g.SliceStr{"/admin"},
 				AuthExcludePaths: g.SliceStr{"/admin/user/info", "/admin/system/user/info"}, // 不拦截路径
 				AuthAfterFunc:    authAfterFunc,
 				MultiLogin:       true,
@@ -34,14 +35,10 @@ var (
 			s.Group("/api", func(group *ghttp.RouterGroup) {
 				//group.Middleware(ghttp.MiddlewareHandlerResponse)
 				group.Middleware(
-					// service.Middleware().CORS,
+					service.Middleware().CORS,
 					service.Middleware().Ctx,
 					service.Middleware().ResponseHandler,
 				)
-				err := gfAdminToken.Middleware(ctx, group)
-				if err != nil {
-					panic(err)
-				}
 				group.Bind(
 					controller.Admin.Create, // 管理员
 					controller.Admin.Update, // 管理员
@@ -50,13 +47,25 @@ var (
 					controller.Rotation,     // 轮播图
 					controller.Position,     // 手工位
 					controller.Login,        // 登录
+					controller.Data,         // 数据
+					controller.Role,         //管理角色
+					controller.Permission,   // 权限
+
 				)
 				// Special handler that needs authentication.
 				group.Group("/", func(group *ghttp.RouterGroup) {
-					//group.Middleware(service.Middleware().Auth)
+					// group.Middleware(service.Middleware().Auth)
+					err := gfAdminToken.Middleware(ctx, group)
+					if err != nil {
+						panic(err)
+					}
 					group.ALLMap(g.Map{
-						"/backend/admin/info": controller.Admin.Info,
+						"/admin/info": controller.Admin.Info,
 					})
+					group.Bind(
+						controller.File,   // 本地文件
+						controller.Upload, // 云平台
+					)
 				})
 			})
 			s.Run()
