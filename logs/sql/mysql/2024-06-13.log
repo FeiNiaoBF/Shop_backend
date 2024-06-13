@@ -1,0 +1,4 @@
+2024-06-13 19:15:51.477 [DEBU] {80e3b5b7258cd8175761d80cd15bfb73} [ 11 ms] [default] [shop] [rows:15 ] SHOW FULL COLUMNS FROM `order_info`
+2024-06-13 19:15:51.528 [DEBU] {80e3b5b7258cd8175761d80cd15bfb73} [ 49 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2024-06-13 00:00:00' AND '2024-06-13 23:59:59') AND (id)
+2024-06-13 19:23:32.911 [DEBU] {40d4641e918cd817cc85690b29c1d494} [161 ms] [default] [shop] [rows:15 ] SHOW FULL COLUMNS FROM `order_info`
+2024-06-13 19:23:32.920 [DEBU] {40d4641e918cd817cc85690b29c1d494} [  8 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2024-06-13 00:00:00' AND '2024-06-13 23:59:59') AND (id)

@@ -60,7 +60,7 @@ func (a *cRotation) List(ctx context.Context, req *backend.RotationGetListCommon
 		Total: getListRes.Total}, nil
 }
 
-// 前台的取值方法
+// ListFrontend 前台调用
 func (a *cRotation) ListFrontend(ctx context.Context, req *frontend.RotationGetListCommonReq) (res *frontend.RotationGetListCommonRes, err error) {
 	getListRes, err := service.Rotation().GetList(ctx, model.RotationGetListInput{
 		Page: req.Page,

@@ -11,7 +11,7 @@ var Login = cLogin{}
 
 type cLogin struct{}
 
-//for session
+//// Login for session
 //func (a *cLogin) Login(ctx context.Context, req *backend.LoginDoReq) (res *backend.LoginDoRes, err error) {
 //	res = &backend.LoginDoRes{}
 //	err = service.Login().Login(ctx, model.UserLoginInput{
@@ -22,11 +22,11 @@ type cLogin struct{}
 //		return
 //	}
 //	// 识别并跳转到登录前页面
-//	//res.Info = service.Session().GetUser(ctx)
+//	res.Info = service.Session().GetUser(ctx)
 //	return
 //}
 
-//for jwt
+// for jwt
 //func (c *cLogin) Login(ctx context.Context, req *backend.LoginDoReq) (res *backend.LoginDoRes, err error) {
 //	res = &backend.LoginDoRes{}
 //	res.Token, res.Expire = service.Auth().LoginHandler(ctx)
