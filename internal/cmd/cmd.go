@@ -27,15 +27,15 @@ var (
 			}
 			// main URL
 			s.Group("/", func(group *ghttp.RouterGroup) {
-				// 中间件
-				group.Middleware(
-					service.Middleware().CORS,            // 跨域资源
-					service.Middleware().Ctx,             // 上下文
-					service.Middleware().ResponseHandler, //
-				)
 				// URL: /api/
 				s.Group("/api", func(group *ghttp.RouterGroup) {
 					//不需要登录的路由组绑定
+					// 中间件
+					group.Middleware(
+						service.Middleware().CORS,            // 跨域资源
+						service.Middleware().Ctx,             // 上下文
+						service.Middleware().ResponseHandler, //
+					)
 					group.Bind(
 						controller.Admin.Create, // 管理员
 						controller.Admin.Update, // 管理员

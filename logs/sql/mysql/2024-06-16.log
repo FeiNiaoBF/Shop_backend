@@ -1,0 +1,55 @@
+2024-06-16 13:13:31.084 [DEBU] {08c5c48c1d64d9170d770f0006352101} [187 ms] [default] [shop] [rows:23 ] SHOW TABLES
+2024-06-16 13:13:31.094 [DEBU] {a8c50e981d64d9170e770f0049150096} [  8 ms] [default] [shop] [rows:9  ] SHOW FULL COLUMNS FROM `admin_info`
+2024-06-16 13:13:31.106 [DEBU] {9c648f981d64d9170f770f004006cbe0} [ 12 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`password`,`role_ids`,`created_at`,`updated_at`,`user_salt`,`is_admin`,`deleted_at` FROM `admin_info` WHERE (`name`='steve') AND `deleted_at` IS NULL LIMIT 1
+2024-06-16 13:13:31.119 [DEBU] {8c20f6991d64d91710770f00cfae9684} [  1 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`password`,`role_ids`,`created_at`,`updated_at`,`user_salt`,`is_admin`,`deleted_at` FROM `admin_info` WHERE (`id`='13') AND `deleted_at` IS NULL LIMIT 1
+2024-06-16 13:13:31.164 [DEBU] {042ff59b1d64d91711770f006ae0d7f0} [ 13 ms] [default] [shop] [rows:5  ] SHOW FULL COLUMNS FROM `role_permission_info`
+2024-06-16 13:13:31.189 [DEBU] {78f8bb9c1d64d91712770f000cf6d13f} [ 25 ms] [default] [shop] [rows:0  ] SELECT `id`,`role_id`,`permission_id`,`created_at`,`updated_at` FROM `role_permission_info` WHERE `role_id` IN ('1')
+2024-06-16 13:13:31.191 [DEBU] {1430329e1d64d91713770f007f6b901e} [  2 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `permission_info`
+2024-06-16 13:13:31.194 [DEBU] {1882599e1d64d91714770f00bd10830b} [  2 ms] [default] [shop] [rows:0  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at`,`deleted_at` FROM `permission_info` WHERE (0=1) AND `deleted_at` IS NULL
+2024-06-16 13:18:01.609 [DEBU] {f0b97e935c64d917812c566b7b8afdb6} [ 16 ms] [default] [shop] [rows:15 ] SHOW FULL COLUMNS FROM `order_info`
+2024-06-16 13:18:01.622 [DEBU] {f0b97e935c64d917812c566b7b8afdb6} [ 11 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2024-06-16 00:00:00' AND '2024-06-16 23:59:59') AND (id)
+2024-06-16 13:18:03.138 [DEBU] {908494ef5c64d917822c566bfcacada2} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2024-06-16 00:00:00' AND '2024-06-16 23:59:59') AND (id)
+2024-06-16 13:18:09.929 [DEBU] {28ef3c845e64d917842c566b99163387} [  3 ms] [default] [shop] [rows:23 ] SHOW TABLES
+2024-06-16 13:18:09.932 [DEBU] {94f173845e64d917852c566b4659ca50} [  2 ms] [default] [shop] [rows:9  ] SHOW FULL COLUMNS FROM `admin_info`
+2024-06-16 13:18:09.936 [DEBU] {e4a9ac845e64d917862c566b4d099638} [  2 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`password`,`role_ids`,`created_at`,`updated_at`,`user_salt`,`is_admin`,`deleted_at` FROM `admin_info` WHERE (`name`='steve') AND `deleted_at` IS NULL LIMIT 1
+2024-06-16 13:18:09.946 [DEBU] {f06052855e64d917872c566bda146868} [  1 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`password`,`role_ids`,`created_at`,`updated_at`,`user_salt`,`is_admin`,`deleted_at` FROM `admin_info` WHERE (`id`='13') AND `deleted_at` IS NULL LIMIT 1
+2024-06-16 13:18:09.948 [DEBU] {880b6a855e64d917882c566b42d91732} [  2 ms] [default] [shop] [rows:5  ] SHOW FULL COLUMNS FROM `role_permission_info`
+2024-06-16 13:18:09.950 [DEBU] {98ac90855e64d917892c566be9889354} [  1 ms] [default] [shop] [rows:0  ] SELECT `id`,`role_id`,`permission_id`,`created_at`,`updated_at` FROM `role_permission_info` WHERE `role_id` IN ('1')
+2024-06-16 13:18:09.952 [DEBU] {a47ea8855e64d9178a2c566b9a8b6570} [  2 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `permission_info`
+2024-06-16 13:18:09.953 [DEBU] {d8fec6855e64d9178b2c566b9ffaefed} [  1 ms] [default] [shop] [rows:0  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at`,`deleted_at` FROM `permission_info` WHERE (0=1) AND `deleted_at` IS NULL
+2024-06-16 13:18:48.190 [DEBU] {3810b66c6764d9178c2c566b83e7d995} [  3 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2024-06-16 00:00:00' AND '2024-06-16 23:59:59') AND (id)
+2024-06-16 13:18:49.190 [DEBU] {547a7ba86764d9178d2c566bc2821f69} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2024-06-16 00:00:00' AND '2024-06-16 23:59:59') AND (id)
+2024-06-16 13:19:10.714 [DEBU] {7008caaa6c64d917e45ed22b372cc404} [ 10 ms] [default] [shop] [rows:23 ] SHOW TABLES
+2024-06-16 13:19:10.716 [DEBU] {7008caaa6c64d917e45ed22b372cc404} [  2 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `permission_info`
+2024-06-16 13:19:10.727 [DEBU] {7008caaa6c64d917e45ed22b372cc404} [ 10 ms] [default] [shop] [rows:7  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at`,`deleted_at` FROM `permission_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-16 13:19:10.728 [DEBU] {7008caaa6c64d917e45ed22b372cc404} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `permission_info` WHERE `deleted_at` IS NULL
+2024-06-16 13:19:10.729 [DEBU] {7008caaa6c64d917e45ed22b372cc404} [  0 ms] [default] [shop] [rows:7  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at` FROM `permission_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-16 13:21:17.557 [DEBU] {e40882338a64d91786288b7e3ee0f9c4} [  5 ms] [default] [shop] [rows:23 ] SHOW TABLES
+2024-06-16 13:21:17.559 [DEBU] {e40882338a64d91786288b7e3ee0f9c4} [  1 ms] [default] [shop] [rows:9  ] SHOW FULL COLUMNS FROM `admin_info`
+2024-06-16 13:21:17.560 [DEBU] {e40882338a64d91786288b7e3ee0f9c4} [  1 ms] [default] [shop] [rows:4  ] SELECT `id`,`name`,`password`,`role_ids`,`created_at`,`updated_at`,`user_salt`,`is_admin`,`deleted_at` FROM `admin_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-16 13:21:17.561 [DEBU] {e40882338a64d91786288b7e3ee0f9c4} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `admin_info` WHERE `deleted_at` IS NULL
+2024-06-16 13:21:17.562 [DEBU] {e40882338a64d91786288b7e3ee0f9c4} [  1 ms] [default] [shop] [rows:4  ] SELECT `id`,`name`,`role_ids`,`is_admin`,`created_at`,`updated_at` FROM `admin_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-16 13:21:30.003 [DEBU] {1c00e3188d64d91788288b7ee0422218} [ 13 ms] [default] [shop] [rows:9  ] SHOW FULL COLUMNS FROM `position_info`
+2024-06-16 13:21:30.017 [DEBU] {1c00e3188d64d91788288b7ee0422218} [ 13 ms] [default] [shop] [rows:6  ] SELECT `id`,`pic_url`,`goods_name`,`link`,`sort`,`goods_id`,`created_at`,`updated_at`,`deleted_at` FROM `position_info` WHERE `deleted_at` IS NULL ORDER BY `sort` DESC LIMIT 0,20
+2024-06-16 13:21:30.019 [DEBU] {1c00e3188d64d91788288b7ee0422218} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `position_info` WHERE `deleted_at` IS NULL
+2024-06-16 13:21:30.020 [DEBU] {1c00e3188d64d91788288b7ee0422218} [  1 ms] [default] [shop] [rows:6  ] SELECT `id`,`pic_url`,`link`,`goods_name`,`goods_id`,`sort`,`created_at`,`updated_at` FROM `position_info` WHERE `deleted_at` IS NULL ORDER BY `sort` DESC LIMIT 0,20
+2024-06-16 13:21:35.968 [DEBU] {dcae097d8e64d91789288b7e7e2b45e3} [  4 ms] [default] [shop] [rows:7  ] SHOW FULL COLUMNS FROM `rotation_info`
+2024-06-16 13:21:35.978 [DEBU] {dcae097d8e64d91789288b7e7e2b45e3} [ 10 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2024-06-16 13:21:35.979 [DEBU] {dcae097d8e64d91789288b7e7e2b45e3} [  0 ms] [default] [shop] [rows:8  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at` FROM `rotation_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-16 13:21:40.718 [DEBU] {50c14d988f64d9178a288b7e5686b839} [  1 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `role_info`
+2024-06-16 13:21:40.738 [DEBU] {50c14d988f64d9178a288b7e5686b839} [ 19 ms] [default] [shop] [rows:4  ] SELECT `id`,`name`,`desc`,`created_at`,`updated_at`,`deleted_at` FROM `role_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-16 13:21:40.739 [DEBU] {50c14d988f64d9178a288b7e5686b839} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `role_info` WHERE `deleted_at` IS NULL
+2024-06-16 13:21:40.740 [DEBU] {50c14d988f64d9178a288b7e5686b839} [  1 ms] [default] [shop] [rows:4  ] SELECT `id`,`name`,`desc`,`created_at`,`updated_at`,`deleted_at` FROM `role_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-16 13:21:46.304 [DEBU] {985442e59064d9178b288b7e611fdf46} [  1 ms] [default] [shop] [rows:15 ] SHOW FULL COLUMNS FROM `order_info`
+2024-06-16 13:21:46.305 [DEBU] {985442e59064d9178b288b7e611fdf46} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2024-06-16 00:00:00' AND '2024-06-16 23:59:59') AND (id)
+2024-06-16 13:21:48.733 [DEBU] {fc6ad7759164d9178c288b7e6995eadd} [  4 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2024-06-16 00:00:00' AND '2024-06-16 23:59:59') AND (id)
+2024-06-16 13:21:49.476 [DEBU] {ac625da29164d9178d288b7e3ada3b24} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2024-06-16 00:00:00' AND '2024-06-16 23:59:59') AND (id)
+2024-06-16 13:21:53.904 [DEBU] {3c1d9ca99264d9178e288b7e4a96034d} [ 12 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `permission_info`
+2024-06-16 13:21:53.905 [DEBU] {3c1d9ca99264d9178e288b7e4a96034d} [  0 ms] [default] [shop] [rows:7  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at`,`deleted_at` FROM `permission_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-16 13:21:53.906 [DEBU] {3c1d9ca99264d9178e288b7e4a96034d} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `permission_info` WHERE `deleted_at` IS NULL
+2024-06-16 13:21:53.907 [DEBU] {3c1d9ca99264d9178e288b7e4a96034d} [  1 ms] [default] [shop] [rows:7  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at` FROM `permission_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-16 13:33:35.817 [DEBU] {009f8b163665d9174816d672b067adfc} [ 18 ms] [default] [shop] [rows:15 ] SHOW FULL COLUMNS FROM `order_info`
+2024-06-16 13:33:35.819 [DEBU] {009f8b163665d9174816d672b067adfc} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2024-06-16 00:00:00' AND '2024-06-16 23:59:59') AND (id)
+2024-06-16 13:34:12.405 [DEBU] {8cae439c3e65d9174916d6722b4ee915} [  2 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2024-06-16 00:00:00' AND '2024-06-16 23:59:59') AND (id)
+2024-06-16 13:48:29.062 [DEBU] {d8a397070666d917c04baa6b77230268} [160 ms] [default] [shop] [rows:15 ] SHOW FULL COLUMNS FROM `order_info`
+2024-06-16 13:48:29.070 [DEBU] {d8a397070666d917c04baa6b77230268} [  7 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2024-06-16 00:00:00' AND '2024-06-16 23:59:59') AND (id)

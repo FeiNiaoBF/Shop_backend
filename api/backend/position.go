@@ -3,7 +3,7 @@ package backend
 import "github.com/gogf/gf/v2/frame/g"
 
 type PositionReq struct {
-	g.Meta    `path:"/position/add" tags:"Position" method:"post" summary:"You first position api"`
+	g.Meta    `path:"/position/add" tags:"Position" method:"post" summary:"添加手工位图接口"`
 	PicUrl    string `json:"pic_url" v:"required#图片链接不能为空" dc:"图片链接"`
 	Link      string `json:"link"    v:"required#跳转链接不能为空" dc:"跳转链接"`
 	GoodsName string `json:"goods_name" v:"required#商品名称不能为空" dc:"商品名称"` //冗余设计
@@ -27,12 +27,12 @@ type PositionDeleteRes struct {
 // Update
 type PositionUpdateReq struct {
 	g.Meta    `path:"/position/update/{Id}" method:"post" tags:"手工位图" summary:"修改手工位图接口"`
-	Id        uint   `json:"id"      v:"min:1#请选择需要修改的手工位图" dc:"手工位图Id"`
+	Id        uint   `json:"id" v:"min:1#请选择需要修改的手工位图" dc:"手工位图Id"`
 	PicUrl    string `json:"pic_url" v:"required#手工位图图片链接不能为空" dc:"图片链接"`
-	Link      string `json:"link"    v:"required#跳转链接不能为空" dc:"跳转链接"`
-	Sort      int    `json:"sort"    dc:"跳转链接"`
+	Link      string `json:"link" v:"required#跳转链接不能为空" dc:"跳转链接"`
+	Sort      int    `json:"sort" dc:"跳转链接"`
 	GoodsName string `json:"goods_name" v:"required#商品名称不能为空" dc:"商品名称"` //冗余设计
-	GoodsId   uint   `json:"goods_id"  v:"required#商品Id不能为空" dc:"商品ID"`  //mysql三范式
+	GoodsId   uint   `json:"goods_id" v:"required#商品Id不能为空" dc:"商品ID"`   //mysql三范式
 }
 
 type PositionUpdateRes struct {

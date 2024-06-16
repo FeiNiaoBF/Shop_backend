@@ -5,10 +5,25 @@ import (
 	"goBack/internal/service"
 	"goBack/utility/response"
 
+	"github.com/goflyfox/gtoken/gtoken"
+
+	"github.com/gogf/gf/v2/util/gconv"
+
 	"github.com/gogf/gf/v2/errors/gcode"
 	"github.com/gogf/gf/v2/errors/gerror"
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/net/ghttp"
+)
+
+const (
+	CtxAccountId      = "account_id"       //token获取
+	CtxAccountName    = "account_name"     //token获取
+	CtxAccountAvatar  = "account_avatar"   //token获取
+	CtxAccountSex     = "account_sex"      //token获取
+	CtxAccountStatus  = "account_status"   //token获取
+	CtxAccountSign    = "account_sign"     //token获取
+	CtxAccountIsAdmin = "account_is_admin" //token获取
+	CtxAccountRoleIds = "account_role_ids" //token获取
 )
 
 type sMiddleware struct {
@@ -21,8 +36,13 @@ func init() {
 
 func New() *sMiddleware {
 	return &sMiddleware{
-		LoginUrl: "/backend/login",
+		LoginUrl: "/api/login",
 	}
+}
+
+type TokenInfo struct {
+	Id   int
+	Name string
 }
 
 // 返回处理中间件
@@ -64,6 +84,7 @@ func (s *sMiddleware) Ctx(r *ghttp.Request) {
 			IsAdmin: uint8(userEntity.IsAdmin),
 		}
 	}
+	// 将自定义的上下文对象传递到模板变量中使用
 	r.Assigns(g.Map{
 		"Context": customCtx,
 	})
@@ -77,5 +98,34 @@ func (s *sMiddleware) CORS(r *ghttp.Request) {
 
 func (s *sMiddleware) Auth(r *ghttp.Request) {
 	service.Auth().MiddlewareFunc()(r)
+	r.Middleware.Next()
+}
+
+var GToken *gtoken.GfToken
+
+// GTokenSetCtx Gtoken鉴权
+func (s *sMiddleware) GTokenSetCtx(r *ghttp.Request) {
+	var tokenInfo TokenInfo
+	token := GToken.GetTokenData(r)
+	g.Dump("token:", token)
+	err := gconv.Struct(token.GetString("data"), &tokenInfo)
+	if err != nil {
+		response.Auth(r)
+		return
+	}
+	//账号被冻结拉黑
+	//if tokenInfo.Status == 2 {
+	//	response.AuthBlack(r)
+	//	return
+	//}
+	r.SetCtxVar(CtxAccountId, tokenInfo.Id)
+	r.SetCtxVar(CtxAccountName, tokenInfo.Name)
+	//r.SetCtxVar(CtxAccountAvatar, tokenInfo.Avatar)
+	//r.SetCtxVar(CtxAccountSex, tokenInfo.Sex)
+	//r.SetCtxVar(CtxAccountStatus, tokenInfo.Status)
+	//r.SetCtxVar(CtxAccountSign, tokenInfo.Sign)
+	//r.SetCtxVar(CtxAccountRoleIds, tokenInfo.RoleIds)
+	//r.SetCtxVar(CtxAccountIsAdmin, tokenInfo.Sign)
+
 	r.Middleware.Next()
 }
