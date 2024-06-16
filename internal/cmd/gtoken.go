@@ -17,6 +17,23 @@ import (
 	"github.com/gogf/gf/v2/util/gconv"
 )
 
+func SetGtoken() (gfAdminToken *gtoken.GfToken, err error) {
+	gfAdminToken = &gtoken.GfToken{
+		CacheMode:        consts.CacheMod,
+		ServerName:       consts.ServerName,
+		LoginPath:        "/login",
+		LoginBeforeFunc:  loginBeforeFunc,
+		LoginAfterFunc:   loginAfterFunc,
+		LogoutPath:       "/user/logout",
+		AuthPaths:        g.SliceStr{"/admin"},
+		AuthExcludePaths: g.SliceStr{"/admin/user/info", "/admin/system/user/info"}, // 不拦截路径
+		AuthAfterFunc:    authAfterFunc,
+		MultiLogin:       true,
+	}
+	err = gfAdminToken.Start()
+	return
+}
+
 func loginBeforeFunc(r *ghttp.Request) (string, any) {
 	name := r.Get("name").String()
 	password := r.Get("password").String()

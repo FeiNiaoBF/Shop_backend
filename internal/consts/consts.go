@@ -11,3 +11,16 @@ const (
 	CtxAdminRoleIds          = "CtxAdminRoleIds"
 	FileMaxUploadCountMinute = 10 // 最大文件上传量
 )
+
+// Project config
+const (
+	ProjectName  = "Go开源电商实战项目"
+	ProjectUsage = "Shop"
+	ProjectBrief = "start http server"
+)
+
+// Gtoken config
+const (
+	CacheMod   = 2
+	ServerName = "shop"
+)
