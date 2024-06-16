@@ -3,7 +3,7 @@ package backend
 import "github.com/gogf/gf/v2/frame/g"
 
 type AdminReq struct {
-	g.Meta   `path:"/admin/add" tags:"Admin" method:"post" summary:"添加管理员接口"`
+	g.Meta   `path:"/admin/add" tags:"管理员" method:"post" summary:"添加管理员接口"`
 	Name     string `json:"name" v:"required#用户名不能为空" dc:"用户名"`
 	Password string `json:"password"    v:"required#密码不能为空" dc:"密码"`
 	RoleIds  string `json:"role_ids"    dc:"角色ids"`

@@ -53,3 +53,48 @@
 2024-06-16 13:34:12.405 [DEBU] {8cae439c3e65d9174916d6722b4ee915} [  2 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2024-06-16 00:00:00' AND '2024-06-16 23:59:59') AND (id)
 2024-06-16 13:48:29.062 [DEBU] {d8a397070666d917c04baa6b77230268} [160 ms] [default] [shop] [rows:15 ] SHOW FULL COLUMNS FROM `order_info`
 2024-06-16 13:48:29.070 [DEBU] {d8a397070666d917c04baa6b77230268} [  7 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2024-06-16 00:00:00' AND '2024-06-16 23:59:59') AND (id)
+2024-06-16 16:45:17.821 [DEBU] {905ac41bac6fd917bc2af249112e3d76} [ 10 ms] [default] [shop] [rows:23 ] SHOW TABLES
+2024-06-16 16:45:17.856 [DEBU] {905ac41bac6fd917bc2af249112e3d76} [  2 ms] [default] [shop] [rows:9  ] SHOW FULL COLUMNS FROM `category_info`
+2024-06-16 16:45:17.862 [DEBU] {905ac41bac6fd917bc2af249112e3d76} [  5 ms] [default] [shop] [rows:7  ] SELECT `id`,`parent_id`,`name`,`pic_url`,`level`,`sort`,`created_at`,`updated_at`,`deleted_at` FROM `category_info` WHERE `deleted_at` IS NULL ORDER BY `sort` DESC LIMIT 0,10
+2024-06-16 16:45:17.867 [DEBU] {905ac41bac6fd917bc2af249112e3d76} [  5 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `category_info` WHERE `deleted_at` IS NULL
+2024-06-16 16:45:17.868 [DEBU] {905ac41bac6fd917bc2af249112e3d76} [  0 ms] [default] [shop] [rows:7  ] SELECT `id`,`parent_id`,`name`,`pic_url`,`level`,`sort`,`created_at`,`updated_at` FROM `category_info` WHERE `deleted_at` IS NULL ORDER BY `sort` DESC LIMIT 0,10
+2024-06-16 16:45:39.511 [DEBU] {64ba4629b16fd917bd2af24969c79e24} [  0 ms] [default] [shop] [rows:0  ] [txid:1] BEGIN
+2024-06-16 16:45:39.541 [DEBU] {64ba4629b16fd917bd2af24969c79e24} [ 29 ms] [default] [shop] [rows:1  ] [txid:1] UPDATE `category_info` SET `deleted_at`='2024-06-16 16:45:39' WHERE (`id`=7) AND `deleted_at` IS NULL
+2024-06-16 16:45:39.557 [DEBU] {64ba4629b16fd917bd2af24969c79e24} [ 16 ms] [default] [shop] [rows:0  ] [txid:1] COMMIT
+2024-06-16 16:46:13.401 [ERRO] {c435710cb96fd917be2af2494a953b7f} [ 13 ms] [default] [shop] [rows:0  ] INSERT INTO `category_info`(`parent_id`,`name`,`pic_url`,`level`,`sort`,`created_at`,`updated_at`) VALUES(18446744073678868153,'TEST','officia et',18446744073613805817,14251666,'2024-06-16 16:46:13','2024-06-16 16:46:13') 
+Error: Error 1264 (22003): Out of range value for column 'parent_id' at row 1 
+Stack:
+1.  goBack/internal/logic/category.(*sCategory).Create
+    E:/User/work/gowork/goBack/internal/logic/category/category.go:26
+2.  goBack/internal/controller.(*cCategory).Create
+    E:/User/work/gowork/goBack/internal/controller/category.go:16
+3.  goBack/internal/logic/middleware.(*sMiddleware).ResponseHandler
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:50
+4.  goBack/internal/logic/middleware.(*sMiddleware).Ctx
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:91
+5.  goBack/internal/logic/middleware.(*sMiddleware).CORS
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:96
+
+2024-06-16 16:46:56.876 [DEBU] {181b8c2bc36fd917bf2af2497efd6d5c} [ 17 ms] [default] [shop] [rows:1  ] INSERT INTO `category_info`(`parent_id`,`name`,`pic_url`,`level`,`sort`,`created_at`,`updated_at`) VALUES(12,'TEST','http://dummyimage.com/400x400',12,1,'2024-06-16 16:46:56','2024-06-16 16:46:56') 
+2024-06-16 16:47:03.566 [DEBU] {b8f755bbc46fd917c02af249b429be67} [  0 ms] [default] [shop] [rows:7  ] SELECT `id`,`parent_id`,`name`,`pic_url`,`level`,`sort`,`created_at`,`updated_at`,`deleted_at` FROM `category_info` WHERE `deleted_at` IS NULL ORDER BY `sort` DESC LIMIT 0,10
+2024-06-16 16:47:03.567 [DEBU] {b8f755bbc46fd917c02af249b429be67} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `category_info` WHERE `deleted_at` IS NULL
+2024-06-16 16:47:03.568 [DEBU] {b8f755bbc46fd917c02af249b429be67} [  1 ms] [default] [shop] [rows:7  ] SELECT `id`,`parent_id`,`name`,`pic_url`,`level`,`sort`,`created_at`,`updated_at` FROM `category_info` WHERE `deleted_at` IS NULL ORDER BY `sort` DESC LIMIT 0,10
+2024-06-16 16:47:07.221 [DEBU] {685d2995c56fd917c12af2497ca6b817} [  1 ms] [default] [shop] [rows:7  ] SELECT `id`,`parent_id`,`name`,`pic_url`,`level`,`sort`,`created_at`,`updated_at`,`deleted_at` FROM `category_info` WHERE `deleted_at` IS NULL ORDER BY `sort` DESC LIMIT 0,10
+2024-06-16 16:47:07.222 [DEBU] {685d2995c56fd917c12af2497ca6b817} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `category_info` WHERE `deleted_at` IS NULL
+2024-06-16 16:47:07.222 [DEBU] {685d2995c56fd917c12af2497ca6b817} [  0 ms] [default] [shop] [rows:7  ] SELECT `id`,`parent_id`,`name`,`pic_url`,`level`,`sort`,`created_at`,`updated_at` FROM `category_info` WHERE `deleted_at` IS NULL ORDER BY `sort` DESC LIMIT 0,10
+2024-06-16 16:47:13.054 [DEBU] {f8aad5f0c66fd917c22af2499a8e7b99} [  0 ms] [default] [shop] [rows:7  ] SELECT `id`,`parent_id`,`name`,`pic_url`,`level`,`sort`,`created_at`,`updated_at`,`deleted_at` FROM `category_info` WHERE `deleted_at` IS NULL ORDER BY `sort` DESC LIMIT 0,10
+2024-06-16 16:47:13.055 [DEBU] {f8aad5f0c66fd917c22af2499a8e7b99} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `category_info` WHERE `deleted_at` IS NULL
+2024-06-16 16:47:13.056 [DEBU] {f8aad5f0c66fd917c22af2499a8e7b99} [  0 ms] [default] [shop] [rows:7  ] SELECT `id`,`parent_id`,`name`,`pic_url`,`level`,`sort`,`created_at`,`updated_at` FROM `category_info` WHERE `deleted_at` IS NULL ORDER BY `sort` DESC LIMIT 0,10
+2024-06-16 16:47:21.849 [DEBU] {4c7314fdc86fd917c32af2494487d4eb} [  0 ms] [default] [shop] [rows:7  ] SELECT `id`,`parent_id`,`name`,`pic_url`,`level`,`sort`,`created_at`,`updated_at`,`deleted_at` FROM `category_info` WHERE `deleted_at` IS NULL ORDER BY `sort` DESC LIMIT 0,10
+2024-06-16 16:47:21.850 [DEBU] {4c7314fdc86fd917c32af2494487d4eb} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `category_info` WHERE `deleted_at` IS NULL
+2024-06-16 16:47:21.850 [DEBU] {4c7314fdc86fd917c32af2494487d4eb} [  0 ms] [default] [shop] [rows:7  ] SELECT `id`,`parent_id`,`name`,`pic_url`,`level`,`sort`,`created_at`,`updated_at` FROM `category_info` WHERE `deleted_at` IS NULL ORDER BY `sort` DESC LIMIT 0,10
+2024-06-16 16:47:26.400 [DEBU] {74fd510cca6fd917c42af249c93cf41f} [  1 ms] [default] [shop] [rows:7  ] SELECT `id`,`parent_id`,`name`,`pic_url`,`level`,`sort`,`created_at`,`updated_at`,`deleted_at` FROM `category_info` WHERE `deleted_at` IS NULL ORDER BY `sort` DESC LIMIT 0,10
+2024-06-16 16:47:26.401 [DEBU] {74fd510cca6fd917c42af249c93cf41f} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `category_info` WHERE `deleted_at` IS NULL
+2024-06-16 16:47:26.402 [DEBU] {74fd510cca6fd917c42af249c93cf41f} [  1 ms] [default] [shop] [rows:7  ] SELECT `id`,`parent_id`,`name`,`pic_url`,`level`,`sort`,`created_at`,`updated_at` FROM `category_info` WHERE `deleted_at` IS NULL ORDER BY `sort` DESC LIMIT 0,10
+2024-06-16 16:57:34.095 [DEBU] {20fc78895770d9179f2dc02a6a03b02b} [  6 ms] [default] [shop] [rows:15 ] SHOW FULL COLUMNS FROM `order_info`
+2024-06-16 16:57:34.097 [DEBU] {20fc78895770d9179f2dc02a6a03b02b} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2024-06-16 00:00:00' AND '2024-06-16 23:59:59') AND (id)
+2024-06-16 17:25:31.821 [DEBU] {709a3c27de71d91746a2400f6251e656} [ 18 ms] [default] [shop] [rows:23 ] SHOW TABLES
+2024-06-16 17:25:31.824 [DEBU] {709a3c27de71d91746a2400f6251e656} [  2 ms] [default] [shop] [rows:9  ] SHOW FULL COLUMNS FROM `category_info`
+2024-06-16 17:25:31.825 [DEBU] {709a3c27de71d91746a2400f6251e656} [  1 ms] [default] [shop] [rows:7  ] SELECT `id`,`parent_id`,`name`,`pic_url`,`level`,`sort`,`created_at`,`updated_at`,`deleted_at` FROM `category_info` WHERE `deleted_at` IS NULL ORDER BY `sort` DESC
+2024-06-16 17:25:31.826 [DEBU] {709a3c27de71d91746a2400f6251e656} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `category_info` WHERE `deleted_at` IS NULL
+2024-06-16 17:25:31.826 [DEBU] {709a3c27de71d91746a2400f6251e656} [  0 ms] [default] [shop] [rows:7  ] SELECT `id`,`parent_id`,`name`,`pic_url`,`level`,`sort`,`created_at`,`updated_at` FROM `category_info` WHERE `deleted_at` IS NULL ORDER BY `sort` DESC

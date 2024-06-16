@@ -3,7 +3,7 @@ package backend
 import "github.com/gogf/gf/v2/frame/g"
 
 type DataHeadReq struct {
-	g.Meta `path:"/data/head" method:"get" tags:"数据data" desc:"数据大屏的头部信息" summary:"数据大屏的头部信息接口"`
+	g.Meta `path:"/data/head" method:"get" tags:"数据" desc:"数据大屏的头部信息" summary:"数据大屏的头部信息接口"`
 }
 
 type DataHeadRes struct {

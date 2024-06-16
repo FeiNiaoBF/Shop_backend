@@ -13,10 +13,11 @@ type (
 	IMiddleware interface {
 		// 返回处理中间件
 		ResponseHandler(r *ghttp.Request)
-		// 自定义上下文对象
 		Ctx(r *ghttp.Request)
 		CORS(r *ghttp.Request)
 		Auth(r *ghttp.Request)
+		// GTokenSetCtx Gtoken鉴权
+		GTokenSetCtx(r *ghttp.Request)
 	}
 )
 

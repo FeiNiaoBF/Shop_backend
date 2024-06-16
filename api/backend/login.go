@@ -29,7 +29,7 @@ type LoginRes struct {
 }
 
 type RefreshTokenReq struct {
-	g.Meta `path:"/refresh_token" method:"post" summary:"刷新登录接口"`
+	g.Meta `path:"/refresh_token" method:"post" summary:"刷新登录接口" tags:"登录"`
 }
 
 type RefreshTokenRes struct {
@@ -38,7 +38,7 @@ type RefreshTokenRes struct {
 }
 
 type LogoutReq struct {
-	g.Meta `path:"/logout" method:"post"`
+	g.Meta `path:"/logout" method:"post" tags:"登录" summary:"退出接口"`
 }
 
 type LogoutRes struct {

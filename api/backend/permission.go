@@ -8,7 +8,7 @@ type PermissionCreateUpdateBase struct {
 }
 
 type PermissionReq struct {
-	g.Meta `path:"/permission/add" method:"post" summary:"添加权限接口" tags:"permission"`
+	g.Meta `path:"/permission/add" method:"post" summary:"添加权限接口" tags:"权限"`
 	PermissionCreateUpdateBase
 }
 
@@ -17,7 +17,7 @@ type PermissionRes struct {
 }
 
 type PermissionUpdateReq struct {
-	g.Meta `path:"/permission/update" method:"post" summary:"修改权限接口" tags:"permission"`
+	g.Meta `path:"/permission/update" method:"post" summary:"修改权限接口" tags:"权限"`
 	Id     uint `json:"id" v:"required#id必填" desc:"id"`
 	PermissionCreateUpdateBase
 }

@@ -47,6 +47,7 @@ var (
 						controller.Data,         // 数据
 						controller.Role,         //管理角色
 						controller.Permission,   // 权限
+
 					)
 					// Special handler that needs authentication.
 					group.Group("/", func(group *ghttp.RouterGroup) {
@@ -59,8 +60,9 @@ var (
 							"/admin/info": controller.Admin.Info,
 						})
 						group.Bind(
-							controller.File,   // 本地文件
-							controller.Upload, // 云平台
+							controller.File,     // 本地文件
+							controller.Upload,   // 云平台
+							controller.Category, // 商品分类管理
 						)
 					})
 				})
