@@ -8,6 +8,7 @@ import (
 	_ "goBack/internal/logic/admin"
 	_ "goBack/internal/logic/bizctx"
 	_ "goBack/internal/logic/category"
+	_ "goBack/internal/logic/coupon"
 	_ "goBack/internal/logic/data"
 	_ "goBack/internal/logic/file"
 	_ "goBack/internal/logic/login"

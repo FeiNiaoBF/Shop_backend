@@ -21,7 +21,7 @@ type CategoryCreateRes struct {
 
 type CategoryUpdateReq struct {
 	g.Meta `path:"/category/update" tags:"商品分类" method:"post" summary:"更新商品种类接口"`
-	Id     int `json:"id" v:"min:1#请选择需要删除的商品分类" dc:"商品分类id"`
+	Id     int `json:"id" v:"min:1#请选择需要更新的商品分类" dc:"商品分类id"`
 	CategoryBase
 }
 

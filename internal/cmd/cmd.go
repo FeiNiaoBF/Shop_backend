@@ -63,6 +63,7 @@ var (
 							controller.File,     // 本地文件
 							controller.Upload,   // 云平台
 							controller.Category, // 商品分类管理
+							controller.Coupon,   // 优惠劵
 						)
 					})
 				})
