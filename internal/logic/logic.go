@@ -18,4 +18,5 @@ import (
 	_ "goBack/internal/logic/role"
 	_ "goBack/internal/logic/rotation"
 	_ "goBack/internal/logic/session"
+	_ "goBack/internal/logic/user_coupon"
 )
