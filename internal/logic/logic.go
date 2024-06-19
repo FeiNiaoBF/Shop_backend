@@ -11,6 +11,8 @@ import (
 	_ "goBack/internal/logic/coupon"
 	_ "goBack/internal/logic/data"
 	_ "goBack/internal/logic/file"
+	_ "goBack/internal/logic/goods"
+	_ "goBack/internal/logic/goodsoption"
 	_ "goBack/internal/logic/login"
 	_ "goBack/internal/logic/middleware"
 	_ "goBack/internal/logic/permission"

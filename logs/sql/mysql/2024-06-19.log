@@ -1,0 +1,237 @@
+2024-06-19 13:40:13.120 [DEBU] {845f27435051da170fbf287e02358722} [159 ms] [default] [shop] [rows:23 ] SHOW TABLES
+2024-06-19 13:40:13.161 [DEBU] {b4fea64e5051da1710bf287ef42b4439} [  7 ms] [default] [shop] [rows:9  ] SHOW FULL COLUMNS FROM `admin_info`
+2024-06-19 13:40:13.197 [DEBU] {3071214f5051da1711bf287edc7f8f81} [ 35 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`password`,`role_ids`,`created_at`,`updated_at`,`user_salt`,`is_admin`,`deleted_at` FROM `admin_info` WHERE (`name`='vip') AND `deleted_at` IS NULL LIMIT 1
+2024-06-19 13:40:21.221 [DEBU] {5c1b692f5251da1713bf287e9fe0c6a9} [  2 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`password`,`role_ids`,`created_at`,`updated_at`,`user_salt`,`is_admin`,`deleted_at` FROM `admin_info` WHERE (`name`='vip') AND `deleted_at` IS NULL LIMIT 1
+2024-06-19 13:40:21.276 [DEBU] {9896c2325251da1714bf287eff8a0392} [  0 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`password`,`role_ids`,`created_at`,`updated_at`,`user_salt`,`is_admin`,`deleted_at` FROM `admin_info` WHERE (`id`='17') AND `deleted_at` IS NULL LIMIT 1
+2024-06-19 13:40:21.278 [DEBU] {f8f5d5325251da1715bf287e431b3228} [  1 ms] [default] [shop] [rows:5  ] SHOW FULL COLUMNS FROM `role_permission_info`
+2024-06-19 13:40:21.295 [DEBU] {e474f2325251da1716bf287e13a5f419} [ 16 ms] [default] [shop] [rows:1  ] SELECT `id`,`role_id`,`permission_id`,`created_at`,`updated_at` FROM `role_permission_info` WHERE `role_id` IN ('do in eu Duis')
+2024-06-19 13:40:21.297 [DEBU] {84a6f7335251da1717bf287e2584779e} [  1 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `permission_info`
+2024-06-19 13:40:21.312 [DEBU] {0c8419345251da1718bf287e715c6d32} [ 14 ms] [default] [shop] [rows:0  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at`,`deleted_at` FROM `permission_info` WHERE (`id` IN (0)) AND `deleted_at` IS NULL
+2024-06-19 13:40:25.343 [DEBU] {dc9492245351da1719bf287e7244c549} [  5 ms] [default] [shop] [rows:9  ] SHOW FULL COLUMNS FROM `goods_options_info`
+2024-06-19 13:40:25.369 [DEBU] {dc9492245351da1719bf287e7244c549} [ 25 ms] [default] [shop] [rows:1  ] INSERT INTO `goods_options_info`(`goods_id`,`pic_url`,`name`,`price`,`stock`,`created_at`,`updated_at`) VALUES(1,'deserunt fugiat adipisicing','dolore ipsum fugiat eiusmod',10,19,'2024-06-19 13:40:25','2024-06-19 13:40:25') 
+2024-06-19 13:40:40.178 [DEBU] {74643a995651da171abf287e1a519392} [  1 ms] [default] [shop] [rows:4  ] SELECT `id`,`goods_id`,`pic_url`,`name`,`price`,`stock`,`created_at`,`updated_at`,`deleted_at` FROM `goods_options_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-19 13:40:40.182 [DEBU] {74643a995651da171abf287e1a519392} [  4 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `goods_options_info` WHERE `deleted_at` IS NULL
+2024-06-19 13:40:40.183 [DEBU] {74643a995651da171abf287e1a519392} [  1 ms] [default] [shop] [rows:4  ] SELECT `id`,`goods_id`,`pic_url`,`name`,`price`,`stock`,`created_at`,`updated_at`,`deleted_at` FROM `goods_options_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-19 13:41:07.029 [DEBU] {6c3789d85c51da171bbf287e57c158b8} [  8 ms] [default] [shop] [rows:0  ] UPDATE `goods_options_info` SET `goods_id`=100,`pic_url`='sunt nulla',`name`='sunt magna consequat laboris in',`price`=100,`stock`=100,`updated_at`='2024-06-19 13:41:07' WHERE (`id`=100) AND `deleted_at` IS NULL
+2024-06-19 13:42:29.107 [DEBU] {300540f56f51da171cbf287e4b90dbe3} [  6 ms] [default] [shop] [rows:0  ] UPDATE `goods_options_info` SET `goods_id`=100,`pic_url`='sunt nulla',`name`='sunt magna consequat laboris in',`price`=100,`stock`=100,`updated_at`='2024-06-19 13:42:29' WHERE (`id`=100) AND `deleted_at` IS NULL
+2024-06-19 13:42:52.124 [DEBU] {70a4db517551da171dbf287eb3ffc8d3} [  2 ms] [default] [shop] [rows:0  ] UPDATE `goods_options_info` SET `goods_id`=100,`pic_url`='sunt nulla',`name`='sunt magna consequat laboris in',`price`=100,`stock`=100,`updated_at`='2024-06-19 13:42:52' WHERE (`id`=100) AND `deleted_at` IS NULL
+2024-06-19 13:43:14.799 [DEBU] {b469ef987a51da171ebf287e771cdf4a} [  3 ms] [default] [shop] [rows:0  ] UPDATE `goods_options_info` SET `goods_id`=0,`pic_url`='sunt nulla',`name`='dasd',`price`=0,`stock`=100,`updated_at`='2024-06-19 13:43:14' WHERE (`id`=0) AND `deleted_at` IS NULL
+2024-06-19 13:48:48.478 [DEBU] {0cd91049c851da178336f33cfc93ef82} [ 18 ms] [default] [shop] [rows:23 ] SHOW TABLES
+2024-06-19 13:48:48.483 [DEBU] {0cd91049c851da178336f33cfc93ef82} [  3 ms] [default] [shop] [rows:9  ] SHOW FULL COLUMNS FROM `goods_options_info`
+2024-06-19 13:48:48.485 [DEBU] {0cd91049c851da178336f33cfc93ef82} [  2 ms] [default] [shop] [rows:0  ] UPDATE `goods_options_info` SET `goods_id`=18446744073659013719,`pic_url`='aliqua quis veniam cillum',`name`='irure exercitation aute',`price`=-91218303,`stock`=72833055,`updated_at`='2024-06-19 13:48:48' WHERE (`id`=18446744073659013719) AND `deleted_at` IS NULL
+2024-06-19 13:49:11.325 [DEBU] {a004639bcd51da178436f33c202877b7} [  1 ms] [default] [shop] [rows:0  ] UPDATE `goods_options_info` SET `goods_id`=1,`pic_url`='aliqua',`name`='irure',`price`=10,`stock`=100,`updated_at`='2024-06-19 13:49:11' WHERE (`id`=1) AND `deleted_at` IS NULL
+2024-06-19 13:51:15.577 [DEBU] {98928689ea51da178536f33c096f6c0a} [  4 ms] [default] [shop] [rows:0  ] UPDATE `goods_options_info` SET `goods_id`=1,`pic_url`='aliqua',`name`='irure',`price`=10,`stock`=100,`updated_at`='2024-06-19 13:51:15' WHERE (`id`=1) AND `deleted_at` IS NULL
+2024-06-19 13:52:00.369 [DEBU] {98aad8f6f451da178636f33c159309bb} [ 15 ms] [default] [shop] [rows:1  ] UPDATE `goods_options_info` SET `goods_id`=8,`pic_url`='aliqua',`name`='irure',`price`=10,`stock`=100,`updated_at`='2024-06-19 13:52:00' WHERE (`id`=8) AND `deleted_at` IS NULL
+2024-06-19 13:57:05.850 [DEBU] {c4f44f173c52da170e3d8a521eff8ad5} [  4 ms] [default] [shop] [rows:23 ] SHOW TABLES
+2024-06-19 13:57:05.852 [DEBU] {c4f44f173c52da170e3d8a521eff8ad5} [  1 ms] [default] [shop] [rows:9  ] SHOW FULL COLUMNS FROM `goods_options_info`
+2024-06-19 13:57:05.859 [DEBU] {c4f44f173c52da170e3d8a521eff8ad5} [  6 ms] [default] [shop] [rows:1  ] UPDATE `goods_options_info` SET `goods_id`=100,`pic_url`='elit veniam culpa sunt irure',`name`='Ut dolor et minim ut',`price`=36804546,`stock`=2823158,`updated_at`='2024-06-19 13:57:05' WHERE (`id`=8) AND `deleted_at` IS NULL
+2024-06-19 13:57:25.139 [DEBU] {5c5c23954052da170f3d8a52f75cd526} [  8 ms] [default] [shop] [rows:1  ] UPDATE `goods_options_info` SET `deleted_at`='2024-06-19 13:57:25' WHERE (`id`=8) AND `deleted_at` IS NULL
+2024-06-19 13:57:41.154 [DEBU] {547a03504452da17103d8a52872d10cb} [  3 ms] [default] [shop] [rows:15 ] SHOW FULL COLUMNS FROM `goods_info`
+2024-06-19 13:57:41.156 [DEBU] {547a03504452da17103d8a52872d10cb} [  1 ms] [default] [shop] [rows:4  ] SELECT `id`,`pic_url`,`name`,`price`,`level1_category_id`,`level2_category_id`,`level3_category_id`,`brand`,`stock`,`sale`,`tags`,`detail_info`,`created_at`,`updated_at`,`deleted_at` FROM `goods_info` WHERE `deleted_at` IS NULL ORDER BY `price` DESC LIMIT 0,10
+2024-06-19 13:57:41.157 [DEBU] {547a03504452da17103d8a52872d10cb} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `goods_info` WHERE `deleted_at` IS NULL
+2024-06-19 13:57:41.158 [DEBU] {547a03504452da17103d8a52872d10cb} [  1 ms] [default] [shop] [rows:4  ] SELECT `id`,`pic_url`,`name`,`price`,`level1_category_id`,`level2_category_id`,`level3_category_id`,`brand`,`stock`,`sale`,`tags`,`detail_info`,`created_at`,`updated_at`,`deleted_at` FROM `goods_info` WHERE `deleted_at` IS NULL ORDER BY `price` DESC LIMIT 0,10
+2024-06-19 13:58:02.617 [DEBU] {806fa24e4952da17113d8a528bd1283b} [ 15 ms] [default] [shop] [rows:1  ] UPDATE `goods_info` SET `deleted_at`='2024-06-19 13:58:02' WHERE (`id`=7) AND `deleted_at` IS NULL
+2024-06-19 13:59:01.336 [DEBU] {f0e60ffb5652da17123d8a525b2c3c5a} [  8 ms] [default] [shop] [rows:9  ] SHOW FULL COLUMNS FROM `admin_info`
+2024-06-19 13:59:01.339 [ERRO] {f0e60ffb5652da17123d8a525b2c3c5a} [  2 ms] [default] [shop] [rows:0  ] INSERT INTO `admin_info`(`name`,`password`,`role_ids`,`created_at`,`updated_at`,`user_salt`,`is_admin`) VALUES('eu veniam non','42f54ef978567f36ae972f846e4b0ecb','laborum dolore elit','2024-06-19 13:59:01','2024-06-19 13:59:01','6iwOcqxgM4',69085967) 
+Error: Error 1264 (22003): Out of range value for column 'is_admin' at row 1 
+Stack:
+1.  goBack/internal/logic/admin.(*sAdmin).Create
+    E:/User/work/gowork/goBack/internal/logic/admin/admin.go:36
+2.  goBack/internal/controller.(*cAdmin).Create
+    E:/User/work/gowork/goBack/internal/controller/admin.go:19
+3.  goBack/internal/logic/middleware.(*sMiddleware).ResponseHandler
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:50
+4.  goBack/internal/logic/middleware.(*sMiddleware).Ctx
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:91
+5.  goBack/internal/logic/middleware.(*sMiddleware).CORS
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:96
+
+2024-06-19 13:59:01.387 [DEBU] {44d88ffe5652da17133d8a52ab141514} [  0 ms] [default] [shop] [rows:0  ] [txid:1] BEGIN
+2024-06-19 13:59:01.389 [DEBU] {44d88ffe5652da17133d8a52ab141514} [  1 ms] [default] [shop] [rows:0  ] [txid:1] UPDATE `admin_info` SET `deleted_at`='2024-06-19 13:59:01' WHERE (`id`=17228698) AND `deleted_at` IS NULL
+2024-06-19 13:59:01.389 [DEBU] {44d88ffe5652da17133d8a52ab141514} [  0 ms] [default] [shop] [rows:0  ] [txid:1] COMMIT
+2024-06-19 13:59:01.552 [DEBU] {58f464085752da17153d8a52aec7d97f} [  0 ms] [default] [shop] [rows:5  ] SELECT `id`,`name`,`password`,`role_ids`,`created_at`,`updated_at`,`user_salt`,`is_admin`,`deleted_at` FROM `admin_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-19 13:59:01.553 [DEBU] {58f464085752da17153d8a52aec7d97f} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `admin_info` WHERE `deleted_at` IS NULL
+2024-06-19 13:59:01.554 [DEBU] {58f464085752da17153d8a52aec7d97f} [  0 ms] [default] [shop] [rows:5  ] SELECT `id`,`name`,`role_ids`,`is_admin`,`created_at`,`updated_at` FROM `admin_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-19 13:59:01.696 [DEBU] {404ace105752da17173d8a5288ad5e1a} [  2 ms] [default] [shop] [rows:9  ] SHOW FULL COLUMNS FROM `category_info`
+2024-06-19 13:59:01.701 [ERRO] {404ace105752da17173d8a5288ad5e1a} [  3 ms] [default] [shop] [rows:0  ] INSERT INTO `category_info`(`parent_id`,`name`,`pic_url`,`level`,`sort`,`created_at`,`updated_at`) VALUES(18446744073689580661,'non aliquip in','nulla aliquip',33536213,7065516,'2024-06-19 13:59:01','2024-06-19 13:59:01') 
+Error: Error 1264 (22003): Out of range value for column 'parent_id' at row 1 
+Stack:
+1.  goBack/internal/logic/category.(*sCategory).Create
+    E:/User/work/gowork/goBack/internal/logic/category/category.go:26
+2.  goBack/internal/controller.(*cCategory).Create
+    E:/User/work/gowork/goBack/internal/controller/category.go:16
+3.  goBack/internal/cmd.authAfterFunc
+    E:/User/work/gowork/goBack/internal/cmd/gtoken.go:127
+4.  github.com/goflyfox/gtoken/gtoken.(*GfToken).authMiddleware
+    C:/Users/Yeelight/dev/Go/modules/lib/github.com/goflyfox/gtoken@v1.5.10/gtoken/gtoken.go:130
+5.  goBack/internal/logic/middleware.(*sMiddleware).ResponseHandler
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:50
+6.  goBack/internal/logic/middleware.(*sMiddleware).Ctx
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:91
+7.  goBack/internal/logic/middleware.(*sMiddleware).CORS
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:96
+
+2024-06-19 13:59:01.875 [DEBU] {f078081b5752da17193d8a52ef348221} [  9 ms] [default] [shop] [rows:7  ] SELECT `id`,`parent_id`,`name`,`pic_url`,`level`,`sort`,`created_at`,`updated_at`,`deleted_at` FROM `category_info` WHERE `deleted_at` IS NULL ORDER BY `sort` DESC
+2024-06-19 13:59:01.877 [DEBU] {f078081b5752da17193d8a52ef348221} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `category_info` WHERE `deleted_at` IS NULL
+2024-06-19 13:59:01.877 [DEBU] {f078081b5752da17193d8a52ef348221} [  0 ms] [default] [shop] [rows:7  ] SELECT `id`,`parent_id`,`name`,`pic_url`,`level`,`sort`,`created_at`,`updated_at` FROM `category_info` WHERE `deleted_at` IS NULL ORDER BY `sort` DESC
+2024-06-19 13:59:01.974 [DEBU] {94157b215752da171a3d8a5230a1f152} [  0 ms] [default] [shop] [rows:7  ] SELECT `id`,`parent_id`,`name`,`pic_url`,`level`,`sort`,`created_at`,`updated_at`,`deleted_at` FROM `category_info` WHERE `deleted_at` IS NULL ORDER BY `sort` DESC LIMIT 0,10
+2024-06-19 13:59:01.975 [DEBU] {94157b215752da171a3d8a5230a1f152} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `category_info` WHERE `deleted_at` IS NULL
+2024-06-19 13:59:01.976 [DEBU] {94157b215752da171a3d8a5230a1f152} [  1 ms] [default] [shop] [rows:7  ] SELECT `id`,`parent_id`,`name`,`pic_url`,`level`,`sort`,`created_at`,`updated_at` FROM `category_info` WHERE `deleted_at` IS NULL ORDER BY `sort` DESC LIMIT 0,10
+2024-06-19 13:59:02.101 [DEBU] {08e6e8285752da171c3d8a520f1b9a27} [  2 ms] [default] [shop] [rows:8  ] SHOW FULL COLUMNS FROM `coupon_info`
+2024-06-19 13:59:02.103 [ERRO] {08e6e8285752da171c3d8a520f1b9a27} [  0 ms] [default] [shop] [rows:0  ] INSERT INTO `coupon_info`(`name`,`price`,`goods_ids`,`category_id`,`created_at`,`updated_at`) VALUES('eu',-33121399,'tempor eiusmod',18446744073661791285,'2024-06-19 13:59:02','2024-06-19 13:59:02') 
+Error: Error 1264 (22003): Out of range value for column 'category_id' at row 1 
+Stack:
+1.  goBack/internal/logic/coupon.(*sCoupon).Create
+    E:/User/work/gowork/goBack/internal/logic/coupon/coupon.go:26
+2.  goBack/internal/controller.(*cCoupon).Create
+    E:/User/work/gowork/goBack/internal/controller/coupon.go:16
+3.  goBack/internal/cmd.authAfterFunc
+    E:/User/work/gowork/goBack/internal/cmd/gtoken.go:127
+4.  github.com/goflyfox/gtoken/gtoken.(*GfToken).authMiddleware
+    C:/Users/Yeelight/dev/Go/modules/lib/github.com/goflyfox/gtoken@v1.5.10/gtoken/gtoken.go:130
+5.  goBack/internal/logic/middleware.(*sMiddleware).ResponseHandler
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:50
+6.  goBack/internal/logic/middleware.(*sMiddleware).Ctx
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:91
+7.  goBack/internal/logic/middleware.(*sMiddleware).CORS
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:96
+
+2024-06-19 13:59:02.177 [DEBU] {54d3872d5752da171d3d8a529583d7c4} [  0 ms] [default] [shop] [rows:0  ] [txid:2] BEGIN
+2024-06-19 13:59:02.178 [DEBU] {54d3872d5752da171d3d8a529583d7c4} [  1 ms] [default] [shop] [rows:0  ] [txid:2] UPDATE `coupon_info` SET `deleted_at`='2024-06-19 13:59:02' WHERE (`id`=26556883) AND `deleted_at` IS NULL
+2024-06-19 13:59:02.178 [DEBU] {54d3872d5752da171d3d8a529583d7c4} [  0 ms] [default] [shop] [rows:0  ] [txid:2] COMMIT
+2024-06-19 13:59:02.239 [DEBU] {b05f32315752da171e3d8a5252a1aab1} [  1 ms] [default] [shop] [rows:14 ] SELECT `id`,`name`,`price`,`goods_ids`,`category_id`,`created_at`,`updated_at`,`deleted_at` FROM `coupon_info` WHERE `deleted_at` IS NULL ORDER BY `price` DESC
+2024-06-19 13:59:02.240 [DEBU] {b05f32315752da171e3d8a5252a1aab1} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `coupon_info` WHERE `deleted_at` IS NULL
+2024-06-19 13:59:02.241 [DEBU] {b05f32315752da171e3d8a5252a1aab1} [  1 ms] [default] [shop] [rows:14 ] SELECT `id`,`name`,`price`,`goods_ids`,`category_id`,`created_at`,`updated_at` FROM `coupon_info` WHERE `deleted_at` IS NULL ORDER BY `price` DESC
+2024-06-19 13:59:02.315 [DEBU] {c439cc355752da171f3d8a5277a65eb9} [  0 ms] [default] [shop] [rows:10 ] SELECT `id`,`name`,`price`,`goods_ids`,`category_id`,`created_at`,`updated_at`,`deleted_at` FROM `coupon_info` WHERE `deleted_at` IS NULL ORDER BY `price` DESC LIMIT 0,10
+2024-06-19 13:59:02.316 [DEBU] {c439cc355752da171f3d8a5277a65eb9} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `coupon_info` WHERE `deleted_at` IS NULL
+2024-06-19 13:59:02.316 [DEBU] {c439cc355752da171f3d8a5277a65eb9} [  0 ms] [default] [shop] [rows:10 ] SELECT `id`,`name`,`price`,`goods_ids`,`category_id`,`created_at`,`updated_at` FROM `coupon_info` WHERE `deleted_at` IS NULL ORDER BY `price` DESC LIMIT 0,10
+2024-06-19 13:59:02.375 [DEBU] {74285c395752da17203d8a52c50bfe98} [  0 ms] [default] [shop] [rows:0  ] UPDATE `coupon_info` SET `name`='Lorem aute',`price`=22071012,`goods_ids`='enim occaecat',`category_id`=18446744073660161416,`updated_at`='2024-06-19 13:59:02' WHERE (`id`=77999356) AND `deleted_at` IS NULL
+2024-06-19 13:59:02.422 [DEBU] {58ed233c5752da17213d8a52c5bf04d0} [  2 ms] [default] [shop] [rows:15 ] SHOW FULL COLUMNS FROM `order_info`
+2024-06-19 13:59:02.435 [DEBU] {58ed233c5752da17213d8a52c5bf04d0} [ 13 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2024-06-19 00:00:00' AND '2024-06-19 23:59:59') AND (id)
+2024-06-19 13:59:02.595 [DEBU] {98af80465752da17233d8a5292d1fb87} [  2 ms] [default] [shop] [rows:7  ] SHOW FULL COLUMNS FROM `rotation_info`
+2024-06-19 13:59:02.606 [DEBU] {98af80465752da17233d8a5292d1fb87} [ 10 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2024-06-19 13:59:02.607 [DEBU] {98af80465752da17233d8a5292d1fb87} [  0 ms] [default] [shop] [rows:8  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at` FROM `rotation_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-19 13:59:02.689 [DEBU] {b46d244b5752da17243d8a52689120b2} [ 16 ms] [default] [shop] [rows:1  ] INSERT INTO `goods_info`(`pic_url`,`name`,`price`,`level1_category_id`,`level2_category_id`,`level3_category_id`,`brand`,`stock`,`sale`,`tags`,`detail_info`,`created_at`,`updated_at`) VALUES('eiusmod dolore adipisicing eu sint','ullamco cupidatat aliqui',-70347809,74058620,-93873660,37885134,'labore aliqua',68583064,65475191,'L','labore qui dolor eu exercitation','2024-06-19 13:59:02','2024-06-19 13:59:02') 
+2024-06-19 13:59:02.782 [DEBU] {48b196515752da17253d8a520a07c8eb} [  2 ms] [default] [shop] [rows:0  ] UPDATE `goods_info` SET `deleted_at`='2024-06-19 13:59:02' WHERE (`id`=7) AND `deleted_at` IS NULL
+2024-06-19 13:59:02.844 [DEBU] {d44158555752da17263d8a52a4e64aac} [  0 ms] [default] [shop] [rows:4  ] SELECT `id`,`pic_url`,`name`,`price`,`level1_category_id`,`level2_category_id`,`level3_category_id`,`brand`,`stock`,`sale`,`tags`,`detail_info`,`created_at`,`updated_at`,`deleted_at` FROM `goods_info` WHERE `deleted_at` IS NULL ORDER BY `price` DESC LIMIT 0,10
+2024-06-19 13:59:02.846 [DEBU] {d44158555752da17263d8a52a4e64aac} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `goods_info` WHERE `deleted_at` IS NULL
+2024-06-19 13:59:02.846 [DEBU] {d44158555752da17263d8a52a4e64aac} [  0 ms] [default] [shop] [rows:4  ] SELECT `id`,`pic_url`,`name`,`price`,`level1_category_id`,`level2_category_id`,`level3_category_id`,`brand`,`stock`,`sale`,`tags`,`detail_info`,`created_at`,`updated_at`,`deleted_at` FROM `goods_info` WHERE `deleted_at` IS NULL ORDER BY `price` DESC LIMIT 0,10
+2024-06-19 13:59:02.892 [ERRO] {c84021585752da17273d8a52f00a0175} [  1 ms] [default] [shop] [rows:0  ] INSERT INTO `goods_options_info`(`goods_id`,`pic_url`,`name`,`price`,`stock`,`created_at`,`updated_at`) VALUES(18446744073703089680,'in','reprehenderit anim Excepteur Lorem commodo',65146548,-95291090,'2024-06-19 13:59:02','2024-06-19 13:59:02') 
+Error: Error 1264 (22003): Out of range value for column 'goods_id' at row 1 
+Stack:
+1.  goBack/internal/logic/goodsoption.(*sGoodsOptions).Create
+    E:/User/work/gowork/goBack/internal/logic/goodsoption/goodsoption.go:25
+2.  goBack/internal/controller.(*cGoodsOptions).Create
+    E:/User/work/gowork/goBack/internal/controller/goodsoption.go:23
+3.  goBack/internal/cmd.authAfterFunc
+    E:/User/work/gowork/goBack/internal/cmd/gtoken.go:127
+4.  github.com/goflyfox/gtoken/gtoken.(*GfToken).authMiddleware
+    C:/Users/Yeelight/dev/Go/modules/lib/github.com/goflyfox/gtoken@v1.5.10/gtoken/gtoken.go:130
+5.  goBack/internal/logic/middleware.(*sMiddleware).ResponseHandler
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:50
+6.  goBack/internal/logic/middleware.(*sMiddleware).Ctx
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:91
+7.  goBack/internal/logic/middleware.(*sMiddleware).CORS
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:96
+
+2024-06-19 13:59:02.955 [DEBU] {d054d95b5752da17283d8a528db26768} [  1 ms] [default] [shop] [rows:0  ] UPDATE `goods_options_info` SET `deleted_at`='2024-06-19 13:59:02' WHERE (`id`=8) AND `deleted_at` IS NULL
+2024-06-19 13:59:03.047 [DEBU] {ec4d69615752da17293d8a524ab8ceb6} [  1 ms] [default] [shop] [rows:3  ] SELECT `id`,`goods_id`,`pic_url`,`name`,`price`,`stock`,`created_at`,`updated_at`,`deleted_at` FROM `goods_options_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-19 13:59:03.048 [DEBU] {ec4d69615752da17293d8a524ab8ceb6} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `goods_options_info` WHERE `deleted_at` IS NULL
+2024-06-19 13:59:03.048 [DEBU] {ec4d69615752da17293d8a524ab8ceb6} [  0 ms] [default] [shop] [rows:3  ] SELECT `id`,`goods_id`,`pic_url`,`name`,`price`,`stock`,`created_at`,`updated_at`,`deleted_at` FROM `goods_options_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-19 13:59:03.125 [DEBU] {5cde09665752da172a3d8a52b34144bd} [  1 ms] [default] [shop] [rows:0  ] UPDATE `goods_options_info` SET `goods_id`=100,`pic_url`='elit veniam culpa sunt irure',`name`='Ut dolor et minim ut',`price`=36804546,`stock`=2823158,`updated_at`='2024-06-19 13:59:03' WHERE (`id`=8) AND `deleted_at` IS NULL
+2024-06-19 13:59:03.327 [DEBU] {dc2a13725752da172d3d8a5238097831} [  2 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `permission_info`
+2024-06-19 13:59:03.336 [DEBU] {dc2a13725752da172d3d8a5238097831} [  9 ms] [default] [shop] [rows:1  ] INSERT INTO `permission_info`(`name`,`path`,`created_at`,`updated_at`) VALUES('minim mollit','cillum','2024-06-19 13:59:03','2024-06-19 13:59:03') 
+2024-06-19 13:59:03.419 [DEBU] {24dfb6775752da172e3d8a5289835df7} [  0 ms] [default] [shop] [rows:0  ] [txid:3] BEGIN
+2024-06-19 13:59:03.421 [DEBU] {24dfb6775752da172e3d8a5289835df7} [  1 ms] [default] [shop] [rows:0  ] [txid:3] DELETE FROM `permission_info` WHERE `id`=66646153
+2024-06-19 13:59:03.421 [DEBU] {24dfb6775752da172e3d8a5289835df7} [  0 ms] [default] [shop] [rows:0  ] [txid:3] COMMIT
+2024-06-19 13:59:03.483 [DEBU] {7838797b5752da172f3d8a521c0f17ea} [  0 ms] [default] [shop] [rows:9  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at`,`deleted_at` FROM `permission_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-19 13:59:03.484 [DEBU] {7838797b5752da172f3d8a521c0f17ea} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `permission_info` WHERE `deleted_at` IS NULL
+2024-06-19 13:59:03.484 [DEBU] {7838797b5752da172f3d8a521c0f17ea} [  0 ms] [default] [shop] [rows:9  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at` FROM `permission_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-19 13:59:03.545 [DEBU] {ac6f237f5752da17303d8a52b646ffc4} [  1 ms] [default] [shop] [rows:0  ] UPDATE `permission_info` SET `name`='laborum Duis',`path`='do qui ad',`updated_at`='2024-06-19 13:59:03' WHERE (`id`=93074349) AND `deleted_at` IS NULL
+2024-06-19 13:59:03.607 [DEBU] {4002d1825752da17313d8a528fc1261c} [  1 ms] [default] [shop] [rows:9  ] SHOW FULL COLUMNS FROM `position_info`
+2024-06-19 13:59:03.610 [ERRO] {4002d1825752da17313d8a528fc1261c} [  2 ms] [default] [shop] [rows:0  ] INSERT INTO `position_info`(`pic_url`,`goods_name`,`link`,`sort`,`goods_id`,`created_at`,`updated_at`) VALUES('ut sit','fugiat ipsum in','consectetur nulla cillum ',13563703,18446744073677681770,'2024-06-19 13:59:03','2024-06-19 13:59:03') 
+Error: Error 1264 (22003): Out of range value for column 'sort' at row 1 
+Stack:
+1.  goBack/internal/logic/position.(*sPosition).Create
+    E:/User/work/gowork/goBack/internal/logic/position/position.go:30
+2.  goBack/internal/controller.(*cPosition).Create
+    E:/User/work/gowork/goBack/internal/controller/position.go:15
+3.  goBack/internal/logic/middleware.(*sMiddleware).ResponseHandler
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:50
+4.  goBack/internal/logic/middleware.(*sMiddleware).Ctx
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:91
+5.  goBack/internal/logic/middleware.(*sMiddleware).CORS
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:96
+
+2024-06-19 13:59:03.788 [DEBU] {b0d11d8d5752da17333d8a52c9aad243} [ 10 ms] [default] [shop] [rows:6  ] SELECT `id`,`pic_url`,`goods_name`,`link`,`sort`,`goods_id`,`created_at`,`updated_at`,`deleted_at` FROM `position_info` WHERE `deleted_at` IS NULL ORDER BY `sort` DESC LIMIT 0,10
+2024-06-19 13:59:03.790 [DEBU] {b0d11d8d5752da17333d8a52c9aad243} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `position_info` WHERE `deleted_at` IS NULL
+2024-06-19 13:59:03.791 [DEBU] {b0d11d8d5752da17333d8a52c9aad243} [  1 ms] [default] [shop] [rows:6  ] SELECT `id`,`pic_url`,`link`,`goods_name`,`goods_id`,`sort`,`created_at`,`updated_at` FROM `position_info` WHERE `deleted_at` IS NULL ORDER BY `sort` DESC LIMIT 0,10
+2024-06-19 13:59:04.017 [DEBU] {40d5359b5752da17363d8a52c65ad136} [  2 ms] [default] [shop] [rows:5  ] SHOW FULL COLUMNS FROM `role_permission_info`
+2024-06-19 13:59:04.018 [ERRO] {40d5359b5752da17363d8a52c65ad136} [  1 ms] [default] [shop] [rows:0  ] INSERT INTO `role_permission_info`(`role_id`,`permission_id`,`created_at`,`updated_at`) VALUES(18446744073617718606,18446744073681415229,'2024-06-19 13:59:04','2024-06-19 13:59:04') 
+Error: Error 1264 (22003): Out of range value for column 'role_id' at row 1 
+Stack:
+1.  goBack/internal/logic/role.(*sRole).AddPermission
+    E:/User/work/gowork/goBack/internal/logic/role/role.go:88
+2.  goBack/internal/controller.(*cRole).CreatePermission
+    E:/User/work/gowork/goBack/internal/controller/role.go:69
+3.  goBack/internal/logic/middleware.(*sMiddleware).ResponseHandler
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:50
+4.  goBack/internal/logic/middleware.(*sMiddleware).Ctx
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:91
+5.  goBack/internal/logic/middleware.(*sMiddleware).CORS
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:96
+
+2024-06-19 13:59:04.049 [DEBU] {30f6369d5752da17373d8a52ad5a79b9} [  1 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `role_info`
+2024-06-19 13:59:04.069 [DEBU] {30f6369d5752da17373d8a52ad5a79b9} [ 19 ms] [default] [shop] [rows:1  ] INSERT INTO `role_info`(`name`,`desc`,`created_at`,`updated_at`) VALUES('enim ea Duis tempor','laborum','2024-06-19 13:59:04','2024-06-19 13:59:04') 
+2024-06-19 13:59:04.136 [DEBU] {384864a25752da17383d8a52486893be} [  1 ms] [default] [shop] [rows:0  ] DELETE FROM `role_permission_info` WHERE `role_id`=18446744073639950694 AND `permission_id`=18446744073639950694
+2024-06-19 13:59:04.229 [DEBU] {58c1f2a75752da17393d8a52cbecc776} [  0 ms] [default] [shop] [rows:0  ] [txid:4] BEGIN
+2024-06-19 13:59:04.229 [DEBU] {58c1f2a75752da17393d8a52cbecc776} [  0 ms] [default] [shop] [rows:0  ] [txid:4] DELETE FROM `role_info` WHERE `id`=24271152
+2024-06-19 13:59:04.230 [DEBU] {58c1f2a75752da17393d8a52cbecc776} [  0 ms] [default] [shop] [rows:0  ] [txid:4] COMMIT
+2024-06-19 13:59:04.292 [DEBU] {7cd593ab5752da173a3d8a5240710fb7} [  1 ms] [default] [shop] [rows:6  ] SELECT `id`,`name`,`desc`,`created_at`,`updated_at`,`deleted_at` FROM `role_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-19 13:59:04.293 [DEBU] {7cd593ab5752da173a3d8a5240710fb7} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `role_info` WHERE `deleted_at` IS NULL
+2024-06-19 13:59:04.293 [DEBU] {7cd593ab5752da173a3d8a5240710fb7} [  0 ms] [default] [shop] [rows:6  ] SELECT `id`,`name`,`desc`,`created_at`,`updated_at`,`deleted_at` FROM `role_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-19 13:59:04.383 [DEBU] {c41015b15752da173b3d8a52595860ed} [  1 ms] [default] [shop] [rows:0  ] UPDATE `role_info` SET `id`=59936206,`name`='nostrud eiusmod',`desc`='proident aute deserunt laboris',`updated_at`='2024-06-19 13:59:04' WHERE (`id`=59936206) AND `deleted_at` IS NULL
+2024-06-19 13:59:04.410 [ERRO] {bc18afb25752da173c3d8a5211d2fb54} [  1 ms] [default] [shop] [rows:0  ] INSERT INTO `rotation_info`(`pic_url`,`link`,`sort`,`created_at`,`updated_at`) VALUES('pari','voluptate Duis',1055151,'2024-06-19 13:59:04','2024-06-19 13:59:04') 
+Error: Error 1264 (22003): Out of range value for column 'sort' at row 1 
+Stack:
+1.  goBack/internal/logic/rotation.(*sRotation).Create
+    E:/User/work/gowork/goBack/internal/logic/rotation/rotation.go:30
+2.  goBack/internal/controller.(*cRotation).Create
+    E:/User/work/gowork/goBack/internal/controller/rotation.go:17
+3.  goBack/internal/logic/middleware.(*sMiddleware).ResponseHandler
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:50
+4.  goBack/internal/logic/middleware.(*sMiddleware).Ctx
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:91
+5.  goBack/internal/logic/middleware.(*sMiddleware).CORS
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:96
+
+2024-06-19 13:59:04.485 [DEBU] {48983fb75752da173e3d8a52d3b43c13} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2024-06-19 13:59:04.486 [DEBU] {48983fb75752da173e3d8a52d3b43c13} [  0 ms] [default] [shop] [rows:8  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at` FROM `rotation_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-19 13:59:04.746 [DEBU] {041f98c65752da17413d8a52a8fb7d5f} [  2 ms] [default] [shop] [rows:7  ] SHOW FULL COLUMNS FROM `user_coupon_info`
+2024-06-19 13:59:04.748 [ERRO] {041f98c65752da17413d8a52a8fb7d5f} [  1 ms] [default] [shop] [rows:0  ] INSERT INTO `user_coupon_info`(`user_id`,`coupon_id`,`status`,`created_at`,`updated_at`) VALUES(18446744073638193154,27638243,151,'2024-06-19 13:59:04','2024-06-19 13:59:04') 
+Error: Error 1264 (22003): Out of range value for column 'user_id' at row 1 
+Stack:
+1.  goBack/internal/logic/user_coupon.(*sUserCoupon).Create
+    E:/User/work/gowork/goBack/internal/logic/user_coupon/user_coupon.go:26
+2.  goBack/internal/controller.(*cUserCoupon).Create
+    E:/User/work/gowork/goBack/internal/controller/user_coupon.go:16
+3.  goBack/internal/cmd.authAfterFunc
+    E:/User/work/gowork/goBack/internal/cmd/gtoken.go:127
+4.  github.com/goflyfox/gtoken/gtoken.(*GfToken).authMiddleware
+    C:/Users/Yeelight/dev/Go/modules/lib/github.com/goflyfox/gtoken@v1.5.10/gtoken/gtoken.go:130
+5.  goBack/internal/logic/middleware.(*sMiddleware).ResponseHandler
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:50
+6.  goBack/internal/logic/middleware.(*sMiddleware).Ctx
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:91
+7.  goBack/internal/logic/middleware.(*sMiddleware).CORS
+    E:/User/work/gowork/goBack/internal/logic/middleware/middleware.go:96
+
+2024-06-19 13:59:04.823 [DEBU] {84ed49cb5752da17423d8a52c9986ebb} [  0 ms] [default] [shop] [rows:0  ] [txid:5] BEGIN
+2024-06-19 13:59:04.824 [DEBU] {84ed49cb5752da17423d8a52c9986ebb} [  1 ms] [default] [shop] [rows:0  ] [txid:5] UPDATE `user_coupon_info` SET `deleted_at`='2024-06-19 13:59:04' WHERE (`id`=26556883) AND `deleted_at` IS NULL
+2024-06-19 13:59:04.825 [DEBU] {84ed49cb5752da17423d8a52c9986ebb} [  0 ms] [default] [shop] [rows:0  ] [txid:5] COMMIT
+2024-06-19 13:59:04.900 [DEBU] {dc0fe4cf5752da17433d8a521083e857} [  0 ms] [default] [shop] [rows:2  ] SELECT `id`,`user_id`,`coupon_id`,`status`,`created_at`,`updated_at`,`deleted_at` FROM `user_coupon_info` WHERE `deleted_at` IS NULL
+2024-06-19 13:59:04.901 [DEBU] {dc0fe4cf5752da17433d8a521083e857} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `user_coupon_info` WHERE `deleted_at` IS NULL
+2024-06-19 13:59:04.902 [DEBU] {dc0fe4cf5752da17433d8a521083e857} [  1 ms] [default] [shop] [rows:2  ] SELECT `id`,`user_id`,`coupon_id`,`status`,`created_at`,`updated_at` FROM `user_coupon_info` WHERE `deleted_at` IS NULL
+2024-06-19 13:59:04.924 [DEBU] {e8744ed15752da17443d8a5239a2cfec} [  0 ms] [default] [shop] [rows:2  ] SELECT `id`,`user_id`,`coupon_id`,`status`,`created_at`,`updated_at`,`deleted_at` FROM `user_coupon_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2024-06-19 13:59:04.925 [DEBU] {e8744ed15752da17443d8a5239a2cfec} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `user_coupon_info` WHERE `deleted_at` IS NULL
+2024-06-19 13:59:04.926 [DEBU] {e8744ed15752da17443d8a5239a2cfec} [  1 ms] [default] [shop] [rows:2  ] SELECT `id`,`user_id`,`coupon_id`,`status`,`created_at`,`updated_at` FROM `user_coupon_info` WHERE `deleted_at` IS NULL LIMIT 0,10

@@ -20,7 +20,7 @@ type CouponCreateRes struct {
 
 type CouponUpdateReq struct {
 	g.Meta `path:"/coupon/update" tags:"优惠券分类" method:"post" summary:"更新优惠券种类接口"`
-	Id     int `json:"id" v:"min:1#请选择需要更新的优惠券" dc:"优惠券id"`
+	Id     uint `json:"id" v:"min:1#请选择需要更新的优惠券" dc:"优惠券id"`
 	CouponBase
 }
 

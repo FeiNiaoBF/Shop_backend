@@ -44,7 +44,7 @@ func (a *cCoupon) Update(ctx context.Context, req *backend.CouponUpdateReq) (res
 		return
 	}
 	res = &backend.CouponUpdateRes{
-		Id: req.Id,
+		Id: int(req.Id),
 	}
 	return
 }
