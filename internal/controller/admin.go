@@ -39,7 +39,7 @@ func (a *cAdmin) Create(ctx context.Context, req *backend.AdminReq) (res *backen
 //	}, nil
 //}
 
-// for gtoken
+// Info for gtoken
 func (c *cAdmin) Info(ctx context.Context, req *backend.AdminGetInfoReq) (res *backend.AdminGetInfoRes, err error) {
 	return &backend.AdminGetInfoRes{
 		Id:      gconv.Int(ctx.Value(consts.CtxAdminId)),

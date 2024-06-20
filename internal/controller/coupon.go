@@ -5,6 +5,8 @@ import (
 	"goBack/api/backend"
 	"goBack/internal/model"
 	"goBack/internal/service"
+
+	"github.com/gogf/gf/v2/util/gconv"
 )
 
 // Coupon 角色管理
@@ -13,16 +15,14 @@ var Coupon = cCoupon{}
 type cCoupon struct{}
 
 func (a *cCoupon) Create(ctx context.Context, req *backend.CouponCreateReq) (res *backend.CouponCreateRes, err error) {
-	out, err := service.Coupon().Create(ctx, model.CouponCreateInput{
-		CouponBase: model.CouponBase{
-			Name:       req.Name,
-			Price:      req.Price,
-			GoodsIds:   req.GoodsIds,
-			CategoryId: req.CategoryId,
-		},
-	})
+	data := model.CouponCreateInput{}
+	err = gconv.Struct(req, &data)
 	if err != nil {
-		return
+		return nil, err
+	}
+	out, err := service.Coupon().Create(ctx, data)
+	if err != nil {
+		return nil, err
 	}
 	res = &backend.CouponCreateRes{
 		Id: out.CouponId,
@@ -31,15 +31,13 @@ func (a *cCoupon) Create(ctx context.Context, req *backend.CouponCreateReq) (res
 }
 
 func (a *cCoupon) Update(ctx context.Context, req *backend.CouponUpdateReq) (res *backend.CouponUpdateRes, err error) {
-	err = service.Coupon().Update(ctx, model.CouponUpdateInput{
-		Id: uint(req.Id),
-		CouponBase: model.CouponBase{
-			Name:       req.Name,
-			Price:      req.Price,
-			GoodsIds:   req.GoodsIds,
-			CategoryId: req.CategoryId,
-		},
-	})
+	data := model.CouponUpdateInput{}
+	err = gconv.Struct(req, &data)
+	if err != nil {
+		return nil, err
+	}
+
+	err = service.Coupon().Update(ctx, data)
 	if err != nil {
 		return
 	}

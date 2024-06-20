@@ -39,6 +39,9 @@ func (a *cGoods) Update(ctx context.Context, req *backend.GoodsUpdateReq) (res *
 		return nil, err
 	}
 	err = service.Goods().Update(ctx, data)
+	if err != nil {
+		return
+	}
 	return &backend.GoodsUpdateRes{Id: req.Id}, nil
 }
 

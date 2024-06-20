@@ -5,6 +5,8 @@ import (
 	"goBack/api/backend"
 	"goBack/internal/model"
 	"goBack/internal/service"
+
+	"github.com/gogf/gf/v2/util/gconv"
 )
 
 // Category 角色管理
@@ -13,17 +15,14 @@ var Category = cCategory{}
 type cCategory struct{}
 
 func (a *cCategory) Create(ctx context.Context, req *backend.CategoryCreateReq) (res *backend.CategoryCreateRes, err error) {
-	out, err := service.Category().Create(ctx, model.CategoryCreateInput{
-		CategoryBase: model.CategoryBase{
-			Name:     req.Name,
-			ParentId: req.ParentId,
-			PicURL:   req.PicURL,
-			Level:    req.Level,
-			Sort:     req.Sort,
-		},
-	})
+	data := model.CategoryCreateInput{}
+	err = gconv.Struct(req, &data)
 	if err != nil {
-		return
+		return nil, err
+	}
+	out, err := service.Category().Create(ctx, data)
+	if err != nil {
+		return nil, err
 	}
 	res = &backend.CategoryCreateRes{
 		Id: out.CategoryId,
@@ -32,16 +31,13 @@ func (a *cCategory) Create(ctx context.Context, req *backend.CategoryCreateReq) 
 }
 
 func (a *cCategory) Update(ctx context.Context, req *backend.CategoryUpdateReq) (res *backend.CategoryUpdateRes, err error) {
-	err = service.Category().Update(ctx, model.CategoryUpdateInput{
-		Id: uint(req.Id),
-		CategoryBase: model.CategoryBase{
-			Name:     req.Name,
-			ParentId: req.ParentId,
-			PicURL:   req.PicURL,
-			Level:    req.Level,
-			Sort:     req.Sort,
-		},
-	})
+	data := model.CategoryUpdateInput{}
+	err = gconv.Struct(req, &data)
+	if err != nil {
+		return nil, err
+	}
+
+	err = service.Category().Update(ctx, data)
 	if err != nil {
 		return
 	}

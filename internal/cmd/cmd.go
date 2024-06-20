@@ -28,6 +28,7 @@ var (
 			// main URL
 			s.Group("/", func(group *ghttp.RouterGroup) {
 				// URL: /api/
+				// backend
 				s.Group("/api", func(group *ghttp.RouterGroup) {
 					//不需要登录的路由组绑定
 					// 中间件
@@ -68,9 +69,11 @@ var (
 							controller.UserCoupon,   //用户商品优惠券管理
 							controller.Goods,        // 商品管理
 							controller.GoodsOptions, //商品规格管理
+							controller.Article,      //文章管理
 						)
 					})
 				})
+
 			})
 			s.Run()
 			return nil

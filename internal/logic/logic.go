@@ -6,6 +6,7 @@ package logic
 
 import (
 	_ "goBack/internal/logic/admin"
+	_ "goBack/internal/logic/article"
 	_ "goBack/internal/logic/bizctx"
 	_ "goBack/internal/logic/category"
 	_ "goBack/internal/logic/coupon"
