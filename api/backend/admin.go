@@ -4,8 +4,8 @@ import "github.com/gogf/gf/v2/frame/g"
 
 type AdminReq struct {
 	g.Meta   `path:"/admin/add" tags:"管理员" method:"post" summary:"添加管理员接口"`
-	Name     string `json:"name" v:"required#用户名不能为空" dc:"用户名"`
-	Password string `json:"password"    v:"required#密码不能为空" dc:"密码"`
+	Name     string `json:"name" description:"管理员用户名" v:"required#管理员用户名必填"`
+	Password string `json:"password" description:"管理员用户密码" v:"password"`
 	RoleIds  string `json:"role_ids"    dc:"角色ids"`
 	IsAdmin  int    `json:"is_admin"    dc:"是否超级管理员"`
 }

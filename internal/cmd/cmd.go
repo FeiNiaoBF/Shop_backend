@@ -21,15 +21,19 @@ var (
 		Func: func(ctx context.Context, parser *gcmd.Parser) (err error) {
 			s := g.Server()
 			// 启动gtoken
-			gfAdminToken, err := SetGtoken()
+			gfAdminToken, err := StartBackendGToken()
+			if err != nil {
+				log.Println(err)
+			}
+			gfFrontendToken, err := StartFrontendGToken()
 			if err != nil {
 				log.Println(err)
 			}
 			// main URL
 			s.Group("/", func(group *ghttp.RouterGroup) {
-				// URL: /api/
+				// URL: /backend/
 				// backend
-				s.Group("/api", func(group *ghttp.RouterGroup) {
+				s.Group("/backend", func(group *ghttp.RouterGroup) {
 					//不需要登录的路由组绑定
 					// 中间件
 					group.Middleware(
@@ -83,10 +87,18 @@ var (
 						service.Middleware().Ctx,             // 上下文
 						service.Middleware().ResponseHandler, //
 					)
-
 					group.Bind(
 						controller.User.Register, //用户注册
 					)
+					//需要登录鉴权的路由组
+					group.Group("/user", func(group *ghttp.RouterGroup) {
+						err := gfFrontendToken.Middleware(ctx, group)
+						if err != nil {
+							return
+						}
+						//需要登录鉴权的接口放到这里
+						group.Bind()
+					})
 				})
 			})
 			s.Run()
