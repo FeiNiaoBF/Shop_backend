@@ -39,15 +39,8 @@ var (
 					)
 					group.Bind(
 						controller.Admin.Create, // 管理员
-						controller.Admin.Update, // 管理员
-						controller.Admin.Delete, // 管理员
-						controller.Admin.List,   // 管理员
-						controller.Rotation,     // 轮播图
-						controller.Position,     // 手工位
-						controller.Login,        // 登录
-						controller.Data,         // 数据
-						controller.Role,         //管理角色
-						controller.Permission,   // 权限
+
+						controller.Login, // 登录
 
 					)
 					// Special handler that needs authentication.
@@ -61,8 +54,17 @@ var (
 							"/admin/info": controller.Admin.Info,
 						})
 						group.Bind(
-							controller.File,   // 本地文件
-							controller.Upload, // 云平台
+							controller.Admin.Update, // 管理员
+							controller.Admin.Delete, // 管理员
+							controller.Admin.List,   // 管理员
+							controller.Permission,   // 权限
+							controller.Role,         //管理角色
+							controller.Data,         // 数据
+
+							controller.Rotation, // 轮播图
+							controller.Position, // 手工位
+							controller.File,     // 本地文件
+							controller.Upload,   // 云平台
 
 							controller.Category,     //商品分类管理
 							controller.Coupon,       //商品优惠券管理
@@ -73,7 +75,19 @@ var (
 						)
 					})
 				})
+				// frontend
+				s.Group("/front", func(group *ghttp.RouterGroup) {
+					// 中间件
+					group.Middleware(
+						service.Middleware().CORS,            // 跨域资源
+						service.Middleware().Ctx,             // 上下文
+						service.Middleware().ResponseHandler, //
+					)
 
+					group.Bind(
+						controller.User.Register, //用户注册
+					)
+				})
 			})
 			s.Run()
 			return nil
