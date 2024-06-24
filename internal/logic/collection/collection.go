@@ -35,16 +35,16 @@ func (s *sCollection) DeleteCollection(ctx context.Context, in model.CollectionD
 	if in.Id != 0 {
 		_, err = dao.CollectionInfo.Ctx(ctx).WherePri(in.Id).Delete()
 		if err != nil {
-			return
+			return nil, err
 		}
 		return &model.CollectionDeleteOutput{Id: gconv.Uint(in.Id)}, nil
 	} else {
 		//	收藏id为0；再根据对象id和type删除
 		in.UserId = gconv.Uint(ctx.Value(consts.CtxUserId))
-		id, err := dao.CollectionInfo.Ctx(ctx).OmitEmpty(). //注意：需要过滤`id`的空值
+		id, err := dao.CollectionInfo.Ctx(ctx).OmitEmpty(). //注意：需要过滤空值
 									Where(in).Delete()
 		if err != nil {
-			return
+			return &model.CollectionDeleteOutput{}, err
 		}
 		return &model.CollectionDeleteOutput{Id: gconv.Uint(id)}, nil
 	}
