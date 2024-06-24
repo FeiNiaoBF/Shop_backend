@@ -2,6 +2,15 @@ package frontend
 
 import "github.com/gogf/gf/v2/frame/g"
 
+type UserBase struct {
+	Id     uint   `json:"id"`
+	Name   string `json:"name"`
+	Avatar string `json:"avatar"`
+	Sex    uint8  `json:"sex"`
+	Sign   string `json:"sign"`
+	Status uint8  `json:"status"`
+}
+
 type RegisterReq struct {
 	g.Meta       `path:"/register" method:"post" tags:"用户" sm:"用户注册接口"`
 	Name         string `json:"name" description:"用户名" v:"required#用户名必填"`
@@ -23,9 +32,14 @@ type LoginRes struct {
 	Type     string `json:"type"`
 	Token    string `json:"token"`
 	ExpireIn int    `json:"expire_in"`
-	Name     string `json:"name"`
-	Avatar   string `json:"avatar"`
-	Sex      uint8  `json:"sex"`
-	Sign     string `json:"sign"`
-	Status   uint8  `json:"status"`
+	UserBase
+}
+
+// 用户信息接口
+type InfoReq struct {
+	g.Meta `path:"/user/info" method:"get" tags:"前台用户" summary:"当前登录用户信息"`
+}
+
+type InfoRes struct {
+	UserBase
 }

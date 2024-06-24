@@ -80,7 +80,7 @@ var (
 					})
 				})
 				// frontend
-				s.Group("/front", func(group *ghttp.RouterGroup) {
+				s.Group("/frontend", func(group *ghttp.RouterGroup) {
 					// 中间件
 					group.Middleware(
 						service.Middleware().CORS,            // 跨域资源
@@ -97,7 +97,9 @@ var (
 							return
 						}
 						//需要登录鉴权的接口放到这里
-						group.Bind()
+						group.Bind(
+							controller.User.Info, //当前登录用户的信息
+						)
 					})
 				})
 			})

@@ -141,7 +141,7 @@ func StartFrontendGToken() (gfFrontendToken *gtoken.GfToken, err error) {
 		LogoutPath:      "/user/logout",
 		//AuthPaths:        g.SliceStr{"/admin"},
 		//AuthExcludePaths: g.SliceStr{"/admin/user/info", "/admin/system/user/info"}, // 不拦截路径
-		AuthAfterFunc: authAfterFunc,
+		AuthAfterFunc: authUserAfterFunc,
 		MultiLogin:    consts.FrontendMultiLogin,
 	}
 	//todo 去掉全局校验，只用cmd中的路由组校验
@@ -195,13 +195,38 @@ func loginAfterFrontendFunc(r *ghttp.Request, respData gtoken.Resp) {
 			Type:     consts.TokenType,
 			Token:    respData.GetString("token"),
 			ExpireIn: consts.TokenExpireIn,
-			Name:     userInfo.Name,
-			Avatar:   userInfo.Avatar,
-			Sex:      uint8(userInfo.Sex),
-			Sign:     userInfo.Sign,
-			Status:   uint8(userInfo.Status),
+			UserBase: frontend.UserBase{
+				Id:     uint(userInfo.Id),
+				Name:   userInfo.Name,
+				Avatar: userInfo.Avatar,
+				Sex:    uint8(userInfo.Sex),
+				Sign:   userInfo.Sign,
+				Status: uint8(userInfo.Status),
+			},
 		}
 		response.JsonExit(r, 0, "", data)
 	}
 	return
+}
+
+func authUserAfterFunc(r *ghttp.Request, respData gtoken.Resp) {
+	g.Dump("respData:", respData)
+	var userInfo entity.UserInfo
+	err := gconv.Struct(respData.GetString("data"), &userInfo)
+	if err != nil {
+		response.Auth(r)
+		return
+	}
+	//账号被注销
+	if userInfo.DeletedAt != nil {
+		response.AuthBlack(r)
+		return
+	}
+	r.SetCtxVar(consts.CtxUserId, userInfo.Id)
+	r.SetCtxVar(consts.CtxUserName, userInfo.Name)
+	r.SetCtxVar(consts.CtxUserAvatar, userInfo.Avatar)
+	r.SetCtxVar(consts.CtxUserSex, userInfo.Sex)
+	r.SetCtxVar(consts.CtxUserStatus, userInfo.Status)
+	r.SetCtxVar(consts.CtxUserSign, userInfo.Sign)
+	r.Middleware.Next()
 }

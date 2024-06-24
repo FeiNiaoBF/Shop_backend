@@ -30,3 +30,15 @@ type LoginOutput struct {
 	Sign     string `json:"sign"`
 	Status   uint8  `json:"status"`
 }
+
+//type InfoInput struct {
+//}
+//
+//type InfoOutput struct {
+//	Id     uint   `json:"id"`
+//	Name   string `json:"name"`
+//	Avatar string `json:"avatar"`
+//	Sex    uint8  `json:"sex"`
+//	Sign   string `json:"sign"`
+//	Status uint8  `json:"status"`
+//}
