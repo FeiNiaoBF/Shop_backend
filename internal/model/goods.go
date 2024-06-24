@@ -1,18 +1,20 @@
 package model
 
 import (
+	"github.com/gogf/gf/v2/frame/g"
+	"goBack/internal/model/do"
 	"goBack/internal/model/entity"
 )
 
 // GoodsBase 创建/修改内容基类
 type GoodsBase struct {
-	Name             string `json:"name" v:"required#名称必填" sm:"商品名称"`
-	PicURL           string `json:"pic_url" v:"required#商品图片必填" sm:"商品图片链接"`
-	Price            int    `json:"price" v:"required#商品金额必填" sm:"商品金额"`
+	Name             string `json:"name" sm:"商品名称"`
+	PicURL           string `json:"pic_url" sm:"商品图片链接"`
+	Price            int    `json:"price" sm:"商品金额"`
 	Level1CategoryId int    `json:"level1_category_id" sm:"1级分类id"`
 	Level2CategoryId int    `json:"level2_category_id" sm:"2级分类id"`
 	Level3CategoryId int    `json:"level3_category_id" sm:"3级分类id"`
-	Brand            string `json:"brand" sm:"品牌" v:"max-length:30#品牌名称最大30个字"`
+	Brand            string `json:"brand" sm:"品牌"`
 	Stock            int    `json:"stock" sm:"库存"`
 	Sale             int    `json:"sale" sm:"销量"`
 	Tags             string `json:"tags" sm:"标签"`
@@ -81,4 +83,23 @@ type GoodsGetListOutput struct {
 // GoodsListItem 单一对象
 type GoodsListItem struct {
 	entity.GoodsInfo
+}
+
+// 向前端輸出的信息 for comment...
+type GoodsItem struct {
+	g.Meta `orm:"table:goods_info"`
+	Id     uint   `json:"id"`
+	Name   string `json:"name"`
+	PicUrl string `json:"pic_url"`
+	Price  int    `json:"price"`
+}
+
+type GoodsDetailInput struct {
+	Id uint
+}
+
+type GoodsDetailOutput struct {
+	do.GoodsInfo
+	Options  []*do.GoodsOptionsInfo `orm:"with:goods_id=id"` //规格 sku
+	Comments []*CommentBase         `orm:"with:object_id=id, where:type=1"`
 }

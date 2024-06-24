@@ -1,6 +1,9 @@
 package model
 
-import "goBack/internal/model/entity"
+import (
+	"github.com/gogf/gf/v2/frame/g"
+	"goBack/internal/model/entity"
+)
 
 // ArticleCreateUpdateBase 创建/修改内容基类
 type ArticleCreateUpdateBase struct {
@@ -46,4 +49,13 @@ type ArticleGetListOutput struct {
 
 type ArticleGetListOutputItem struct {
 	entity.ArticleInfo
+}
+
+// 向前端輸出的信息
+type ArticleItem struct {
+	g.Meta `orm:"table:article_info"`
+	Id     uint   `json:"id"`
+	Title  string `json:"title"`
+	Desc   string `json:"desc"`
+	PicUrl string `json:"pic_url"`
 }

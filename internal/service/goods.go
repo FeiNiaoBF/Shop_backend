@@ -21,6 +21,8 @@ type (
 		// GetList 查询内容列表
 		GetList(ctx context.Context, in model.GoodsGetListInput) (out *model.GoodsGetListOutput, err error)
 		GetAllList(ctx context.Context, in model.GoodsGetALLListInput) (out *model.GoodsGetAllListOutput, err error)
+		// 商品详情
+		Detail(ctx context.Context, in model.GoodsDetailInput) (out model.GoodsDetailOutput, err error)
 	}
 )
 

@@ -3,6 +3,7 @@ package controller
 import (
 	"context"
 	"goBack/api/backend"
+	"goBack/api/frontend"
 	"goBack/internal/model"
 	"goBack/internal/service"
 
@@ -61,4 +62,18 @@ func (a *cGoods) GetList(ctx context.Context, req *backend.GoodsListReq) (res *b
 		Total: list.Total,
 	}
 	return
+}
+func (*cGoods) Detail(ctx context.Context, req *frontend.GoodsDetailReq) (res *frontend.GoodsDetailRes, err error) {
+	detail, err := service.Goods().Detail(ctx, model.GoodsDetailInput{
+		Id: req.Id,
+	})
+	if err != nil {
+		return nil, err
+	}
+	res = &frontend.GoodsDetailRes{}
+	err = gconv.Struct(detail, res)
+	if err != nil {
+		return nil, err
+	}
+	return res, nil
 }

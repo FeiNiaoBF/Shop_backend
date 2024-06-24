@@ -2,6 +2,7 @@ package collection
 
 import (
 	"context"
+	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/util/gconv"
 	"goBack/internal/consts"
 	"goBack/internal/dao"
@@ -88,4 +89,33 @@ func (s *sCollection) GetList(ctx context.Context, in model.CollectionGetListInp
 		}
 	}
 	return
+}
+
+func CollectionCount(ctx context.Context, objectId uint, collectionType uint8) (count int, err error) {
+	condition := g.Map{
+		dao.CollectionInfo.Columns().ObjectId: objectId,
+		dao.CollectionInfo.Columns().Type:     collectionType,
+	}
+	count, err = dao.CollectionInfo.Ctx(ctx).Where(condition).Count()
+	if err != nil {
+		return 0, err
+	}
+	return
+}
+
+func CheckIsCollect(ctx context.Context, in model.CheckIsCollectInput) (bool, error) {
+	condition := g.Map{
+		dao.CollectionInfo.Columns().UserId:   ctx.Value(consts.CtxUserId),
+		dao.CollectionInfo.Columns().ObjectId: in.ObjectId,
+		dao.CollectionInfo.Columns().Type:     in.Type,
+	}
+	count, err := dao.CollectionInfo.Ctx(ctx).Where(condition).Count()
+	if err != nil {
+		return false, err
+	}
+	if count > 0 {
+		return true, nil
+	} else {
+		return false, nil
+	}
 }

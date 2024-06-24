@@ -52,6 +52,18 @@ const (
 
 // 收藏相关
 const (
-	CollectionTypeGoods   = 1
-	CollectionTypeArticle = 2
+	CollectionTypeGoods = iota + 1
+	CollectionTypeArticle
+)
+
+// 点赞相关
+const (
+	PraiseTypeGoods = iota + 1
+	PraiseTypeArticle
+)
+
+// 评论相关
+const (
+	CommentTypeGoods = iota + 1
+	CommentTypeArticle
 )

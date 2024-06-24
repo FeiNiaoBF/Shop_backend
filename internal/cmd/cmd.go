@@ -89,6 +89,7 @@ var (
 					)
 					group.Bind(
 						controller.User.Register, //用户注册
+						controller.Goods,         //商品
 
 					)
 					//需要登录鉴权的路由组
@@ -101,7 +102,9 @@ var (
 						group.Bind(
 							controller.User.Info,           //当前登录用户的信息
 							controller.User.UpdatePassword, //当前用户修改密码
-							controller.Collection,          // 当前用户收藏
+							controller.Collection,          // 收藏
+							controller.Praise,              // 點贊
+							controller.Comment,             // 評論
 						)
 					})
 				})

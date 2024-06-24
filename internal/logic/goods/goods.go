@@ -4,7 +4,6 @@ import (
 	"context"
 	"goBack/internal/dao"
 	"goBack/internal/model"
-	"goBack/internal/model/entity"
 	"goBack/internal/service"
 
 	"github.com/gogf/gf/v2/frame/g"
@@ -63,19 +62,12 @@ func (s *sGoods) GetList(ctx context.Context, in model.GoodsGetListInput) (out *
 	// 分配查询
 	listModel := m.Page(in.Page, in.Size)
 	// 排序方式
-	listModel = listModel.OrderDesc(dao.GoodsInfo.Columns().Price)
-	// 执行查询
-	var list []*entity.GoodsInfo
-	if err := listModel.Scan(&list); err != nil {
-		return out, err
-	}
-	// 计数
-	out.Total, err = m.Count()
+	out.Total, err = listModel.Count()
 	if err != nil {
 		return out, err
 	}
-	//不指定item的键名用：Scan
-	if err := listModel.Scan(&out.List); err != nil {
+	out.List = make([]model.GoodsListItem, 0, in.Size)
+	if err = listModel.Scan(&out.List); err != nil {
 		return out, err
 	}
 	return
@@ -87,21 +79,22 @@ func (s *sGoods) GetAllList(ctx context.Context, in model.GoodsGetALLListInput) 
 
 	// 分配查询
 	listModel := m
-	// 排序方式
-	listModel = listModel.OrderDesc(dao.GoodsInfo.Columns().Price)
-	// 执行查询
-	var list []*entity.GoodsInfo
-	if err := listModel.Scan(&list); err != nil {
-		return out, err
-	}
-	// 计数
-	out.Total, err = m.Count()
+	out.Total, err = listModel.Count()
 	if err != nil {
 		return out, err
 	}
-	//不指定item的键名用：Scan
-	if err := listModel.Scan(&out.List); err != nil {
+	out.List = make([]model.GoodsListItem, 0, out.Total)
+	if err = listModel.Scan(&out.List); err != nil {
 		return out, err
+	}
+	return
+}
+
+// 商品详情
+func (*sGoods) Detail(ctx context.Context, in model.GoodsDetailInput) (out model.GoodsDetailOutput, err error) {
+	err = dao.GoodsInfo.Ctx(ctx).WithAll().WherePri(in.Id).Scan(&out)
+	if err != nil {
+		return model.GoodsDetailOutput{}, err
 	}
 	return
 }
