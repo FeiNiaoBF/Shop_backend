@@ -12,7 +12,7 @@ var Collection = cCollection{}
 
 type cCollection struct{}
 
-func (a *cCollection) Create(ctx context.Context, req *frontend.AddCollectionReq) (res *frontend.AddCollectionRes, err error) {
+func (a *cCollection) Add(ctx context.Context, req *frontend.CollectionAddReq) (res *frontend.CollectionAddRes, err error) {
 	data := model.CollectionAddInput{}
 	err = gconv.Struct(req, &data)
 	if err != nil {
@@ -22,13 +22,13 @@ func (a *cCollection) Create(ctx context.Context, req *frontend.AddCollectionReq
 	if err != nil {
 		return nil, err
 	}
-	res = &frontend.AddCollectionRes{
+	res = &frontend.CollectionAddRes{
 		Id: out.Id,
 	}
 	return
 }
 
-func (a *cCollection) Delete(ctx context.Context, req *frontend.AddCollectionReq) (res *frontend.AddCollectionRes, err error) {
+func (a *cCollection) Delete(ctx context.Context, req *frontend.CollectionDeleteReq) (res *frontend.CollectionDeleteRes, err error) {
 	data := model.CollectionDeleteInput{}
 	err = gconv.Struct(req, &data)
 	if err != nil {
@@ -38,7 +38,7 @@ func (a *cCollection) Delete(ctx context.Context, req *frontend.AddCollectionReq
 	if err != nil {
 		return
 	}
-	res = &frontend.AddCollectionRes{
+	res = &frontend.CollectionDeleteRes{
 		Id: collection.Id,
 	}
 	return

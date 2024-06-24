@@ -43,8 +43,7 @@ var (
 					)
 					group.Bind(
 						controller.Admin.Create, // 管理员
-
-						controller.Login, // 登录
+						controller.Login,        // 登录
 
 					)
 					// Special handler that needs authentication.
@@ -58,6 +57,7 @@ var (
 							"/admin/info": controller.Admin.Info,
 						})
 						group.Bind(
+							//controller.Admin.Info,
 							controller.Admin.Update, // 管理员
 							controller.Admin.Delete, // 管理员
 							controller.Admin.List,   // 管理员
@@ -89,9 +89,10 @@ var (
 					)
 					group.Bind(
 						controller.User.Register, //用户注册
+
 					)
 					//需要登录鉴权的路由组
-					group.Group("/user", func(group *ghttp.RouterGroup) {
+					group.Group("/", func(group *ghttp.RouterGroup) {
 						err := gfFrontendToken.Middleware(ctx, group)
 						if err != nil {
 							return

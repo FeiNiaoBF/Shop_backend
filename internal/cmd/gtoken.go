@@ -26,9 +26,9 @@ func StartBackendGToken() (gfAdminToken *gtoken.GfToken, err error) {
 		LoginPath:        "/login",
 		LoginBeforeFunc:  loginBeforeFunc,
 		LoginAfterFunc:   loginAfterFunc,
-		LogoutPath:       "/user/logout",
+		LogoutPath:       "/admin/logout",
 		AuthPaths:        g.SliceStr{"/admin"},
-		AuthExcludePaths: g.SliceStr{"/admin/user/info", "/admin/system/user/info"}, // 不拦截路径
+		AuthExcludePaths: g.SliceStr{"/admin/info", "/admin/system/user/info"}, // 不拦截路径
 		AuthAfterFunc:    authAfterFunc,
 		MultiLogin:       consts.BackendMultiLogin,
 	}

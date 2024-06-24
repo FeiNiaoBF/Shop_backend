@@ -54,23 +54,9 @@ type CollectionGetListOutput struct {
 	Total int                  `json:"total" description:"数据总数"`
 }
 
-//// CollectionSearchInput 通过 Search 的关系对象结构
-//type CollectionSearchInput struct {
-//	Key          string // 关键字
-//	Type         string // 内容模型
-//	CollectionId uint   // 栏目ID
-//	CollectionGetListInput
-//}
-//
-//// CollectionSearchOutput 返回关系对象结构
-//type CollectionSearchOutput struct {
-//	Stats map[string]int `json:"stats"` // 搜索统计
-//	CollectionGetListOutput
-//}
-
 // CollectionListItem 单一对象
 type CollectionListItem struct {
-	Id int `json:"id"        description:""`
+	Id int `json:"id"`
 	CollectionBase
 	Goods     GoodsItem   `json:"goods" orm:"with:id=object_id"`
 	Article   ArticleItem `json:"article" orm:"with:id=object_id"`
