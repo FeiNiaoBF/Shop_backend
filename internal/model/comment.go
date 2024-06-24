@@ -1,6 +1,9 @@
 package model
 
-import "github.com/gogf/gf/v2/os/gtime"
+import (
+	"github.com/gogf/gf/v2/os/gtime"
+	"goBack/internal/model/do"
+)
 
 type CommentBase struct {
 	UserId   uint   `json:"user_id"    dc:"用户id"`
@@ -61,4 +64,9 @@ type CommentListItem struct {
 	Article   ArticleItem `json:"article" orm:"with:id=object_id"`
 	CreatedAt *gtime.Time `json:"created_at"` // 创建时间
 	UpdatedAt *gtime.Time `json:"updated_at"` // 修改时间
+}
+
+type CommentInfoBase struct {
+	do.CommentInfo
+	User UserInfoBase `json:"user" orm:"with:id=user_id"`
 }

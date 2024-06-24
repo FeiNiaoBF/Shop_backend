@@ -101,5 +101,5 @@ type GoodsDetailInput struct {
 type GoodsDetailOutput struct {
 	do.GoodsInfo
 	Options  []*do.GoodsOptionsInfo `orm:"with:goods_id=id"` //规格 sku
-	Comments []*CommentBase         `orm:"with:object_id=id, where:type=1"`
+	Comments []*CommentInfoBase     `orm:"with:object_id=id, where:type=1"`
 }
