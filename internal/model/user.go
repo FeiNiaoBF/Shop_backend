@@ -42,3 +42,13 @@ type LoginOutput struct {
 //	Sign   string `json:"sign"`
 //	Status uint8  `json:"status"`
 //}
+
+type UpdatePasswordInput struct {
+	Password     string `json:"password"  v:"password"   description:"重置密码"`
+	UserSalt     string `json:"userSalt,omitempty"     description:"加密盐 生成密码用"`
+	SecretAnswer string `json:"secretAnswer" description:"密保问题的答案"`
+}
+
+type UpdatePasswordOutput struct {
+	Id uint `json:"id"`
+}

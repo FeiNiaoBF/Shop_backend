@@ -44,7 +44,8 @@ const (
 	TokenExpireIn      = 10 * 24 * 60 * 60 //单位秒,
 
 	// Error
-	ErrNullPassword = "账号或密码为空."
-	ErrNullUser     = "没有该账号."
-	ErrPassword     = "账号或密码错误."
+	ErrNullPassword    = "账号或密码为空."
+	ErrNullUser        = "没有该账号."
+	ErrPassword        = "账号或密码错误."
+	ErrSecretAnswerMsg = "密保问题不正确"
 )

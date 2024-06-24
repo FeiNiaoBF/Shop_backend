@@ -40,3 +40,19 @@ func (c *cUser) Info(ctx context.Context, req *frontend.InfoReq) (res *frontend.
 	res.Status = gconv.Uint8(ctx.Value(consts.CtxUserStatus))
 	return res, nil
 }
+
+func (c *cUser) UpdatePassword(ctx context.Context, req *frontend.UpdatePasswordReq) (res *frontend.UpdatePasswordRes, err error) {
+	data := model.UpdatePasswordInput{}
+	err = gconv.Struct(req, &data)
+	if err != nil {
+		return
+	}
+	out, err := service.User().UpdatePassword(ctx, data)
+	if err != nil {
+		return
+	}
+	res = &frontend.UpdatePasswordRes{
+		Id: out.Id,
+	}
+	return
+}

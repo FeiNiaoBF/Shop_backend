@@ -14,6 +14,8 @@ type (
 	IUser interface {
 		// 注册
 		Register(ctx context.Context, in model.RegisterInput) (out model.RegisterOutput, err error)
+		// 修改密码
+		UpdatePassword(ctx context.Context, in model.UpdatePasswordInput) (out model.UpdatePasswordOutput, err error)
 	}
 )
 
