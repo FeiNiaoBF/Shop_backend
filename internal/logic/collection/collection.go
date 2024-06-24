@@ -6,7 +6,6 @@ import (
 	"goBack/internal/consts"
 	"goBack/internal/dao"
 	"goBack/internal/model"
-	"goBack/internal/model/entity"
 	"goBack/internal/service"
 )
 
@@ -56,27 +55,37 @@ func (s *sCollection) GetList(ctx context.Context, in model.CollectionGetListInp
 	out = &model.CollectionGetListOutput{
 		Page: in.Page,
 		Size: in.Size,
+		List: []model.CollectionListItem{}, //数据为空时返回空数组 而不是null
 	}
 
 	// 分配查询
 	listModel := m.Page(in.Page, in.Size)
-	// 执行查询
-	var list []*entity.CollectionInfo
-	if err = listModel.WithAll().Scan(&list); err != nil {
-		return out, err
+
+	// 条件查询
+	if in.Type != 0 {
+		listModel = listModel.Where(dao.CollectionInfo.Columns().Type, in.Type)
 	}
-	// 没有数据
-	if len(list) == 0 {
-		return out, nil
-	}
-	// 计数
-	out.Total, err = m.Count()
+	//优化：优先查询count 而不是像之前一样查sql结果赋值到结构体中
+	out.Total, err = listModel.Count()
 	if err != nil {
 		return out, err
 	}
-	//不指定item的键名用：Scan
-	if err := listModel.WithAll().Scan(&out.List); err != nil {
+	if out.Total == 0 {
 		return out, err
+	}
+	//进一步优化：只查询相关的模型关联
+	if in.Type == consts.CollectionTypeGoods {
+		if err := listModel.With(model.GoodsItem{}).Scan(&out.List); err != nil {
+			return out, err
+		}
+	} else if in.Type == consts.CollectionTypeArticle {
+		if err := listModel.With(model.ArticleItem{}).Scan(&out.List); err != nil {
+			return out, err
+		}
+	} else {
+		if err := listModel.WithAll().Scan(&out.List); err != nil {
+			return out, err
+		}
 	}
 	return
 }

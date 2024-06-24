@@ -49,3 +49,9 @@ const (
 	ErrPassword        = "账号或密码错误."
 	ErrSecretAnswerMsg = "密保问题不正确"
 )
+
+// 收藏相关
+const (
+	CollectionTypeGoods   = 1
+	CollectionTypeArticle = 2
+)
