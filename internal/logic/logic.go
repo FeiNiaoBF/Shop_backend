@@ -9,6 +9,7 @@ import (
 	_ "goBack/internal/logic/article"
 	_ "goBack/internal/logic/bizctx"
 	_ "goBack/internal/logic/category"
+	_ "goBack/internal/logic/collection"
 	_ "goBack/internal/logic/coupon"
 	_ "goBack/internal/logic/data"
 	_ "goBack/internal/logic/file"

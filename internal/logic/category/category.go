@@ -65,7 +65,7 @@ func (s *sCategory) GetList(ctx context.Context, in model.CategoryGetListInput) 
 	listModel = listModel.OrderDesc(dao.CategoryInfo.Columns().Sort)
 	// 执行查询
 	var list []*entity.CategoryInfo
-	if err := listModel.Scan(&list); err != nil {
+	if err = listModel.Scan(&list); err != nil {
 		return out, err
 	}
 	// 计数
@@ -74,7 +74,7 @@ func (s *sCategory) GetList(ctx context.Context, in model.CategoryGetListInput) 
 		return out, err
 	}
 	//不指定item的键名用：Scan
-	if err := listModel.Scan(&out.List); err != nil {
+	if err = listModel.Scan(&out.List); err != nil {
 		return out, err
 	}
 	return
