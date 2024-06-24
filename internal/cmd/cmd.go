@@ -76,6 +76,9 @@ var (
 							controller.Goods,        // 商品管理
 							controller.GoodsOptions, //商品规格管理
 							controller.Article,      //文章管理
+
+							controller.Order.List,   //订单列表
+							controller.Order.Detail, //订单详情
 						)
 					})
 				})
@@ -105,6 +108,7 @@ var (
 							controller.Collection,          // 收藏
 							controller.Praise,              // 點贊
 							controller.Comment,             // 評論
+							controller.Order.Add,           //下单
 						)
 					})
 				})

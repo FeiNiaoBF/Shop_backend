@@ -18,6 +18,7 @@ import (
 	_ "goBack/internal/logic/goodsoption"
 	_ "goBack/internal/logic/login"
 	_ "goBack/internal/logic/middleware"
+	_ "goBack/internal/logic/order"
 	_ "goBack/internal/logic/permission"
 	_ "goBack/internal/logic/position"
 	_ "goBack/internal/logic/praise"
